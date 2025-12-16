@@ -67,17 +67,17 @@ def simulate_betting(model_margin, model_total, df, min_edge=0.02):
         spread = row.get('spread_line', 0)
         actual_margin = row['home_score'] - row['away_score']
         
-        # Prob home covers
-        home_cover_prob = norm.cdf((pred_margin + spread) / SPREAD_STD)
-        
+        # Prob home covers (FIXED: home covers if pred_margin > spread)
+        home_cover_prob = norm.cdf((pred_margin - spread) / SPREAD_STD)
+
         if home_cover_prob > 0.5 + min_edge:
             results['spread_bets'] += 1
-            won = actual_margin + spread > 0
+            won = actual_margin > spread  # FIXED
             results['spread_wins'] += int(won)
             results['spread_pnl'] += 91 if won else -100
         elif home_cover_prob < 0.5 - min_edge:
             results['spread_bets'] += 1
-            won = actual_margin + spread < 0
+            won = actual_margin < spread  # FIXED: away covers
             results['spread_wins'] += int(won)
             results['spread_pnl'] += 91 if won else -100
         

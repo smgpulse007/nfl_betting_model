@@ -92,7 +92,9 @@ def create_game_features(schedules: pd.DataFrame) -> pd.DataFrame:
     
     # Target variables
     df['home_win'] = (df['result'] > 0).astype(int)
-    df['home_cover'] = (df['result'] + df['spread_line'] > 0).astype(int)
+    # FIXED: spread_line is "points home gives" (positive = home favorite)
+    # Home covers if actual margin > spread_line
+    df['home_cover'] = (df['result'] > df['spread_line']).astype(int)
     df['game_total'] = df['home_score'] + df['away_score']
     df['over_hit'] = (df['game_total'] > df['total_line']).astype(int)
     
