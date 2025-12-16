@@ -1,0 +1,42 @@
+{
+  "season": 2024,
+  "generated": "2025-12-15T16:22:54.321350",
+  "training_data": "1999-2023",
+  "test_games": 285,
+  "model_performance": {
+    "elo_baseline": {
+      "accuracy": 0.684,
+      "brier_score": 0.2088
+    },
+    "xgboost": {
+      "accuracy": 0.695,
+      "brier_score": 0.2013
+    },
+    "logistic_regression": {
+      "accuracy": 0.702,
+      "brier_score": 0.201
+    },
+    "ensemble": {
+      "accuracy": 0.698,
+      "brier_score": 0.1986
+    }
+  },
+  "betting_performance": {
+    "min_edge_2pct": {
+      "total_bets": 92,
+      "wins": 55,
+      "losses": 37,
+      "win_rate": 0.598,
+      "total_staked": 17823,
+      "total_pnl": 1372,
+      "roi": 0.077,
+      "final_bankroll": 11372
+    }
+  },
+  "super_bowl": {
+    "game": "KC @ PHI",
+    "prediction": "PHI 69.96%",
+    "actual": "PHI won 40-22",
+    "correct": true
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "season": 2025,
+  "generated": "2025-12-15T16:22:54.321350",
+  "training_data": "1999-2024",
+  "completed_games": 223,
+  "weeks_completed": 15,
+  "model_performance": {
+    "elo": {
+      "accuracy": 0.637,
+      "brier_score": 0.2208,
+      "log_loss": 0.6387
+    },
+    "xgboost": {
+      "accuracy": 0.673,
+      "brier_score": 0.214,
+      "log_loss": 0.6159
+    },
+    "logistic_regression": {
+      "accuracy": 0.659,
+      "brier_score": 0.2071,
+      "log_loss": 0.5979
+    },
+    "ensemble": {
+      "accuracy": 0.659,
+      "brier_score": 0.21,
+      "log_loss": 0.6055
+    }
+  },
+  "weekly_accuracy": {
+    "1": 0.75,
+    "2": 0.69,
+    "3": 0.69,
+    "4": 0.56,
+    "5": 0.36,
+    "6": 0.67,
+    "7": 0.8,
+    "8": 0.85,
+    "9": 0.57,
+    "10": 0.71,
+    "11": 0.73,
+    "12": 0.71,
+    "13": 0.56,
+    "14": 0.57,
+    "15": 0.67
+  },
+  "betting_performance": {
+    "min_edge_1pct": {
+      "bets": 100,
+      "wins": 50,
+      "win_rate": 0.5,
+      "roi": -0.044
+    },
+    "min_edge_2pct": {
+      "bets": 69,
+      "wins": 38,
+      "win_rate": 0.551,
+      "roi": -0.014
+    },
+    "min_edge_3pct": {
+      "bets": 43,
+      "wins": 24,
+      "win_rate": 0.558,
+      "roi": -0.023
+    },
+    "min_edge_5pct": {
+      "bets": 14,
+      "wins": 6,
+      "win_rate": 0.429,
+      "roi": -0.192
+    }
+  }
+}
