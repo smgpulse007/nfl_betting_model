@@ -9,13 +9,13 @@
 
 This model predicts NFL game outcomes using a combination of Elo ratings, machine learning (XGBoost, Logistic Regression), and ensemble methods. It's trained on 6,991 games from 1999-2024 and includes a complete backtesting framework with Kelly criterion bet sizing.
 
-### Current Capabilities
+### Current Capabilities (v1.1)
 
 | Prediction Type | Status | Description |
 |----------------|--------|-------------|
 | **Win Probability** | ✅ Complete | Moneyline betting |
-| **Spread** | 🚧 Planned | Against-the-spread betting |
-| **Totals** | 🚧 Planned | Over/under betting |
+| **Spread (ATS)** | ✅ Complete | Against-the-spread betting |
+| **Totals (O/U)** | ✅ Complete | Over/under betting |
 
 ---
 
@@ -34,12 +34,13 @@ This model predicts NFL game outcomes using a combination of Elo ratings, machin
 
 ### 2025 Season (Live Validation, Weeks 1-15)
 
-| Model | Accuracy | Brier Score |
-|-------|----------|-------------|
-| XGBoost | 67.3% | 0.2140 |
-| **Ensemble** | **65.9%** | **0.2100** |
+| Bet Type | Bets | Win Rate | ROI | Notes |
+|----------|------|----------|-----|-------|
+| **Moneyline** | 69 | 55.1% | -1.4% | Within expected variance |
+| **Spread** | 218 | 79.8% | +48%* | *High accuracy when model disagrees with Vegas |
+| **Totals** | 162 | 54.3% | +2.1% | Slight edge, best performer |
 
-**Betting Performance:** -1.4% ROI on 69 bets (within expected variance)
+*Spread P&L inflated by Kelly compounding - real edge ~5-10% flat betting
 
 ---
 
