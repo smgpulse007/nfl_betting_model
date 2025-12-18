@@ -203,36 +203,48 @@ def compute_injury_impact(years: list) -> pd.DataFrame:
 
     Uses nflreadpy (preferred) or nfl-data-py as fallback.
     nflreadpy API: load_injuries(seasons=None) returns Polars DataFrame
+
+    Note: 2025 data may not be available yet - we load year by year to handle this.
     """
     print(f"Loading injury data ({min(years)}-{max(years)})...")
 
-    # Injuries available from 2009+
-    valid_years = [y for y in years if y >= 2009]
+    # Injuries available from 2009+, exclude current year if data not ready
+    valid_years = [y for y in years if y >= 2009 and y <= 2024]  # 2025 not available yet
     if not valid_years:
         return pd.DataFrame()
 
-    injuries = None
+    all_injuries = []
 
-    # Try nflreadpy first (newer, actively maintained)
-    # API: nfl.load_injuries(seasons=[2024]) or nfl.load_injuries() for current
-    if HAS_NFLREADPY:
-        try:
-            injuries_polars = nfl_new.load_injuries(seasons=valid_years)
-            injuries = injuries_polars.to_pandas()
-            print(f"   Loaded {len(injuries)} injury records via nflreadpy")
-        except Exception as e:
-            print(f"   nflreadpy failed: {e}, trying nfl-data-py...")
+    # Try loading each year individually to handle missing years gracefully
+    for year in valid_years:
+        injuries_year = None
 
-    # Fallback to nfl-data-py
-    if injuries is None:
-        try:
-            injuries = nfl.import_injuries(valid_years)
-            print(f"   Loaded {len(injuries)} injury records via nfl-data-py")
-        except Exception as e:
-            print(f"   Error loading injuries: {e}")
-            return pd.DataFrame()
+        # Try nflreadpy first
+        if HAS_NFLREADPY:
+            try:
+                injuries_polars = nfl_new.load_injuries(seasons=[year])
+                injuries_year = injuries_polars.to_pandas()
+            except Exception:
+                pass
 
-    if injuries is None or len(injuries) == 0:
+        # Fallback to nfl-data-py
+        if injuries_year is None:
+            try:
+                injuries_year = nfl.import_injuries([year])
+            except Exception:
+                pass
+
+        if injuries_year is not None and len(injuries_year) > 0:
+            all_injuries.append(injuries_year)
+
+    if not all_injuries:
+        print("   No injury data available")
+        return pd.DataFrame()
+
+    injuries = pd.concat(all_injuries, ignore_index=True)
+    print(f"   Loaded {len(injuries)} injury records for {len(all_injuries)} seasons")
+
+    if len(injuries) == 0:
         return pd.DataFrame()
 
     # Map position to impact

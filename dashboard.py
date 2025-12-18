@@ -328,25 +328,30 @@ def show_2025_validation(pred_2025, weekly_2025):
 
     st.subheader(f"Week {selected_week} Games ({len(week_df)} games)")
 
-    # Game-by-game table
-    display_cols = ['away_team', 'home_team', 'away_score', 'home_score', 'result',
-                    'spread_line', 'pred_margin', 'total_line', 'pred_total', 'game_total']
-
+    # Game-by-game table with moneyline
     week_df['spread_correct'] = (week_df['bet_home_cover'] == week_df['home_covered'])
     week_df['totals_correct'] = (week_df['bet_over'] == week_df['went_over'])
 
-    # Format for display
-    display_df = week_df[['away_team', 'home_team', 'away_score', 'home_score',
-                          'spread_line', 'pred_margin', 'spread_correct',
-                          'total_line', 'pred_total', 'game_total', 'totals_correct']].copy()
-    display_df.columns = ['Away', 'Home', 'Away Score', 'Home Score',
-                          'Spread Line', 'Pred Margin', 'Spread ✓',
-                          'Total Line', 'Pred Total', 'Actual Total', 'Totals ✓']
+    # Build display columns dynamically
+    display_cols = ['away_team', 'home_team', 'away_score', 'home_score',
+                    'spread_line', 'pred_margin', 'spread_correct',
+                    'total_line', 'pred_total', 'game_total', 'totals_correct']
+    col_names = ['Away', 'Home', 'Away Score', 'Home Score',
+                 'Spread Line', 'Pred Margin', 'Spread ✓',
+                 'Total Line', 'Pred Total', 'Actual Total', 'Totals ✓']
+
+    # Add moneyline columns if available
+    if 'pred_win_prob' in week_df.columns:
+        display_cols.extend(['pred_win_prob', 'ml_bet', 'ml_correct'])
+        col_names.extend(['Win Prob', 'ML Bet', 'ML ✓'])
+
+    display_df = week_df[[c for c in display_cols if c in week_df.columns]].copy()
+    display_df.columns = col_names[:len(display_df.columns)]
 
     st.dataframe(display_df, use_container_width=True)
 
-    # Week summary
-    col1, col2, col3, col4 = st.columns(4)
+    # Week summary - 6 columns now
+    col1, col2, col3, col4, col5, col6 = st.columns(6)
     with col1:
         spread_wr = week_df['spread_correct'].mean()
         st.metric("Spread WR", f"{spread_wr*100:.1f}%",
@@ -356,9 +361,27 @@ def show_2025_validation(pred_2025, weekly_2025):
         st.metric("Totals WR", f"{totals_wr*100:.1f}%",
                   delta=f"{(totals_wr-0.5238)*100:+.1f}%" if totals_wr > 0.5238 else f"{(totals_wr-0.5238)*100:.1f}%")
     with col3:
-        st.metric("Spread Correct", f"{int(week_df['spread_correct'].sum())}/{len(week_df)}")
+        # Moneyline WR
+        if 'ml_bet' in week_df.columns and 'ml_correct' in week_df.columns:
+            ml_bets = week_df[week_df['ml_bet']]
+            if len(ml_bets) > 0:
+                ml_wr = ml_bets['ml_correct'].mean()
+                st.metric("ML WR", f"{ml_wr*100:.1f}%", f"{len(ml_bets)} bets")
+            else:
+                st.metric("ML WR", "N/A", "0 bets")
+        else:
+            st.metric("ML WR", "N/A")
     with col4:
-        st.metric("Totals Correct", f"{int(week_df['totals_correct'].sum())}/{len(week_df)}")
+        # Win prediction accuracy
+        if 'pred_home_win' in week_df.columns and 'actual_home_win' in week_df.columns:
+            win_acc = (week_df['pred_home_win'] == week_df['actual_home_win']).mean()
+            st.metric("Win Accuracy", f"{win_acc*100:.1f}%")
+        else:
+            st.metric("Win Accuracy", "N/A")
+    with col5:
+        st.metric("Spread", f"{int(week_df['spread_correct'].sum())}/{len(week_df)}")
+    with col6:
+        st.metric("Totals", f"{int(week_df['totals_correct'].sum())}/{len(week_df)}")
 
 
 def show_backtest_results(pred_2024, pred_2025, weekly_2024, weekly_2025):
@@ -390,33 +413,77 @@ def show_backtest_results(pred_2024, pred_2025, weekly_2024, weekly_2025):
     )
     pred_df['totals_cumpl'] = pred_df['totals_pl'].cumsum()
 
+    # Moneyline P/L (only on games where we bet)
+    has_ml = 'ml_bet' in pred_df.columns and 'ml_correct' in pred_df.columns
+    if has_ml:
+        def calc_ml_pl(row):
+            if not row.get('ml_bet', False):
+                return 0  # No bet placed
+            if row.get('ml_correct', False):
+                return 90.91  # Win at -110 odds (simplified)
+            else:
+                return -100  # Loss
+        pred_df['ml_pl'] = pred_df.apply(calc_ml_pl, axis=1)
+        pred_df['ml_cumpl'] = pred_df['ml_pl'].cumsum()
+
     # Plot
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=list(range(len(pred_df))), y=pred_df['spread_cumpl'],
                              mode='lines', name='Spread Betting'))
     fig.add_trace(go.Scatter(x=list(range(len(pred_df))), y=pred_df['totals_cumpl'],
                              mode='lines', name='Totals Betting'))
+    if has_ml:
+        fig.add_trace(go.Scatter(x=list(range(len(pred_df))), y=pred_df['ml_cumpl'],
+                                 mode='lines', name='Moneyline Betting'))
     fig.add_hline(y=0, line_dash="dash", line_color="gray")
     fig.update_layout(title=f"Cumulative P/L - {dataset} Season ($100 bets)",
                       xaxis_title="Game #", yaxis_title="Cumulative P/L ($)")
     st.plotly_chart(fig, use_container_width=True)
 
     # Summary stats
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     with col1:
         st.metric("Spread Final P/L", f"${pred_df['spread_cumpl'].iloc[-1]:,.0f}")
     with col2:
         st.metric("Totals Final P/L", f"${pred_df['totals_cumpl'].iloc[-1]:,.0f}")
+    with col3:
+        if has_ml:
+            st.metric("Moneyline Final P/L", f"${pred_df['ml_cumpl'].iloc[-1]:,.0f}")
+        else:
+            st.metric("Moneyline Final P/L", "N/A")
+
+    # Moneyline stats
+    if has_ml:
+        st.subheader("Moneyline Betting Details")
+        ml_bets_df = pred_df[pred_df['ml_bet']]
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            st.metric("Total ML Bets", len(ml_bets_df))
+        with col2:
+            ml_wins = ml_bets_df['ml_correct'].sum()
+            st.metric("ML Wins", int(ml_wins))
+        with col3:
+            ml_wr = ml_bets_df['ml_correct'].mean() * 100 if len(ml_bets_df) > 0 else 0
+            st.metric("ML Win Rate", f"{ml_wr:.1f}%")
+        with col4:
+            ml_roi = (ml_bets_df['ml_pl'].sum() / (len(ml_bets_df) * 100)) * 100 if len(ml_bets_df) > 0 else 0
+            st.metric("ML ROI", f"{ml_roi:+.1f}%")
 
     # ROI by week
     st.subheader("ROI by Week")
     weekly_df = weekly_2024 if dataset == "2024" else weekly_2025
 
     if weekly_df is not None:
+        weekly_df = weekly_df.copy()
         weekly_df['spread_roi'] = (weekly_df['spread_wr'] * 1.909 - 1) * 100
         weekly_df['totals_roi'] = (weekly_df['totals_wr'] * 1.909 - 1) * 100
 
-        fig = px.bar(weekly_df, x='week', y=['spread_roi', 'totals_roi'],
+        y_cols = ['spread_roi', 'totals_roi']
+        if 'ml_wr' in weekly_df.columns:
+            weekly_df['ml_roi'] = (weekly_df['ml_wr'] * 1.909 - 1) * 100
+            y_cols.append('ml_roi')
+
+        fig = px.bar(weekly_df, x='week', y=y_cols,
                      barmode='group', title=f"ROI by Week - {dataset}",
                      labels={'value': 'ROI (%)', 'week': 'Week'})
         fig.add_hline(y=0, line_dash="dash", line_color="gray")

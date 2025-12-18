@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-17T18:05:33.981703",
+  "timestamp": "2025-12-17T18:23:55.770007",
   "model": "TIER_S+A",
   "features": [
     "elo_diff",
@@ -24,6 +24,11 @@
     "home_pressure_rate_3wk",
     "away_pressure_rate_3wk",
     "pressure_diff",
+    "home_injury_impact",
+    "away_injury_impact",
+    "injury_diff",
+    "home_qb_out",
+    "away_qb_out",
     "home_ryoe_3wk",
     "away_ryoe_3wk",
     "ryoe_diff",
@@ -36,27 +41,27 @@
   "results_2024": {
     "dataset": "2024 Test",
     "games": 291,
-    "spread_wr": 0.4845360824742268,
-    "spread_roi": -7.502061855670106,
-    "totals_wr": 0.5085910652920962,
-    "totals_roi": -2.9099656357388315,
-    "ml_wr": 0.4945054945054945,
-    "ml_bets": 182,
-    "ml_roi": 45.94658277378117,
-    "ml_profit_units": 83.62278064828172,
-    "win_pred_accuracy": 0.6494845360824743
+    "spread_wr": 0.46735395189003437,
+    "spread_roi": -10.78213058419244,
+    "totals_wr": 0.47766323024054985,
+    "totals_roi": -8.814089347079035,
+    "ml_wr": 0.43478260869565216,
+    "ml_bets": 207,
+    "ml_roi": 34.672332771174474,
+    "ml_profit_units": 71.77172883633116,
+    "win_pred_accuracy": 0.6288659793814433
   },
   "results_2025": {
     "dataset": "2025 Validation",
     "games": 228,
-    "spread_wr": 0.5043859649122807,
-    "spread_roi": -3.7127192982456148,
-    "totals_wr": 0.4605263157894737,
-    "totals_roi": -12.085526315789474,
-    "ml_wr": 0.4861111111111111,
-    "ml_bets": 144,
-    "ml_roi": 49.8888858112969,
-    "ml_profit_units": 71.83999556826754,
+    "spread_wr": 0.5570175438596491,
+    "spread_roi": 6.334649122807012,
+    "totals_wr": 0.42105263157894735,
+    "totals_roi": -19.62105263157895,
+    "ml_wr": 0.49333333333333335,
+    "ml_bets": 150,
+    "ml_roi": 52.98748330690284,
+    "ml_profit_units": 79.48122496035425,
     "win_pred_accuracy": 0.6447368421052632
   }
 }
