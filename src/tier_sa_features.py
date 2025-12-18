@@ -26,10 +26,18 @@ warnings.filterwarnings('ignore')
 import sys
 sys.path.append(str(Path(__file__).parent.parent))
 
+# Try nflreadpy first (newer, actively maintained), fallback to nfl-data-py
+try:
+    import nflreadpy as nfl_new
+    HAS_NFLREADPY = True
+except ImportError:
+    HAS_NFLREADPY = False
+
 try:
     import nfl_data_py as nfl
 except ImportError:
-    raise ImportError("Please install nfl-data-py: pip install nfl-data-py")
+    if not HAS_NFLREADPY:
+        raise ImportError("Please install nflreadpy: pip install nflreadpy")
 
 
 # =============================================================================
@@ -192,6 +200,8 @@ def compute_injury_impact(years: list) -> pd.DataFrame:
     """
     Compute team-level injury impact score from injury reports.
     Higher score = more impactful injuries.
+
+    Uses nflreadpy (preferred) or nfl-data-py as fallback.
     """
     print(f"Loading injury data ({min(years)}-{max(years)})...")
 
@@ -200,13 +210,27 @@ def compute_injury_impact(years: list) -> pd.DataFrame:
     if not valid_years:
         return pd.DataFrame()
 
-    try:
-        injuries = nfl.import_injuries(valid_years)
-    except Exception as e:
-        print(f"Error loading injuries: {e}")
-        return pd.DataFrame()
+    injuries = None
 
-    if len(injuries) == 0:
+    # Try nflreadpy first (newer, actively maintained)
+    if HAS_NFLREADPY:
+        try:
+            injuries_polars = nfl_new.load_injuries(valid_years)
+            injuries = injuries_polars.to_pandas()
+            print(f"   Loaded {len(injuries)} injury records via nflreadpy")
+        except Exception as e:
+            print(f"   nflreadpy failed: {e}, trying nfl-data-py...")
+
+    # Fallback to nfl-data-py
+    if injuries is None:
+        try:
+            injuries = nfl.import_injuries(valid_years)
+            print(f"   Loaded {len(injuries)} injury records via nfl-data-py")
+        except Exception as e:
+            print(f"   Error loading injuries: {e}")
+            return pd.DataFrame()
+
+    if injuries is None or len(injuries) == 0:
         return pd.DataFrame()
 
     # Map position to impact
