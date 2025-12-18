@@ -84,7 +84,8 @@ def main():
     page = st.sidebar.radio(
         "Select Section",
         ["📊 Overview", "📈 Feature Profiling", "🔥 Feature Importance",
-         "🎯 Model Performance", "📅 2025 Validation", "💰 Backtest Results"]
+         "🎯 Model Performance", "📅 2025 Validation", "💰 Backtest Results",
+         "🧪 Model Experiments"]
     )
 
     # Sidebar - Baseline metrics
@@ -120,6 +121,8 @@ def main():
         show_2025_validation(pred_2025, weekly_2025)
     elif page == "💰 Backtest Results":
         show_backtest_results(pred_2024, pred_2025, weekly_2024, weekly_2025)
+    elif page == "🧪 Model Experiments":
+        show_model_experiments()
 
 
 def show_overview(results, pred_2024, pred_2025):
@@ -1009,6 +1012,213 @@ def show_backtest_results(pred_2024, pred_2025, weekly_2024, weekly_2025):
                      labels={'value': 'ROI (%)', 'week': 'Week'})
         fig.add_hline(y=0, line_dash="dash", line_color="gray")
         st.plotly_chart(fig, use_container_width=True)
+
+
+def show_model_experiments():
+    """Model Experiments section - Compare different ML/DL architectures."""
+    st.header("🧪 Model Experiments")
+    st.markdown("""
+    This section tracks experiments with different model architectures,
+    comparing them against the **v0.2.0 XGBoost baseline**.
+
+    **Educational Progression:**
+    1. **Linear Models** - Interpretable baselines (OLS, Ridge, Lasso, Logistic)
+    2. **Regularized Models** - ElasticNet, L1/L2 penalties
+    3. **Tree-Based** - Decision Trees, Random Forests
+    4. **Boosting** - XGBoost (current), LightGBM, CatBoost
+    5. **Deep Learning** - PyTorch MLP, Residual, Attention
+    """)
+
+    # Load linear experiment results
+    linear_results_path = RESULTS_DIR / "linear_experiments.json"
+    if linear_results_path.exists():
+        with open(linear_results_path) as f:
+            linear_results = json.load(f)
+    else:
+        st.warning("No linear experiment results found. Run `python model_experiments.py` first.")
+        linear_results = None
+
+    # Tabs for different model types
+    tab1, tab2, tab3 = st.tabs(["📉 Linear Models", "📊 Odds Ratios", "🔄 Model Comparison"])
+
+    with tab1:
+        show_linear_models_tab(linear_results)
+
+    with tab2:
+        show_odds_ratios_tab(linear_results)
+
+    with tab3:
+        show_model_comparison_tab(linear_results)
+
+
+def show_linear_models_tab(linear_results):
+    """Show linear model results."""
+    st.subheader("Linear Model Performance")
+
+    if linear_results is None:
+        st.info("Run experiments first: `python model_experiments.py`")
+        return
+
+    # Baseline comparison
+    st.markdown("### v0.2.0 Baseline (XGBoost)")
+    col1, col2, col3 = st.columns(3)
+    col1.metric("Spread ROI", "+11.4%", help="Tuned XGBoost")
+    col2.metric("Totals ROI", "+5.8%", help="Tuned XGBoost")
+    col3.metric("ML Accuracy", "64.5%", help="Baseline params")
+
+    st.markdown("---")
+    st.markdown("### Linear Model Results (2025 Validation)")
+
+    # Build comparison dataframe
+    models_data = []
+    for name, metrics in linear_results.get('models', {}).items():
+        model_type = name.split('_')[0]
+        reg = name.split('_')[1] if '_' in name else 'base'
+        models_data.append({
+            'Model': name,
+            'Type': model_type.title(),
+            'Regularization': reg.upper(),
+            'RMSE': metrics.get('rmse', None),
+            'Win Rate': metrics.get('wr', None),
+            'ROI (%)': metrics.get('roi', None),
+            'LogLoss': metrics.get('logloss', None),
+            'Accuracy': metrics.get('accuracy', None)
+        })
+
+    if models_data:
+        df = pd.DataFrame(models_data)
+
+        # Spread/Totals table
+        spread_totals = df[df['Type'].isin(['Spread', 'Totals'])].copy()
+        if not spread_totals.empty:
+            spread_totals['ROI (%)'] = spread_totals['ROI (%)'].apply(lambda x: f"{x:+.1f}%" if pd.notna(x) else "")
+            spread_totals['Win Rate'] = spread_totals['Win Rate'].apply(lambda x: f"{x:.1%}" if pd.notna(x) else "")
+            st.dataframe(
+                spread_totals[['Model', 'Type', 'Regularization', 'RMSE', 'Win Rate', 'ROI (%)']],
+                use_container_width=True, hide_index=True
+            )
+
+        # Moneyline table
+        ml = df[df['Type'] == 'Moneyline'].copy()
+        if not ml.empty:
+            st.markdown("### Moneyline Classification")
+            ml['Accuracy'] = ml['Accuracy'].apply(lambda x: f"{x:.1%}" if pd.notna(x) else "")
+            st.dataframe(
+                ml[['Model', 'Regularization', 'LogLoss', 'Accuracy']],
+                use_container_width=True, hide_index=True
+            )
+
+        # Visualization
+        st.markdown("### ROI Comparison")
+        roi_df = df[df['ROI (%)'].notna()].copy()
+        if not roi_df.empty:
+            fig = px.bar(roi_df, x='Model', y='ROI (%)', color='Type',
+                        title="ROI by Model", text='ROI (%)')
+            fig.add_hline(y=0, line_dash="dash", line_color="red")
+            # Add XGBoost baseline reference
+            fig.add_hline(y=11.4, line_dash="dot", line_color="green",
+                         annotation_text="v0.2.0 Spread Baseline")
+            st.plotly_chart(fig, use_container_width=True)
+
+
+def show_odds_ratios_tab(linear_results):
+    """Show odds ratios from logistic regression."""
+    st.subheader("Logistic Regression Odds Ratios")
+
+    st.markdown("""
+    **Interpretation Guide:**
+    - **Odds Ratio > 1**: Increases probability of home win
+    - **Odds Ratio < 1**: Decreases probability of home win
+    - **Odds Ratio = 1**: No effect
+
+    Example: OR=1.5 means a 1-unit increase in that feature increases home win odds by 50%.
+    """)
+
+    if linear_results is None:
+        st.info("Run experiments first")
+        return
+
+    coefficients = linear_results.get('coefficients', {})
+
+    for model_name in ['moneyline_l2', 'moneyline_l1']:
+        if model_name in coefficients:
+            st.markdown(f"### {model_name.replace('_', ' ').title()}")
+            coef_df = pd.DataFrame(coefficients[model_name])
+
+            if 'odds_ratio' in coef_df.columns:
+                coef_df = coef_df.sort_values('abs_coef', ascending=False)
+
+                # Top positive and negative
+                col1, col2 = st.columns(2)
+
+                with col1:
+                    st.markdown("**Top 10 Positive (Favor Home)**")
+                    pos = coef_df[coef_df['coefficient'] > 0].head(10)
+                    for _, row in pos.iterrows():
+                        st.write(f"• **{row['feature']}**: OR={row['odds_ratio']:.3f}")
+
+                with col2:
+                    st.markdown("**Top 10 Negative (Favor Away)**")
+                    neg = coef_df[coef_df['coefficient'] < 0].head(10)
+                    for _, row in neg.iterrows():
+                        st.write(f"• **{row['feature']}**: OR={row['odds_ratio']:.3f}")
+
+                # Visualization
+                top_n = coef_df.head(15).copy()
+                fig = px.bar(top_n, x='odds_ratio', y='feature', orientation='h',
+                            title=f"Odds Ratios - {model_name.replace('_', ' ').title()}",
+                            color='coefficient', color_continuous_scale='RdBu_r')
+                fig.add_vline(x=1, line_dash="dash", line_color="black")
+                st.plotly_chart(fig, use_container_width=True)
+
+
+def show_model_comparison_tab(linear_results):
+    """Compare all models side by side."""
+    st.subheader("Model Architecture Comparison")
+
+    # Hardcoded baseline metrics
+    comparison_data = [
+        {'Model': 'XGBoost v0.2.0', 'Type': 'Spread', 'WR': 52.2, 'ROI': -0.4, 'Architecture': 'Gradient Boosting'},
+        {'Model': 'XGBoost v0.2.0', 'Type': 'Totals', 'WR': 50.0, 'ROI': -4.5, 'Architecture': 'Gradient Boosting'},
+        {'Model': 'XGBoost v0.1.0', 'Type': 'ML', 'WR': 49.3, 'ROI': 53.0, 'Architecture': 'Gradient Boosting'},
+    ]
+
+    # Add linear results
+    if linear_results:
+        for name, metrics in linear_results.get('models', {}).items():
+            model_type = name.split('_')[0].title()
+            comparison_data.append({
+                'Model': name,
+                'Type': model_type,
+                'WR': (metrics.get('wr', 0) or 0) * 100,
+                'ROI': metrics.get('roi', 0) or 0,
+                'Architecture': 'Linear'
+            })
+
+    df = pd.DataFrame(comparison_data)
+
+    # Summary table
+    st.dataframe(df, use_container_width=True, hide_index=True)
+
+    # Scatter plot: WR vs ROI
+    fig = px.scatter(df, x='WR', y='ROI', color='Architecture',
+                    hover_data=['Model', 'Type'],
+                    title="Win Rate vs ROI by Architecture",
+                    size=[10]*len(df))
+    fig.add_hline(y=0, line_dash="dash", line_color="gray")
+    fig.add_vline(x=52.4, line_dash="dash", line_color="gray",
+                  annotation_text="Break-even (52.4%)")
+    st.plotly_chart(fig, use_container_width=True)
+
+    st.markdown("""
+    ### Key Insights
+
+    | Architecture | Pros | Cons |
+    |--------------|------|------|
+    | **Linear** | Interpretable, fast, odds ratios | Limited to linear relationships |
+    | **XGBoost** | Captures non-linear patterns | Black box, can overfit |
+    | **Deep Learning** | *Coming soon* | Needs more data, complex tuning |
+    """)
 
 
 if __name__ == "__main__":

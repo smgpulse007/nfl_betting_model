@@ -1,0 +1,1531 @@
+{
+  "timestamp": "2025-12-18T08:53:10.963072",
+  "models": {
+    "spread_ols": {
+      "rmse": 12.574930337824078,
+      "wr": 0.49122807017543857,
+      "roi": -6.175438596491234
+    },
+    "spread_ridge": {
+      "rmse": 12.528076541573741,
+      "wr": 0.5087719298245614,
+      "roi": -2.824561403508763
+    },
+    "spread_lasso": {
+      "rmse": 12.587912876640367,
+      "wr": 0.4956140350877193,
+      "roi": -5.337719298245613
+    },
+    "totals_ols": {
+      "rmse": 13.035819758124502,
+      "wr": 0.543859649122807,
+      "roi": 3.8771929824561457
+    },
+    "totals_ridge": {
+      "rmse": 13.039108354035204,
+      "wr": 0.5350877192982456,
+      "roi": 2.201754385964916
+    },
+    "totals_lasso": {
+      "rmse": 13.12712622477723,
+      "wr": 0.5,
+      "roi": -4.499999999999998
+    },
+    "moneyline_l2": {
+      "logloss": 0.6059504153105619,
+      "accuracy": 0.6666666666666666
+    },
+    "moneyline_l1": {
+      "logloss": 0.6032173316409836,
+      "accuracy": 0.6798245614035088
+    }
+  },
+  "coefficients": {
+    "spread_ols": [
+      {
+        "feature": "pressure_diff",
+        "coefficient": 431.56457233196767,
+        "abs_coef": 431.56457233196767
+      },
+      {
+        "feature": "away_pressure_rate_3wk",
+        "coefficient": 316.12031027738584,
+        "abs_coef": 316.12031027738584
+      },
+      {
+        "feature": "home_pressure_rate_3wk",
+        "coefficient": -313.5259034218988,
+        "abs_coef": 313.5259034218988
+      },
+      {
+        "feature": "home_implied_prob",
+        "coefficient": 13.205252855495925,
+        "abs_coef": 13.205252855495925
+      },
+      {
+        "feature": "away_implied_prob",
+        "coefficient": 13.04216614492568,
+        "abs_coef": 13.04216614492568
+      },
+      {
+        "feature": "injury_diff",
+        "coefficient": 6.836707998376037,
+        "abs_coef": 6.836707998376037
+      },
+      {
+        "feature": "spread_line",
+        "coefficient": 6.171104320126466,
+        "abs_coef": 6.171104320126466
+      },
+      {
+        "feature": "away_injury_impact",
+        "coefficient": 5.228021933183651,
+        "abs_coef": 5.228021933183651
+      },
+      {
+        "feature": "home_injury_impact",
+        "coefficient": -5.023431947415396,
+        "abs_coef": 5.023431947415396
+      },
+      {
+        "feature": "separation_diff",
+        "coefficient": 3.0873536114581452,
+        "abs_coef": 3.0873536114581452
+      },
+      {
+        "feature": "cpoe_diff",
+        "coefficient": -3.045897752521985,
+        "abs_coef": 3.045897752521985
+      },
+      {
+        "feature": "away_separation_3wk",
+        "coefficient": 2.2400959775407445,
+        "abs_coef": 2.2400959775407445
+      },
+      {
+        "feature": "home_cpoe_3wk",
+        "coefficient": 2.0761455280245533,
+        "abs_coef": 2.0761455280245533
+      },
+      {
+        "feature": "home_separation_3wk",
+        "coefficient": -1.8812301682082644,
+        "abs_coef": 1.8812301682082644
+      },
+      {
+        "feature": "away_cpoe_3wk",
+        "coefficient": -1.6969217745025216,
+        "abs_coef": 1.6969217745025216
+      },
+      {
+        "feature": "ryoe_diff",
+        "coefficient": -1.2631185266404268,
+        "abs_coef": 1.2631185266404268
+      },
+      {
+        "feature": "home_ryoe_3wk",
+        "coefficient": 1.063369644145389,
+        "abs_coef": 1.063369644145389
+      },
+      {
+        "feature": "bad_weather",
+        "coefficient": 0.842326600304652,
+        "abs_coef": 0.842326600304652
+      },
+      {
+        "feature": "is_windy",
+        "coefficient": -0.7452150872482005,
+        "abs_coef": 0.7452150872482005
+      },
+      {
+        "feature": "is_cold",
+        "coefficient": -0.6774037730609596,
+        "abs_coef": 0.6774037730609596
+      },
+      {
+        "feature": "away_ryoe_3wk",
+        "coefficient": -0.6676951137473122,
+        "abs_coef": 0.6676951137473122
+      },
+      {
+        "feature": "elo_prob",
+        "coefficient": -0.5234430750354786,
+        "abs_coef": 0.5234430750354786
+      },
+      {
+        "feature": "total_line",
+        "coefficient": -0.39819360458646946,
+        "abs_coef": 0.39819360458646946
+      },
+      {
+        "feature": "is_primetime",
+        "coefficient": -0.3965686677335307,
+        "abs_coef": 0.3965686677335307
+      },
+      {
+        "feature": "is_dome",
+        "coefficient": -0.3692816191086536,
+        "abs_coef": 0.3692816191086536
+      },
+      {
+        "feature": "home_time_to_throw_3wk",
+        "coefficient": 0.364558620026253,
+        "abs_coef": 0.364558620026253
+      },
+      {
+        "feature": "away_time_to_throw_3wk",
+        "coefficient": 0.35889692165135767,
+        "abs_coef": 0.35889692165135767
+      },
+      {
+        "feature": "elo_diff",
+        "coefficient": 0.343911603381484,
+        "abs_coef": 0.343911603381484
+      },
+      {
+        "feature": "is_grass",
+        "coefficient": -0.22320573205908817,
+        "abs_coef": 0.22320573205908817
+      },
+      {
+        "feature": "div_game",
+        "coefficient": -0.1882750755914117,
+        "abs_coef": 0.1882750755914117
+      },
+      {
+        "feature": "away_short_week",
+        "coefficient": 0.18341207089160072,
+        "abs_coef": 0.18341207089160072
+      },
+      {
+        "feature": "away_qb_out",
+        "coefficient": -0.14865032746641668,
+        "abs_coef": 0.14865032746641668
+      },
+      {
+        "feature": "home_short_week",
+        "coefficient": 0.10375901876179754,
+        "abs_coef": 0.10375901876179754
+      },
+      {
+        "feature": "rest_advantage",
+        "coefficient": -0.0959090665668441,
+        "abs_coef": 0.0959090665668441
+      },
+      {
+        "feature": "home_qb_out",
+        "coefficient": -0.018951144116705558,
+        "abs_coef": 0.018951144116705558
+      }
+    ],
+    "spread_ridge": [
+      {
+        "feature": "home_implied_prob",
+        "coefficient": 6.884306840439061,
+        "abs_coef": 6.884306840439061
+      },
+      {
+        "feature": "away_implied_prob",
+        "coefficient": 6.6973229740713345,
+        "abs_coef": 6.6973229740713345
+      },
+      {
+        "feature": "spread_line",
+        "coefficient": 6.131730227723492,
+        "abs_coef": 6.131730227723492
+      },
+      {
+        "feature": "injury_diff",
+        "coefficient": 4.137041098952843,
+        "abs_coef": 4.137041098952843
+      },
+      {
+        "feature": "away_injury_impact",
+        "coefficient": 3.292794113042719,
+        "abs_coef": 3.292794113042719
+      },
+      {
+        "feature": "separation_diff",
+        "coefficient": 2.9980781629721185,
+        "abs_coef": 2.9980781629721185
+      },
+      {
+        "feature": "home_injury_impact",
+        "coefficient": -2.946387515957308,
+        "abs_coef": 2.946387515957308
+      },
+      {
+        "feature": "cpoe_diff",
+        "coefficient": -2.8960962220378725,
+        "abs_coef": 2.8960962220378725
+      },
+      {
+        "feature": "away_separation_3wk",
+        "coefficient": 2.181487615966157,
+        "abs_coef": 2.181487615966157
+      },
+      {
+        "feature": "home_cpoe_3wk",
+        "coefficient": 1.9710686052096866,
+        "abs_coef": 1.9710686052096866
+      },
+      {
+        "feature": "home_separation_3wk",
+        "coefficient": -1.807991961882604,
+        "abs_coef": 1.807991961882604
+      },
+      {
+        "feature": "away_cpoe_3wk",
+        "coefficient": -1.577096986105395,
+        "abs_coef": 1.577096986105395
+      },
+      {
+        "feature": "ryoe_diff",
+        "coefficient": -1.2610307868613948,
+        "abs_coef": 1.2610307868613948
+      },
+      {
+        "feature": "home_ryoe_3wk",
+        "coefficient": 1.0574828124658522,
+        "abs_coef": 1.0574828124658522
+      },
+      {
+        "feature": "bad_weather",
+        "coefficient": 0.8444301759025349,
+        "abs_coef": 0.8444301759025349
+      },
+      {
+        "feature": "home_pressure_rate_3wk",
+        "coefficient": -0.8293720990107987,
+        "abs_coef": 0.8293720990107987
+      },
+      {
+        "feature": "is_windy",
+        "coefficient": -0.7346696049003789,
+        "abs_coef": 0.7346696049003789
+      },
+      {
+        "feature": "away_ryoe_3wk",
+        "coefficient": -0.6602111463016446,
+        "abs_coef": 0.6602111463016446
+      },
+      {
+        "feature": "is_cold",
+        "coefficient": -0.6539434086340874,
+        "abs_coef": 0.6539434086340874
+      },
+      {
+        "feature": "elo_prob",
+        "coefficient": -0.4877497548409342,
+        "abs_coef": 0.4877497548409342
+      },
+      {
+        "feature": "total_line",
+        "coefficient": -0.4335044297138111,
+        "abs_coef": 0.4335044297138111
+      },
+      {
+        "feature": "is_primetime",
+        "coefficient": -0.4098512151259237,
+        "abs_coef": 0.4098512151259237
+      },
+      {
+        "feature": "away_time_to_throw_3wk",
+        "coefficient": 0.3808861953779857,
+        "abs_coef": 0.3808861953779857
+      },
+      {
+        "feature": "home_time_to_throw_3wk",
+        "coefficient": 0.3710115630872862,
+        "abs_coef": 0.3710115630872862
+      },
+      {
+        "feature": "is_dome",
+        "coefficient": -0.35693868998491074,
+        "abs_coef": 0.35693868998491074
+      },
+      {
+        "feature": "elo_diff",
+        "coefficient": 0.32914207626511827,
+        "abs_coef": 0.32914207626511827
+      },
+      {
+        "feature": "away_pressure_rate_3wk",
+        "coefficient": -0.2476690425016376,
+        "abs_coef": 0.2476690425016376
+      },
+      {
+        "feature": "is_grass",
+        "coefficient": -0.23043994740231835,
+        "abs_coef": 0.23043994740231835
+      },
+      {
+        "feature": "away_short_week",
+        "coefficient": 0.2075934441960974,
+        "abs_coef": 0.2075934441960974
+      },
+      {
+        "feature": "div_game",
+        "coefficient": -0.19325529736064467,
+        "abs_coef": 0.19325529736064467
+      },
+      {
+        "feature": "away_qb_out",
+        "coefficient": -0.1643314777601558,
+        "abs_coef": 0.1643314777601558
+      },
+      {
+        "feature": "pressure_diff",
+        "coefficient": 0.15563199264020441,
+        "abs_coef": 0.15563199264020441
+      },
+      {
+        "feature": "home_short_week",
+        "coefficient": 0.12920284765597576,
+        "abs_coef": 0.12920284765597576
+      },
+      {
+        "feature": "rest_advantage",
+        "coefficient": -0.08839417849492454,
+        "abs_coef": 0.08839417849492454
+      },
+      {
+        "feature": "home_qb_out",
+        "coefficient": -0.05343762641804916,
+        "abs_coef": 0.05343762641804916
+      }
+    ],
+    "spread_lasso": [
+      {
+        "feature": "spread_line",
+        "coefficient": 5.132352219682146,
+        "abs_coef": 5.132352219682146
+      },
+      {
+        "feature": "home_implied_prob",
+        "coefficient": 0.062336111906498945,
+        "abs_coef": 0.062336111906498945
+      },
+      {
+        "feature": "home_ryoe_3wk",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "pressure_diff",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "home_injury_impact",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "away_injury_impact",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "injury_diff",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "home_qb_out",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "away_qb_out",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "elo_diff",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "home_pressure_rate_3wk",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "away_ryoe_3wk",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "ryoe_diff",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "home_separation_3wk",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "away_separation_3wk",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "separation_diff",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "home_time_to_throw_3wk",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "away_pressure_rate_3wk",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "away_cpoe_3wk",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "cpoe_diff",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "elo_prob",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "home_cpoe_3wk",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "away_short_week",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "home_short_week",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "bad_weather",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "is_grass",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "is_primetime",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "away_implied_prob",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "is_windy",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "is_cold",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "is_dome",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "div_game",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "rest_advantage",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "total_line",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "away_time_to_throw_3wk",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      }
+    ],
+    "totals_ols": [
+      {
+        "feature": "injury_diff",
+        "coefficient": -5.407382212487685,
+        "abs_coef": 5.407382212487685
+      },
+      {
+        "feature": "home_implied_prob",
+        "coefficient": 5.137563577805042,
+        "abs_coef": 5.137563577805042
+      },
+      {
+        "feature": "spread_line",
+        "coefficient": -5.059384935854824,
+        "abs_coef": 5.059384935854824
+      },
+      {
+        "feature": "total_line",
+        "coefficient": 4.553061074370581,
+        "abs_coef": 4.553061074370581
+      },
+      {
+        "feature": "pressure_diff",
+        "coefficient": 4.305545983440575,
+        "abs_coef": 4.305545983440575
+      },
+      {
+        "feature": "away_injury_impact",
+        "coefficient": -4.191514772091852,
+        "abs_coef": 4.191514772091852
+      },
+      {
+        "feature": "home_injury_impact",
+        "coefficient": 4.144745878304858,
+        "abs_coef": 4.144745878304858
+      },
+      {
+        "feature": "home_pressure_rate_3wk",
+        "coefficient": -3.8032500695183757,
+        "abs_coef": 3.8032500695183757
+      },
+      {
+        "feature": "away_pressure_rate_3wk",
+        "coefficient": 3.28485864829698,
+        "abs_coef": 3.28485864829698
+      },
+      {
+        "feature": "is_primetime",
+        "coefficient": -0.888848869974945,
+        "abs_coef": 0.888848869974945
+      },
+      {
+        "feature": "away_separation_3wk",
+        "coefficient": 0.8502656973267767,
+        "abs_coef": 0.8502656973267767
+      },
+      {
+        "feature": "home_separation_3wk",
+        "coefficient": -0.7597732092681857,
+        "abs_coef": 0.7597732092681857
+      },
+      {
+        "feature": "separation_diff",
+        "coefficient": 0.7268335036888742,
+        "abs_coef": 0.7268335036888742
+      },
+      {
+        "feature": "is_dome",
+        "coefficient": 0.6803455977929711,
+        "abs_coef": 0.6803455977929711
+      },
+      {
+        "feature": "home_short_week",
+        "coefficient": 0.5719768926563101,
+        "abs_coef": 0.5719768926563101
+      },
+      {
+        "feature": "elo_prob",
+        "coefficient": 0.5274427902275982,
+        "abs_coef": 0.5274427902275982
+      },
+      {
+        "feature": "home_ryoe_3wk",
+        "coefficient": 0.48585945485960946,
+        "abs_coef": 0.48585945485960946
+      },
+      {
+        "feature": "is_cold",
+        "coefficient": 0.4752097033126443,
+        "abs_coef": 0.4752097033126443
+      },
+      {
+        "feature": "is_windy",
+        "coefficient": -0.47374668449679436,
+        "abs_coef": 0.47374668449679436
+      },
+      {
+        "feature": "ryoe_diff",
+        "coefficient": -0.3842271194420903,
+        "abs_coef": 0.3842271194420903
+      },
+      {
+        "feature": "home_qb_out",
+        "coefficient": 0.38033221143925783,
+        "abs_coef": 0.38033221143925783
+      },
+      {
+        "feature": "is_grass",
+        "coefficient": -0.3734631084350225,
+        "abs_coef": 0.3734631084350225
+      },
+      {
+        "feature": "rest_advantage",
+        "coefficient": 0.3001220064167421,
+        "abs_coef": 0.3001220064167421
+      },
+      {
+        "feature": "away_cpoe_3wk",
+        "coefficient": 0.29214305833379245,
+        "abs_coef": 0.29214305833379245
+      },
+      {
+        "feature": "away_time_to_throw_3wk",
+        "coefficient": 0.28839507221529675,
+        "abs_coef": 0.28839507221529675
+      },
+      {
+        "feature": "home_cpoe_3wk",
+        "coefficient": 0.255972093736901,
+        "abs_coef": 0.255972093736901
+      },
+      {
+        "feature": "bad_weather",
+        "coefficient": -0.20581536694964514,
+        "abs_coef": 0.20581536694964514
+      },
+      {
+        "feature": "elo_diff",
+        "coefficient": -0.1493693607800463,
+        "abs_coef": 0.1493693607800463
+      },
+      {
+        "feature": "away_implied_prob",
+        "coefficient": -0.13893916801296669,
+        "abs_coef": 0.13893916801296669
+      },
+      {
+        "feature": "div_game",
+        "coefficient": -0.1023971467583256,
+        "abs_coef": 0.1023971467583256
+      },
+      {
+        "feature": "cpoe_diff",
+        "coefficient": -0.08578308043157813,
+        "abs_coef": 0.08578308043157813
+      },
+      {
+        "feature": "home_time_to_throw_3wk",
+        "coefficient": 0.07799443815549449,
+        "abs_coef": 0.07799443815549449
+      },
+      {
+        "feature": "away_short_week",
+        "coefficient": 0.02993213799967185,
+        "abs_coef": 0.02993213799967185
+      },
+      {
+        "feature": "away_qb_out",
+        "coefficient": 0.013014813368050115,
+        "abs_coef": 0.013014813368050115
+      },
+      {
+        "feature": "away_ryoe_3wk",
+        "coefficient": 0.005981819436526257,
+        "abs_coef": 0.005981819436526257
+      }
+    ],
+    "totals_ridge": [
+      {
+        "feature": "spread_line",
+        "coefficient": -4.809172478243635,
+        "abs_coef": 4.809172478243635
+      },
+      {
+        "feature": "total_line",
+        "coefficient": 4.534139781441234,
+        "abs_coef": 4.534139781441234
+      },
+      {
+        "feature": "home_implied_prob",
+        "coefficient": 3.6504727641404395,
+        "abs_coef": 3.6504727641404395
+      },
+      {
+        "feature": "injury_diff",
+        "coefficient": -3.0370717972664085,
+        "abs_coef": 3.0370717972664085
+      },
+      {
+        "feature": "away_injury_impact",
+        "coefficient": -2.4169043458317816,
+        "abs_coef": 2.4169043458317816
+      },
+      {
+        "feature": "home_injury_impact",
+        "coefficient": 2.395683641629361,
+        "abs_coef": 2.395683641629361
+      },
+      {
+        "feature": "away_implied_prob",
+        "coefficient": -1.377323633613641,
+        "abs_coef": 1.377323633613641
+      },
+      {
+        "feature": "is_primetime",
+        "coefficient": -0.8827092835024989,
+        "abs_coef": 0.8827092835024989
+      },
+      {
+        "feature": "away_separation_3wk",
+        "coefficient": 0.8426723818058061,
+        "abs_coef": 0.8426723818058061
+      },
+      {
+        "feature": "home_separation_3wk",
+        "coefficient": -0.7501170430220401,
+        "abs_coef": 0.7501170430220401
+      },
+      {
+        "feature": "separation_diff",
+        "coefficient": 0.7154139668017381,
+        "abs_coef": 0.7154139668017381
+      },
+      {
+        "feature": "is_dome",
+        "coefficient": 0.6804752375304957,
+        "abs_coef": 0.6804752375304957
+      },
+      {
+        "feature": "elo_prob",
+        "coefficient": 0.6264799222054511,
+        "abs_coef": 0.6264799222054511
+      },
+      {
+        "feature": "home_short_week",
+        "coefficient": 0.5700664907906117,
+        "abs_coef": 0.5700664907906117
+      },
+      {
+        "feature": "home_pressure_rate_3wk",
+        "coefficient": -0.48509505812585263,
+        "abs_coef": 0.48509505812585263
+      },
+      {
+        "feature": "home_ryoe_3wk",
+        "coefficient": 0.4822096913173315,
+        "abs_coef": 0.4822096913173315
+      },
+      {
+        "feature": "is_windy",
+        "coefficient": -0.47769142060958203,
+        "abs_coef": 0.47769142060958203
+      },
+      {
+        "feature": "is_cold",
+        "coefficient": 0.4756908753314519,
+        "abs_coef": 0.4756908753314519
+      },
+      {
+        "feature": "ryoe_diff",
+        "coefficient": -0.3819421181829669,
+        "abs_coef": 0.3819421181829669
+      },
+      {
+        "feature": "is_grass",
+        "coefficient": -0.37810269283426373,
+        "abs_coef": 0.37810269283426373
+      },
+      {
+        "feature": "home_qb_out",
+        "coefficient": 0.37651672032779093,
+        "abs_coef": 0.37651672032779093
+      },
+      {
+        "feature": "away_cpoe_3wk",
+        "coefficient": 0.3079163119063993,
+        "abs_coef": 0.3079163119063993
+      },
+      {
+        "feature": "rest_advantage",
+        "coefficient": 0.2954778262363709,
+        "abs_coef": 0.2954778262363709
+      },
+      {
+        "feature": "away_time_to_throw_3wk",
+        "coefficient": 0.2918652370645733,
+        "abs_coef": 0.2918652370645733
+      },
+      {
+        "feature": "pressure_diff",
+        "coefficient": -0.28258747930321987,
+        "abs_coef": 0.28258747930321987
+      },
+      {
+        "feature": "elo_diff",
+        "coefficient": -0.2455296652483938,
+        "abs_coef": 0.2455296652483938
+      },
+      {
+        "feature": "home_cpoe_3wk",
+        "coefficient": 0.2387077485314333,
+        "abs_coef": 0.2387077485314333
+      },
+      {
+        "feature": "bad_weather",
+        "coefficient": -0.20986771308206517,
+        "abs_coef": 0.20986771308206517
+      },
+      {
+        "feature": "div_game",
+        "coefficient": -0.0995221887641025,
+        "abs_coef": 0.0995221887641025
+      },
+      {
+        "feature": "away_pressure_rate_3wk",
+        "coefficient": -0.08610809136880516,
+        "abs_coef": 0.08610809136880516
+      },
+      {
+        "feature": "home_time_to_throw_3wk",
+        "coefficient": 0.08434325522317956,
+        "abs_coef": 0.08434325522317956
+      },
+      {
+        "feature": "cpoe_diff",
+        "coefficient": -0.06391281338152162,
+        "abs_coef": 0.06391281338152162
+      },
+      {
+        "feature": "away_short_week",
+        "coefficient": 0.033061378326153,
+        "abs_coef": 0.033061378326153
+      },
+      {
+        "feature": "away_qb_out",
+        "coefficient": 0.011123148549129488,
+        "abs_coef": 0.011123148549129488
+      },
+      {
+        "feature": "away_ryoe_3wk",
+        "coefficient": 0.005665839562370383,
+        "abs_coef": 0.005665839562370383
+      }
+    ],
+    "totals_lasso": [
+      {
+        "feature": "total_line",
+        "coefficient": 3.590986618444603,
+        "abs_coef": 3.590986618444603
+      },
+      {
+        "feature": "is_dome",
+        "coefficient": 0.13703599264901314,
+        "abs_coef": 0.13703599264901314
+      },
+      {
+        "feature": "elo_diff",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "home_ryoe_3wk",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "pressure_diff",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "home_injury_impact",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "away_injury_impact",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "injury_diff",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "home_qb_out",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "away_qb_out",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "away_ryoe_3wk",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "home_pressure_rate_3wk",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "ryoe_diff",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "home_separation_3wk",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "away_separation_3wk",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "separation_diff",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "home_time_to_throw_3wk",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "away_pressure_rate_3wk",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "away_cpoe_3wk",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "cpoe_diff",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "elo_prob",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "home_cpoe_3wk",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "away_short_week",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "home_short_week",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "bad_weather",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "is_grass",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "is_primetime",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "away_implied_prob",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "home_implied_prob",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "is_windy",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "is_cold",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "div_game",
+        "coefficient": -0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "rest_advantage",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "spread_line",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      },
+      {
+        "feature": "away_time_to_throw_3wk",
+        "coefficient": 0.0,
+        "abs_coef": 0.0
+      }
+    ],
+    "moneyline_l2": [
+      {
+        "feature": "spread_line",
+        "coefficient": 0.518067937660649,
+        "abs_coef": 0.518067937660649,
+        "odds_ratio": 1.678781004793272
+      },
+      {
+        "feature": "separation_diff",
+        "coefficient": 0.26539173971657903,
+        "abs_coef": 0.26539173971657903,
+        "odds_ratio": 1.3039416814847238
+      },
+      {
+        "feature": "home_implied_prob",
+        "coefficient": 0.21963523135851867,
+        "abs_coef": 0.21963523135851867,
+        "odds_ratio": 1.2456222837601978
+      },
+      {
+        "feature": "away_separation_3wk",
+        "coefficient": 0.18282695906752136,
+        "abs_coef": 0.18282695906752136,
+        "odds_ratio": 1.2006066360129775
+      },
+      {
+        "feature": "away_implied_prob",
+        "coefficient": -0.17686318805201115,
+        "abs_coef": 0.17686318805201115,
+        "odds_ratio": 0.8378944106482331
+      },
+      {
+        "feature": "bad_weather",
+        "coefficient": 0.17306408879688653,
+        "abs_coef": 0.17306408879688653,
+        "odds_ratio": 1.1889423005239772
+      },
+      {
+        "feature": "ryoe_diff",
+        "coefficient": -0.1646278569238052,
+        "abs_coef": 0.1646278569238052,
+        "odds_ratio": 0.8482093005791236
+      },
+      {
+        "feature": "is_windy",
+        "coefficient": -0.15602690056165625,
+        "abs_coef": 0.15602690056165625,
+        "odds_ratio": 0.855536175657823
+      },
+      {
+        "feature": "home_ryoe_3wk",
+        "coefficient": 0.1470216024175833,
+        "abs_coef": 0.1470216024175833,
+        "odds_ratio": 1.1583789865461571
+      },
+      {
+        "feature": "cpoe_diff",
+        "coefficient": -0.13558264809301485,
+        "abs_coef": 0.13558264809301485,
+        "odds_ratio": 0.8732069910534686
+      },
+      {
+        "feature": "home_separation_3wk",
+        "coefficient": -0.1207332858651384,
+        "abs_coef": 0.1207332858651384,
+        "odds_ratio": 0.8862703088913146
+      },
+      {
+        "feature": "is_cold",
+        "coefficient": -0.11531446164939702,
+        "abs_coef": 0.11531446164939702,
+        "odds_ratio": 0.8910858875062562
+      },
+      {
+        "feature": "is_dome",
+        "coefficient": -0.11400251855190831,
+        "abs_coef": 0.11400251855190831,
+        "odds_ratio": 0.8922557086872607
+      },
+      {
+        "feature": "away_cpoe_3wk",
+        "coefficient": -0.10523078711578683,
+        "abs_coef": 0.10523078711578683,
+        "odds_ratio": 0.9001167632614356
+      },
+      {
+        "feature": "home_cpoe_3wk",
+        "coefficient": 0.08787992510653143,
+        "abs_coef": 0.08787992510653143,
+        "odds_ratio": 1.0918570095425923
+      },
+      {
+        "feature": "home_pressure_rate_3wk",
+        "coefficient": -0.08722300821333594,
+        "abs_coef": 0.08722300821333594,
+        "odds_ratio": 0.9164726919045515
+      },
+      {
+        "feature": "home_time_to_throw_3wk",
+        "coefficient": 0.0711300068878667,
+        "abs_coef": 0.0711300068878667,
+        "odds_ratio": 1.0737208078955205
+      },
+      {
+        "feature": "away_ryoe_3wk",
+        "coefficient": -0.0694059019168691,
+        "abs_coef": 0.0694059019168691,
+        "odds_ratio": 0.9329479178650476
+      },
+      {
+        "feature": "injury_diff",
+        "coefficient": 0.06773925663775823,
+        "abs_coef": 0.06773925663775823,
+        "odds_ratio": 1.0700862542117695
+      },
+      {
+        "feature": "away_pressure_rate_3wk",
+        "coefficient": -0.06616282907325359,
+        "abs_coef": 0.06616282907325359,
+        "odds_ratio": 0.9359784473798312
+      },
+      {
+        "feature": "home_qb_out",
+        "coefficient": -0.06468110216683673,
+        "abs_coef": 0.06468110216683673,
+        "odds_ratio": 0.9373663398139934
+      },
+      {
+        "feature": "rest_advantage",
+        "coefficient": 0.06289809425186232,
+        "abs_coef": 0.06289809425186232,
+        "odds_ratio": 1.0649183124043144
+      },
+      {
+        "feature": "elo_diff",
+        "coefficient": -0.06286265153419658,
+        "abs_coef": 0.06286265153419658,
+        "odds_ratio": 0.9390724449915231
+      },
+      {
+        "feature": "total_line",
+        "coefficient": -0.05795354829298771,
+        "abs_coef": 0.05795354829298771,
+        "odds_ratio": 0.9436937826057803
+      },
+      {
+        "feature": "home_short_week",
+        "coefficient": 0.05689649236721787,
+        "abs_coef": 0.05689649236721787,
+        "odds_ratio": 1.0585462371095686
+      },
+      {
+        "feature": "is_grass",
+        "coefficient": -0.045316555123880484,
+        "abs_coef": 0.045316555123880484,
+        "odds_ratio": 0.9556949038256448
+      },
+      {
+        "feature": "away_time_to_throw_3wk",
+        "coefficient": 0.042547054861225286,
+        "abs_coef": 0.042547054861225286,
+        "odds_ratio": 1.0434651553265741
+      },
+      {
+        "feature": "away_injury_impact",
+        "coefficient": 0.04111066665406243,
+        "abs_coef": 0.04111066665406243,
+        "odds_ratio": 1.0419674102121013
+      },
+      {
+        "feature": "div_game",
+        "coefficient": -0.04055187992779025,
+        "abs_coef": 0.04055187992779025,
+        "odds_ratio": 0.9602593450336284
+      },
+      {
+        "feature": "elo_prob",
+        "coefficient": -0.02464810454278243,
+        "abs_coef": 0.02464810454278243,
+        "odds_ratio": 0.975653179549353
+      },
+      {
+        "feature": "away_short_week",
+        "coefficient": -0.023443281402238617,
+        "abs_coef": 0.023443281402238617,
+        "odds_ratio": 0.9768293774901872
+      },
+      {
+        "feature": "pressure_diff",
+        "coefficient": -0.012699808876726497,
+        "abs_coef": 0.012699808876726497,
+        "odds_ratio": 0.987380493395396
+      },
+      {
+        "feature": "is_primetime",
+        "coefficient": -0.00985159691758289,
+        "abs_coef": 0.00985159691758289,
+        "odds_ratio": 0.9901967710989511
+      },
+      {
+        "feature": "home_injury_impact",
+        "coefficient": 0.006933770720262795,
+        "abs_coef": 0.006933770720262795,
+        "odds_ratio": 1.006957864964259
+      },
+      {
+        "feature": "away_qb_out",
+        "coefficient": -0.000578573119056167,
+        "abs_coef": 0.000578573119056167,
+        "odds_ratio": 0.9994215942220963
+      }
+    ],
+    "moneyline_l1": [
+      {
+        "feature": "spread_line",
+        "coefficient": 0.8297868369933356,
+        "abs_coef": 0.8297868369933356,
+        "odds_ratio": 2.2928299416450106
+      },
+      {
+        "feature": "is_dome",
+        "coefficient": -0.07406436346150631,
+        "abs_coef": 0.07406436346150631,
+        "odds_ratio": 0.9286119232400106
+      },
+      {
+        "feature": "home_pressure_rate_3wk",
+        "coefficient": -0.06569539464728666,
+        "abs_coef": 0.06569539464728666,
+        "odds_ratio": 0.9364160581973122
+      },
+      {
+        "feature": "separation_diff",
+        "coefficient": 0.058590987333885174,
+        "abs_coef": 0.058590987333885174,
+        "odds_ratio": 1.0603414589479663
+      },
+      {
+        "feature": "home_time_to_throw_3wk",
+        "coefficient": 0.04138316161274761,
+        "abs_coef": 0.04138316161274761,
+        "odds_ratio": 1.0422513797668773
+      },
+      {
+        "feature": "home_ryoe_3wk",
+        "coefficient": 0.0330919252698488,
+        "abs_coef": 0.0330919252698488,
+        "odds_ratio": 1.0336455530205444
+      },
+      {
+        "feature": "is_windy",
+        "coefficient": -0.031148879462612983,
+        "abs_coef": 0.031148879462612983,
+        "odds_ratio": 0.9693312488174156
+      },
+      {
+        "feature": "total_line",
+        "coefficient": -0.030829823543718295,
+        "abs_coef": 0.030829823543718295,
+        "odds_ratio": 0.9696405690323191
+      },
+      {
+        "feature": "away_separation_3wk",
+        "coefficient": 0.025993817268430412,
+        "abs_coef": 0.025993817268430412,
+        "odds_ratio": 1.0263346029024754
+      },
+      {
+        "feature": "away_pressure_rate_3wk",
+        "coefficient": -0.025617705412823627,
+        "abs_coef": 0.025617705412823627,
+        "odds_ratio": 0.9747076438477998
+      },
+      {
+        "feature": "rest_advantage",
+        "coefficient": 0.024268344260511925,
+        "abs_coef": 0.024268344260511925,
+        "odds_ratio": 1.0245652172007018
+      },
+      {
+        "feature": "ryoe_diff",
+        "coefficient": -0.024055142443212933,
+        "abs_coef": 0.024055142443212933,
+        "odds_ratio": 0.9762318764628627
+      },
+      {
+        "feature": "home_short_week",
+        "coefficient": 0.013161891459336252,
+        "abs_coef": 0.013161891459336252,
+        "odds_ratio": 1.013248890424026
+      },
+      {
+        "feature": "away_time_to_throw_3wk",
+        "coefficient": 0.012242670913154601,
+        "abs_coef": 0.012242670913154601,
+        "odds_ratio": 1.0123179191750555
+      },
+      {
+        "feature": "home_qb_out",
+        "coefficient": -0.011138362120338809,
+        "abs_coef": 0.011138362120338809,
+        "odds_ratio": 0.9889234397649406
+      },
+      {
+        "feature": "div_game",
+        "coefficient": -0.007050996448635846,
+        "abs_coef": 0.007050996448635846,
+        "odds_ratio": 0.9929738035044634
+      },
+      {
+        "feature": "is_cold",
+        "coefficient": 0.004236323906015484,
+        "abs_coef": 0.004236323906015484,
+        "odds_ratio": 1.0042453098107207
+      },
+      {
+        "feature": "home_injury_impact",
+        "coefficient": 0.0005607375851480275,
+        "abs_coef": 0.0005607375851480275,
+        "odds_ratio": 1.000560894827857
+      },
+      {
+        "feature": "home_separation_3wk",
+        "coefficient": 0.0,
+        "abs_coef": 0.0,
+        "odds_ratio": 1.0
+      },
+      {
+        "feature": "away_ryoe_3wk",
+        "coefficient": 0.0,
+        "abs_coef": 0.0,
+        "odds_ratio": 1.0
+      },
+      {
+        "feature": "away_injury_impact",
+        "coefficient": 0.0,
+        "abs_coef": 0.0,
+        "odds_ratio": 1.0
+      },
+      {
+        "feature": "away_qb_out",
+        "coefficient": 0.0,
+        "abs_coef": 0.0,
+        "odds_ratio": 1.0
+      },
+      {
+        "feature": "injury_diff",
+        "coefficient": 0.0,
+        "abs_coef": 0.0,
+        "odds_ratio": 1.0
+      },
+      {
+        "feature": "elo_diff",
+        "coefficient": 0.0,
+        "abs_coef": 0.0,
+        "odds_ratio": 1.0
+      },
+      {
+        "feature": "pressure_diff",
+        "coefficient": 0.0,
+        "abs_coef": 0.0,
+        "odds_ratio": 1.0
+      },
+      {
+        "feature": "cpoe_diff",
+        "coefficient": 0.0,
+        "abs_coef": 0.0,
+        "odds_ratio": 1.0
+      },
+      {
+        "feature": "elo_prob",
+        "coefficient": 0.0,
+        "abs_coef": 0.0,
+        "odds_ratio": 1.0
+      },
+      {
+        "feature": "home_cpoe_3wk",
+        "coefficient": 0.0,
+        "abs_coef": 0.0,
+        "odds_ratio": 1.0
+      },
+      {
+        "feature": "away_short_week",
+        "coefficient": 0.0,
+        "abs_coef": 0.0,
+        "odds_ratio": 1.0
+      },
+      {
+        "feature": "bad_weather",
+        "coefficient": 0.0,
+        "abs_coef": 0.0,
+        "odds_ratio": 1.0
+      },
+      {
+        "feature": "is_grass",
+        "coefficient": 0.0,
+        "abs_coef": 0.0,
+        "odds_ratio": 1.0
+      },
+      {
+        "feature": "is_primetime",
+        "coefficient": 0.0,
+        "abs_coef": 0.0,
+        "odds_ratio": 1.0
+      },
+      {
+        "feature": "away_implied_prob",
+        "coefficient": 0.0,
+        "abs_coef": 0.0,
+        "odds_ratio": 1.0
+      },
+      {
+        "feature": "home_implied_prob",
+        "coefficient": 0.0,
+        "abs_coef": 0.0,
+        "odds_ratio": 1.0
+      },
+      {
+        "feature": "away_cpoe_3wk",
+        "coefficient": 0.0,
+        "abs_coef": 0.0,
+        "odds_ratio": 1.0
+      }
+    ]
+  }
+}
