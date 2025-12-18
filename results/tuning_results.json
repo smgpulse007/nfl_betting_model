@@ -1,0 +1,85 @@
+{
+  "timestamp": "2025-12-17T22:41:10.200583",
+  "experiment": "hyperparameter_tuning",
+  "baseline_version": "0.1.0",
+  "tuned_params": {
+    "spread": {
+      "n_estimators": 243,
+      "max_depth": 3,
+      "learning_rate": 0.02072544226528205,
+      "min_child_weight": 4,
+      "subsample": 0.9520994445938653,
+      "colsample_bytree": 0.653459426893307,
+      "gamma": 0.0316218202638308,
+      "reg_alpha": 0.8606505195068069,
+      "reg_lambda": 0.8405628680893057
+    },
+    "totals": {
+      "n_estimators": 50,
+      "max_depth": 3,
+      "learning_rate": 0.033240618992639005,
+      "min_child_weight": 2,
+      "subsample": 0.8395379431283914,
+      "colsample_bytree": 0.7785288033800144,
+      "gamma": 0.07611386773438539,
+      "reg_alpha": 0.5630540239223193,
+      "reg_lambda": 0.5906847214075969
+    },
+    "moneyline": {
+      "n_estimators": 219,
+      "max_depth": 3,
+      "learning_rate": 0.0284829304513144,
+      "min_child_weight": 6,
+      "subsample": 0.6991686314082173,
+      "colsample_bytree": 0.702371156599563,
+      "gamma": 0.16058149331408655,
+      "reg_alpha": 0.5403230348890201,
+      "reg_lambda": 0.46768487737364106
+    }
+  },
+  "results_2024": {
+    "dataset": "2024 Test",
+    "games": 291,
+    "spread_wr": 0.47766323024054985,
+    "spread_roi": -8.814089347079035,
+    "totals_wr": 0.5085910652920962,
+    "totals_roi": -2.9099656357388315,
+    "ml_wr": 0.4460431654676259,
+    "ml_bets": 139,
+    "ml_roi": 25.073024636378022,
+    "ml_profit_units": 34.85150424456545,
+    "win_pred_accuracy": 0.6872852233676976
+  },
+  "results_2025": {
+    "dataset": "2025 Validation",
+    "games": 276,
+    "spread_wr": 0.5833333333333334,
+    "spread_roi": 11.358333333333338,
+    "totals_wr": 0.5543478260869565,
+    "totals_roi": 5.8250000000000135,
+    "ml_wr": 0.41007194244604317,
+    "ml_bets": 139,
+    "ml_roi": 11.025501566631315,
+    "ml_profit_units": 15.325447177617527,
+    "win_pred_accuracy": 0.6340579710144928
+  },
+  "baseline_2025": {
+    "games": 228,
+    "spread_wr": 0.557,
+    "spread_roi": 6.3,
+    "totals_wr": 0.421,
+    "totals_roi": -19.6,
+    "ml_wr": 0.493,
+    "ml_roi": 53.0,
+    "win_accuracy": 0.645
+  },
+  "improvements": {
+    "Spread WR": 2.633333333333333,
+    "Spread ROI": 5.058333333333338,
+    "Totals WR": 13.334782608695654,
+    "Totals ROI": 25.425000000000015,
+    "ML WR": -8.292805755395683,
+    "ML ROI": -41.97449843336869,
+    "Win Accuracy": -64.5
+  }
+}
