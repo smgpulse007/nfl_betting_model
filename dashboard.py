@@ -70,8 +70,8 @@ def main():
     st.sidebar.header("Navigation")
     page = st.sidebar.radio(
         "Select Section",
-        ["📊 Overview", "📈 Feature Profiling", "🎯 Model Performance", 
-         "📅 2025 Validation", "💰 Backtest Results"]
+        ["📊 Overview", "📈 Feature Profiling", "🔥 Feature Importance",
+         "🎯 Model Performance", "📅 2025 Validation", "💰 Backtest Results"]
     )
     
     # Load data
@@ -90,6 +90,8 @@ def main():
         show_overview(results, pred_2024, pred_2025)
     elif page == "📈 Feature Profiling":
         show_feature_profiling(results, pred_2024)
+    elif page == "🔥 Feature Importance":
+        show_feature_importance(results, pred_2024)
     elif page == "🎯 Model Performance":
         show_model_performance(results, weekly_2024, weekly_2025)
     elif page == "📅 2025 Validation":
@@ -155,6 +157,156 @@ def show_overview(results, pred_2024, pred_2025):
     cols = st.columns(3)
     for i, feat in enumerate(features):
         cols[i % 3].write(f"• {feat}")
+
+
+def show_feature_importance(results, pred_df):
+    """Feature Importance Analysis from trained models."""
+    st.header("🔥 Feature Importance Analysis")
+
+    feature_importance = results.get('feature_importance', {})
+
+    if not feature_importance:
+        st.warning("No feature importance data available. Re-run the backtest to generate.")
+        st.info("Run: `python run_tier_sa_backtest.py`")
+        return
+
+    # Model selector
+    st.subheader("Model-Specific Feature Importance")
+
+    model_names = list(feature_importance.keys())
+    model_display = {
+        'spread': '📊 Spread Model (Margin Prediction)',
+        'totals': '📈 Totals Model (Total Points)',
+        'moneyline': '🎯 Moneyline Model (Win Probability)'
+    }
+
+    tabs = st.tabs([model_display.get(m, m) for m in model_names])
+
+    for tab, model_name in zip(tabs, model_names):
+        with tab:
+            importance = feature_importance[model_name]
+
+            # Sort by importance
+            sorted_imp = sorted(importance.items(), key=lambda x: x[1], reverse=True)
+            imp_df = pd.DataFrame(sorted_imp, columns=['Feature', 'Importance'])
+
+            # Color by category
+            def get_category(feat):
+                if any(x in feat for x in ['elo', 'spread_line', 'total_line', 'rest', 'div', 'implied']):
+                    return 'Base/Elo'
+                elif any(x in feat for x in ['dome', 'cold', 'wind', 'prime', 'grass', 'weather', 'short_week']):
+                    return 'Venue/Weather'
+                elif any(x in feat for x in ['cpoe', 'pressure', 'time_to_throw']):
+                    return 'Passing'
+                elif any(x in feat for x in ['injury', 'qb_out']):
+                    return 'Injuries'
+                elif any(x in feat for x in ['ryoe', 'separation']):
+                    return 'Rush/Rec'
+                return 'Other'
+
+            imp_df['Category'] = imp_df['Feature'].apply(get_category)
+
+            # Bar chart
+            fig = px.bar(imp_df, x='Importance', y='Feature', orientation='h',
+                        color='Category',
+                        title=f"Feature Importance - {model_display.get(model_name, model_name)}",
+                        color_discrete_map={
+                            'Base/Elo': '#1f77b4',
+                            'Venue/Weather': '#ff7f0e',
+                            'Passing': '#2ca02c',
+                            'Injuries': '#d62728',
+                            'Rush/Rec': '#9467bd',
+                            'Other': '#8c564b'
+                        })
+            fig.update_layout(yaxis={'categoryorder': 'total ascending'}, height=700)
+            st.plotly_chart(fig, use_container_width=True)
+
+            # Top 10 table
+            col1, col2 = st.columns(2)
+            with col1:
+                st.markdown("### Top 10 Features")
+                top10 = imp_df.head(10).copy()
+                top10['Importance'] = (top10['Importance'] * 100).round(2).astype(str) + '%'
+                st.dataframe(top10, use_container_width=True, hide_index=True)
+
+            with col2:
+                st.markdown("### Bottom 10 Features (Least Important)")
+                bottom10 = imp_df.tail(10).copy()
+                bottom10['Importance'] = (bottom10['Importance'] * 100).round(2).astype(str) + '%'
+                st.dataframe(bottom10, use_container_width=True, hide_index=True)
+
+    # Cross-model comparison
+    st.subheader("Cross-Model Comparison")
+    st.markdown("How does feature importance differ across models?")
+
+    # Create comparison dataframe
+    comparison_data = []
+    for feat in results.get('features', []):
+        row = {'Feature': feat}
+        for model_name in model_names:
+            row[model_name] = feature_importance.get(model_name, {}).get(feat, 0)
+        comparison_data.append(row)
+
+    comp_df = pd.DataFrame(comparison_data)
+
+    # Heatmap
+    if len(model_names) > 0:
+        features_for_heatmap = comp_df.set_index('Feature')[model_names]
+
+        # Sort by average importance
+        features_for_heatmap['avg'] = features_for_heatmap.mean(axis=1)
+        features_for_heatmap = features_for_heatmap.sort_values('avg', ascending=True).drop('avg', axis=1)
+
+        fig = px.imshow(features_for_heatmap.T,
+                       aspect='auto',
+                       color_continuous_scale='RdYlGn',
+                       title="Feature Importance Heatmap Across Models")
+        fig.update_layout(height=300)
+        st.plotly_chart(fig, use_container_width=True)
+
+    # Insights
+    st.subheader("Key Insights")
+
+    # Find consistently important features
+    avg_importance = {}
+    for feat in results.get('features', []):
+        avg = np.mean([feature_importance.get(m, {}).get(feat, 0) for m in model_names])
+        avg_importance[feat] = avg
+
+    top_overall = sorted(avg_importance.items(), key=lambda x: x[1], reverse=True)[:5]
+    bottom_overall = sorted(avg_importance.items(), key=lambda x: x[1])[:5]
+
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("### 🏆 Most Important (All Models)")
+        for feat, imp in top_overall:
+            st.write(f"• **{feat}**: {imp*100:.2f}%")
+
+    with col2:
+        st.markdown("### ⚠️ Least Important (Consider Removing)")
+        for feat, imp in bottom_overall:
+            st.write(f"• {feat}: {imp*100:.2f}%")
+
+    # Injury features analysis
+    st.subheader("🏥 Injury Features Analysis")
+    injury_feats = ['home_injury_impact', 'away_injury_impact', 'injury_diff', 'home_qb_out', 'away_qb_out']
+    injury_importance = {m: sum(feature_importance.get(m, {}).get(f, 0) for f in injury_feats)
+                         for m in model_names}
+
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("**Combined Injury Feature Importance:**")
+        for model, imp in injury_importance.items():
+            st.metric(model_display.get(model, model).split('(')[0].strip(), f"{imp*100:.2f}%")
+
+    with col2:
+        st.markdown("**Individual Injury Features:**")
+        if pred_df is not None:
+            for feat in injury_feats:
+                if feat in pred_df.columns:
+                    non_zero_pct = (pred_df[feat] != 0).mean() * 100
+                    avg_imp = avg_importance.get(feat, 0) * 100
+                    st.write(f"• {feat}: {avg_imp:.2f}% importance, {non_zero_pct:.1f}% non-zero")
 
 
 def show_feature_profiling(results, pred_df):

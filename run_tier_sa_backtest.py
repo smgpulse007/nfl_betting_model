@@ -394,11 +394,21 @@ def main():
     results_dir = Path("results")
     results_dir.mkdir(exist_ok=True)
 
+    # Extract feature importances from each model
+    feature_importance = {}
+    for model_name, model in models.items():
+        if hasattr(model, 'feature_importances_'):
+            importance = dict(zip(features, model.feature_importances_.tolist()))
+            feature_importance[model_name] = importance
+
     # Save summary
     summary = {
         'timestamp': datetime.now().isoformat(),
         'model': 'TIER_S+A',
         'features': features,
+        'feature_importance': feature_importance,
+        'train_years': '2018-2023',
+        'train_size': len(train_df),
         'results_2024': results_2024,
         'results_2025': results_2025,
     }
