@@ -158,41 +158,382 @@ def show_overview(results, pred_2024, pred_2025):
 
 
 def show_feature_profiling(results, pred_df):
-    """Feature Profiling section."""
-    st.header("📈 Feature Profiling")
-    
+    """Comprehensive Feature EDA section."""
+    st.header("📈 Feature Deep Dive EDA")
+
     if pred_df is None:
         st.warning("No prediction data available")
         return
-    
+
     features = results.get('features', [])
     numeric_features = [f for f in features if f in pred_df.columns]
-    
-    # Feature statistics
-    st.subheader("Feature Statistics")
-    stats = pred_df[numeric_features].describe().T
-    st.dataframe(stats, use_container_width=True)
-    
-    # Feature distributions
-    st.subheader("Feature Distributions")
-    selected_feature = st.selectbox("Select Feature", numeric_features)
 
-    fig = px.histogram(pred_df, x=selected_feature, nbins=30,
-                       title=f"Distribution of {selected_feature}")
+    # Feature categories for better organization
+    feature_categories = {
+        'Base/Elo': ['elo_diff', 'elo_prob', 'spread_line', 'total_line', 'rest_advantage',
+                     'div_game', 'home_implied_prob', 'away_implied_prob'],
+        'Venue/Weather': ['is_dome', 'is_cold', 'is_windy', 'is_primetime', 'is_grass',
+                          'bad_weather', 'home_short_week', 'away_short_week'],
+        'Passing (CPOE/Pressure)': ['home_cpoe_3wk', 'away_cpoe_3wk', 'cpoe_diff',
+                                     'home_pressure_rate_3wk', 'away_pressure_rate_3wk', 'pressure_diff',
+                                     'home_time_to_throw_3wk', 'away_time_to_throw_3wk'],
+        'Injuries': ['home_injury_impact', 'away_injury_impact', 'injury_diff',
+                     'home_qb_out', 'away_qb_out'],
+        'Rushing/Receiving': ['home_ryoe_3wk', 'away_ryoe_3wk', 'ryoe_diff',
+                               'home_separation_3wk', 'away_separation_3wk', 'separation_diff'],
+    }
+
+    # Tabs for different analyses
+    tab1, tab2, tab3, tab4, tab5 = st.tabs([
+        "📊 Overview", "🔍 Feature Details", "📈 Correlations",
+        "⚠️ Data Quality", "🧮 Feature Engineering"
+    ])
+
+    with tab1:
+        show_feature_overview(pred_df, numeric_features, feature_categories)
+
+    with tab2:
+        show_feature_details(pred_df, numeric_features, feature_categories)
+
+    with tab3:
+        show_feature_correlations(pred_df, numeric_features)
+
+    with tab4:
+        show_data_quality(pred_df, numeric_features)
+
+    with tab5:
+        show_feature_engineering_docs()
+
+
+def show_feature_overview(pred_df, numeric_features, feature_categories):
+    """Overview of all features."""
+    st.subheader("Feature Summary by Category")
+
+    for category, feats in feature_categories.items():
+        available_feats = [f for f in feats if f in pred_df.columns]
+        if not available_feats:
+            continue
+
+        with st.expander(f"**{category}** ({len(available_feats)} features)", expanded=True):
+            # Create summary table
+            summary_data = []
+            for feat in available_feats:
+                col = pred_df[feat]
+                non_null = col.dropna()
+                variance = non_null.var() if len(non_null) > 1 else 0
+
+                # Correlation with home_win
+                if 'home_win' in pred_df.columns and len(non_null) > 0:
+                    corr = pred_df[[feat, 'home_win']].dropna().corr().iloc[0, 1]
+                else:
+                    corr = np.nan
+
+                summary_data.append({
+                    'Feature': feat,
+                    'Mean': non_null.mean() if len(non_null) > 0 else np.nan,
+                    'Std': non_null.std() if len(non_null) > 0 else np.nan,
+                    'Min': non_null.min() if len(non_null) > 0 else np.nan,
+                    'Max': non_null.max() if len(non_null) > 0 else np.nan,
+                    'Variance': variance,
+                    'Unique': col.nunique(),
+                    'Missing %': (col.isnull().sum() / len(col) * 100),
+                    'Corr w/ Win': corr
+                })
+
+            summary_df = pd.DataFrame(summary_data)
+
+            # Highlight low variance features
+            def highlight_issues(row):
+                styles = [''] * len(row)
+                if row['Variance'] < 0.01 and row['Variance'] >= 0:
+                    styles[5] = 'background-color: #ffcccc'  # Low variance
+                if row['Missing %'] > 10:
+                    styles[7] = 'background-color: #ffcccc'  # High missing
+                if abs(row['Corr w/ Win']) > 0.15:
+                    styles[8] = 'background-color: #ccffcc'  # Good correlation
+                return styles
+
+            st.dataframe(
+                summary_df.style.apply(highlight_issues, axis=1).format({
+                    'Mean': '{:.3f}', 'Std': '{:.3f}', 'Min': '{:.3f}', 'Max': '{:.3f}',
+                    'Variance': '{:.4f}', 'Missing %': '{:.1f}%', 'Corr w/ Win': '{:.3f}'
+                }),
+                use_container_width=True
+            )
+
+
+def show_feature_details(pred_df, numeric_features, feature_categories):
+    """Detailed view of individual features."""
+    st.subheader("Feature Deep Dive")
+
+    # Category selector
+    category = st.selectbox("Select Category", list(feature_categories.keys()))
+    available_feats = [f for f in feature_categories[category] if f in pred_df.columns]
+
+    if not available_feats:
+        st.warning("No features available in this category")
+        return
+
+    selected_feature = st.selectbox("Select Feature", available_feats)
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        # Distribution
+        fig = px.histogram(pred_df, x=selected_feature, nbins=30,
+                          color='home_win' if 'home_win' in pred_df.columns else None,
+                          title=f"Distribution of {selected_feature}")
+        st.plotly_chart(fig, use_container_width=True)
+
+    with col2:
+        # Box plot by outcome
+        if 'home_win' in pred_df.columns:
+            fig = px.box(pred_df, x='home_win', y=selected_feature,
+                        title=f"{selected_feature} by Home Win",
+                        labels={'home_win': 'Home Win (0=No, 1=Yes)'})
+            st.plotly_chart(fig, use_container_width=True)
+
+    # Value counts for binary/categorical features
+    col = pred_df[selected_feature].dropna()
+    if col.nunique() <= 10:
+        st.subheader("Value Distribution")
+        value_counts = col.value_counts().reset_index()
+        value_counts.columns = ['Value', 'Count']
+        value_counts['Percentage'] = (value_counts['Count'] / len(col) * 100).round(1)
+
+        # Add win rate by value
+        if 'home_win' in pred_df.columns:
+            win_rates = pred_df.groupby(selected_feature)['home_win'].mean().reset_index()
+            win_rates.columns = ['Value', 'Home Win Rate']
+            value_counts = value_counts.merge(win_rates, on='Value', how='left')
+            value_counts['Home Win Rate'] = (value_counts['Home Win Rate'] * 100).round(1)
+
+        st.dataframe(value_counts, use_container_width=True)
+
+    # Statistics
+    st.subheader("Detailed Statistics")
+    stats_col1, stats_col2, stats_col3, stats_col4 = st.columns(4)
+    with stats_col1:
+        st.metric("Mean", f"{col.mean():.4f}")
+    with stats_col2:
+        st.metric("Std Dev", f"{col.std():.4f}")
+    with stats_col3:
+        st.metric("Variance", f"{col.var():.6f}")
+    with stats_col4:
+        st.metric("Non-Zero %", f"{(col != 0).mean() * 100:.1f}%")
+
+
+def show_feature_correlations(pred_df, numeric_features):
+    """Feature correlations with outcomes."""
+    st.subheader("Feature Correlations")
+
+    # Target selection
+    targets = ['home_win', 'result', 'home_covered', 'went_over']
+    available_targets = [t for t in targets if t in pred_df.columns]
+
+    selected_target = st.selectbox("Select Target Variable", available_targets)
+
+    # Compute correlations
+    valid_features = [f for f in numeric_features if f in pred_df.columns]
+    corr_data = []
+
+    for feat in valid_features:
+        df_clean = pred_df[[feat, selected_target]].dropna()
+        if len(df_clean) > 10:
+            corr = df_clean.corr().iloc[0, 1]
+            corr_data.append({'Feature': feat, 'Correlation': corr, 'Abs Correlation': abs(corr)})
+
+    corr_df = pd.DataFrame(corr_data).sort_values('Abs Correlation', ascending=False)
+
+    # Bar chart
+    fig = px.bar(corr_df.head(20), x='Correlation', y='Feature', orientation='h',
+                 title=f"Top 20 Feature Correlations with {selected_target}",
+                 color='Correlation', color_continuous_scale='RdYlGn',
+                 color_continuous_midpoint=0)
+    fig.update_layout(yaxis={'categoryorder': 'total ascending'}, height=600)
     st.plotly_chart(fig, use_container_width=True)
 
+    # Correlation matrix for top features
+    st.subheader("Feature-to-Feature Correlation Matrix")
+    top_features = corr_df.head(10)['Feature'].tolist()
+    if selected_target not in top_features:
+        top_features.append(selected_target)
+
+    corr_matrix = pred_df[top_features].corr()
+    fig = px.imshow(corr_matrix, text_auto='.2f', aspect='auto',
+                    title="Correlation Matrix (Top Features)")
+    st.plotly_chart(fig, use_container_width=True)
+
+
+def show_data_quality(pred_df, numeric_features):
+    """Data quality analysis."""
+    st.subheader("Data Quality Report")
+
     # Missing values
-    st.subheader("Data Quality - Missing Values")
     missing = pred_df[numeric_features].isnull().sum()
     missing_pct = (missing / len(pred_df) * 100).round(1)
-    missing_df = pd.DataFrame({'Feature': missing.index, 'Missing Count': missing.values,
-                               'Missing %': missing_pct.values})
-    missing_df = missing_df[missing_df['Missing Count'] > 0].sort_values('Missing Count', ascending=False)
+    missing_df = pd.DataFrame({
+        'Feature': missing.index,
+        'Missing Count': missing.values,
+        'Missing %': missing_pct.values
+    }).sort_values('Missing Count', ascending=False)
 
-    if len(missing_df) > 0:
-        st.dataframe(missing_df, use_container_width=True)
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.markdown("### Missing Values")
+        if missing_df[missing_df['Missing Count'] > 0].empty:
+            st.success("✅ No missing values!")
+        else:
+            st.dataframe(missing_df[missing_df['Missing Count'] > 0], use_container_width=True)
+
+    with col2:
+        st.markdown("### Low Variance Features")
+        variance_data = []
+        for feat in numeric_features:
+            if feat in pred_df.columns:
+                var = pred_df[feat].var()
+                unique = pred_df[feat].nunique()
+                variance_data.append({'Feature': feat, 'Variance': var, 'Unique Values': unique})
+
+        var_df = pd.DataFrame(variance_data).sort_values('Variance')
+        low_var = var_df[var_df['Variance'] < 0.1]
+
+        if len(low_var) > 0:
+            st.warning(f"⚠️ {len(low_var)} features with variance < 0.1")
+            st.dataframe(low_var, use_container_width=True)
+        else:
+            st.success("✅ All features have sufficient variance!")
+
+    # Zero-dominated features
+    st.markdown("### Zero-Dominated Features")
+    zero_data = []
+    for feat in numeric_features:
+        if feat in pred_df.columns:
+            zero_pct = (pred_df[feat] == 0).mean() * 100
+            if zero_pct > 50:
+                zero_data.append({'Feature': feat, 'Zero %': zero_pct, 'Non-Zero %': 100 - zero_pct})
+
+    if zero_data:
+        st.warning(f"⚠️ {len(zero_data)} features with >50% zeros")
+        st.dataframe(pd.DataFrame(zero_data).sort_values('Zero %', ascending=False), use_container_width=True)
     else:
-        st.success("No missing values in features!")
+        st.success("✅ No features dominated by zeros!")
+
+
+def show_feature_engineering_docs():
+    """Documentation of how features are created."""
+    st.subheader("Feature Engineering Documentation")
+
+    st.markdown("""
+    ### How Each Feature is Created
+
+    ---
+
+    #### **Base Features**
+    | Feature | Source | Calculation |
+    |---------|--------|-------------|
+    | `elo_diff` | Computed | Home Elo - Away Elo |
+    | `elo_prob` | Computed | 1 / (1 + 10^(-elo_diff/400)) |
+    | `spread_line` | Schedule | Vegas spread (+ = home underdog) |
+    | `total_line` | Schedule | Vegas over/under line |
+    | `rest_advantage` | Schedule | home_rest - away_rest |
+    | `div_game` | Schedule | 1 if divisional game |
+    | `home_implied_prob` | Schedule | Derived from home_moneyline |
+    | `away_implied_prob` | Schedule | Derived from away_moneyline |
+
+    ---
+
+    #### **Venue/Weather Features**
+    | Feature | Source | Calculation |
+    |---------|--------|-------------|
+    | `is_dome` | Schedule | roof == 'dome' or 'closed' |
+    | `is_cold` | Schedule | temp < 40°F |
+    | `is_windy` | Schedule | wind > 15 mph |
+    | `is_primetime` | Schedule | TNF, SNF, or MNF game |
+    | `is_grass` | Schedule | surface == 'grass' |
+    | `bad_weather` | Computed | is_freezing OR is_very_windy |
+    | `home_short_week` | Schedule | home_rest < 6 days |
+    | `away_short_week` | Schedule | away_rest < 6 days |
+
+    ---
+
+    #### **Passing Features (TIER S)**
+    | Feature | Source | Calculation |
+    |---------|--------|-------------|
+    | `home_cpoe_3wk` | NGS Passing | 3-week rolling avg of Completion % Over Expected |
+    | `away_cpoe_3wk` | NGS Passing | 3-week rolling avg of CPOE |
+    | `cpoe_diff` | Computed | home_cpoe_3wk - away_cpoe_3wk |
+    | `home_pressure_rate_3wk` | PFR Passing | 3-week rolling avg of times pressured % |
+    | `away_pressure_rate_3wk` | PFR Passing | 3-week rolling avg of pressure % |
+    | `pressure_diff` | Computed | home_pressure - away_pressure |
+    | `home_time_to_throw_3wk` | NGS Passing | 3-week rolling avg time to throw |
+    | `away_time_to_throw_3wk` | NGS Passing | 3-week rolling avg |
+
+    **⚠️ Note:** CPOE is shifted by 1 week to prevent data leakage.
+
+    ---
+
+    #### **Injury Features (TIER S)**
+    | Feature | Source | Calculation |
+    |---------|--------|-------------|
+    | `home_injury_impact` | Injuries | Sum of (position_weight × status_prob) for all injured players |
+    | `away_injury_impact` | Injuries | Same calculation for away team |
+    | `injury_diff` | Computed | home_injury_impact - away_injury_impact |
+    | `home_qb_out` | Injuries | 1 if any QB is Out/Doubtful/IR |
+    | `away_qb_out` | Injuries | 1 if any QB is Out/Doubtful/IR |
+
+    **Position Weights:**
+    ```
+    QB: 1.0, RB: 0.7, WR: 0.6, TE: 0.5, OL: 0.5, DL: 0.5, LB: 0.5, CB: 0.6, S: 0.5, K/P: 0.3
+    ```
+
+    **Status Probabilities:**
+    ```
+    Out: 1.0, Doubtful: 0.75, Questionable: 0.5, Probable: 0.25
+    ```
+
+    **⚠️ Issues:**
+    - `qb_out` only captures backup QBs on report, not starters resting
+    - Doesn't account for player quality (Pro Bowl vs. depth player)
+    - 2025 injury data not yet available in nflverse
+
+    ---
+
+    #### **Rushing Features (TIER A)**
+    | Feature | Source | Calculation |
+    |---------|--------|-------------|
+    | `home_ryoe_3wk` | NGS Rushing | 3-week rolling avg of Rush Yards Over Expected per attempt |
+    | `away_ryoe_3wk` | NGS Rushing | Same for away team |
+    | `ryoe_diff` | Computed | home_ryoe - away_ryoe |
+
+    ---
+
+    #### **Receiving Features (TIER A)**
+    | Feature | Source | Calculation |
+    |---------|--------|-------------|
+    | `home_separation_3wk` | NGS Receiving | 3-week rolling avg of avg_separation |
+    | `away_separation_3wk` | NGS Receiving | Same for away team |
+    | `separation_diff` | Computed | home_separation - away_separation |
+
+    ---
+
+    ### Known Issues & Limitations
+
+    1. **QB Out Flag**: Only captures QBs explicitly listed as Out/Doubtful/IR. Many injured starters show as "Questionable" or "None" on the report.
+
+    2. **Injury Impact**: Simple position weighting doesn't account for:
+       - Player skill level (Patrick Mahomes vs. backup QB)
+       - Scheme fit importance
+       - Depth at position
+
+    3. **Data Availability**:
+       - NGS data starts in 2016
+       - PFR data starts in 2018
+       - 2025 injuries not yet released
+
+    4. **Rolling Windows**: 3-week windows may be too short for reliable signal; 5-week tested but not better.
+    """)
 
 
 def show_model_performance(results, weekly_2024, weekly_2025):
