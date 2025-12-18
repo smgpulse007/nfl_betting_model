@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-18T08:53:10.963072",
+  "timestamp": "2025-12-18T11:13:51.186134",
   "models": {
     "spread_ols": {
       "rmse": 12.574930337824078,
@@ -36,7 +36,7 @@
       "accuracy": 0.6666666666666666
     },
     "moneyline_l1": {
-      "logloss": 0.6032173316409836,
+      "logloss": 0.6032152322897891,
       "accuracy": 0.6798245614035088
     }
   },
@@ -1318,111 +1318,111 @@
     "moneyline_l1": [
       {
         "feature": "spread_line",
-        "coefficient": 0.8297868369933356,
-        "abs_coef": 0.8297868369933356,
-        "odds_ratio": 2.2928299416450106
+        "coefficient": 0.829809516402979,
+        "abs_coef": 0.829809516402979,
+        "odds_ratio": 2.2928819422641693
       },
       {
         "feature": "is_dome",
-        "coefficient": -0.07406436346150631,
-        "abs_coef": 0.07406436346150631,
-        "odds_ratio": 0.9286119232400106
+        "coefficient": -0.07407176592625433,
+        "abs_coef": 0.07407176592625433,
+        "odds_ratio": 0.9286050492484266
       },
       {
         "feature": "home_pressure_rate_3wk",
-        "coefficient": -0.06569539464728666,
-        "abs_coef": 0.06569539464728666,
-        "odds_ratio": 0.9364160581973122
+        "coefficient": -0.06569373020112465,
+        "abs_coef": 0.06569373020112465,
+        "odds_ratio": 0.9364176168127234
       },
       {
         "feature": "separation_diff",
-        "coefficient": 0.058590987333885174,
-        "abs_coef": 0.058590987333885174,
-        "odds_ratio": 1.0603414589479663
+        "coefficient": 0.05857522602816748,
+        "abs_coef": 0.05857522602816748,
+        "odds_ratio": 1.0603247467137704
       },
       {
         "feature": "home_time_to_throw_3wk",
-        "coefficient": 0.04138316161274761,
-        "abs_coef": 0.04138316161274761,
-        "odds_ratio": 1.0422513797668773
+        "coefficient": 0.04138499508397064,
+        "abs_coef": 0.04138499508397064,
+        "odds_ratio": 1.0422532907065412
       },
       {
         "feature": "home_ryoe_3wk",
-        "coefficient": 0.0330919252698488,
-        "abs_coef": 0.0330919252698488,
-        "odds_ratio": 1.0336455530205444
+        "coefficient": 0.03308667314786331,
+        "abs_coef": 0.03308667314786331,
+        "odds_ratio": 1.0336401242022666
       },
       {
         "feature": "is_windy",
-        "coefficient": -0.031148879462612983,
-        "abs_coef": 0.031148879462612983,
-        "odds_ratio": 0.9693312488174156
+        "coefficient": -0.031148591829032107,
+        "abs_coef": 0.031148591829032107,
+        "odds_ratio": 0.9693315276296739
       },
       {
         "feature": "total_line",
-        "coefficient": -0.030829823543718295,
-        "abs_coef": 0.030829823543718295,
-        "odds_ratio": 0.9696405690323191
+        "coefficient": -0.030831817666778033,
+        "abs_coef": 0.030831817666778033,
+        "odds_ratio": 0.9696386354516286
       },
       {
         "feature": "away_separation_3wk",
-        "coefficient": 0.025993817268430412,
-        "abs_coef": 0.025993817268430412,
-        "odds_ratio": 1.0263346029024754
+        "coefficient": 0.02599889201144224,
+        "abs_coef": 0.02599889201144224,
+        "odds_ratio": 1.0263398113000448
       },
       {
         "feature": "away_pressure_rate_3wk",
-        "coefficient": -0.025617705412823627,
-        "abs_coef": 0.025617705412823627,
-        "odds_ratio": 0.9747076438477998
+        "coefficient": -0.025626300987360913,
+        "abs_coef": 0.025626300987360913,
+        "odds_ratio": 0.9746992657116026
       },
       {
         "feature": "rest_advantage",
-        "coefficient": 0.024268344260511925,
-        "abs_coef": 0.024268344260511925,
-        "odds_ratio": 1.0245652172007018
+        "coefficient": 0.024252498654327586,
+        "abs_coef": 0.024252498654327586,
+        "odds_ratio": 1.0245489824723848
       },
       {
         "feature": "ryoe_diff",
-        "coefficient": -0.024055142443212933,
-        "abs_coef": 0.024055142443212933,
-        "odds_ratio": 0.9762318764628627
+        "coefficient": -0.024059650939697943,
+        "abs_coef": 0.024059650939697943,
+        "odds_ratio": 0.9762274751348008
       },
       {
         "feature": "home_short_week",
-        "coefficient": 0.013161891459336252,
-        "abs_coef": 0.013161891459336252,
-        "odds_ratio": 1.013248890424026
+        "coefficient": 0.013166284317054683,
+        "abs_coef": 0.013166284317054683,
+        "odds_ratio": 1.0132533414920113
       },
       {
         "feature": "away_time_to_throw_3wk",
-        "coefficient": 0.012242670913154601,
-        "abs_coef": 0.012242670913154601,
-        "odds_ratio": 1.0123179191750555
+        "coefficient": 0.012242783833431576,
+        "abs_coef": 0.012242783833431576,
+        "odds_ratio": 1.0123180334862818
       },
       {
         "feature": "home_qb_out",
-        "coefficient": -0.011138362120338809,
-        "abs_coef": 0.011138362120338809,
-        "odds_ratio": 0.9889234397649406
+        "coefficient": -0.011145891444661287,
+        "abs_coef": 0.011145891444661287,
+        "odds_ratio": 0.9889159938676638
       },
       {
         "feature": "div_game",
-        "coefficient": -0.007050996448635846,
-        "abs_coef": 0.007050996448635846,
-        "odds_ratio": 0.9929738035044634
+        "coefficient": -0.007055244712209751,
+        "abs_coef": 0.007055244712209751,
+        "odds_ratio": 0.9929695850989846
       },
       {
         "feature": "is_cold",
-        "coefficient": 0.004236323906015484,
-        "abs_coef": 0.004236323906015484,
-        "odds_ratio": 1.0042453098107207
+        "coefficient": 0.004238436464836068,
+        "abs_coef": 0.004238436464836068,
+        "odds_ratio": 1.0042474313402487
       },
       {
         "feature": "home_injury_impact",
-        "coefficient": 0.0005607375851480275,
-        "abs_coef": 0.0005607375851480275,
-        "odds_ratio": 1.000560894827857
+        "coefficient": 0.0005793730626822866,
+        "abs_coef": 0.0005793730626822866,
+        "odds_ratio": 1.0005795409316731
       },
       {
         "feature": "home_separation_3wk",

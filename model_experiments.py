@@ -177,11 +177,26 @@ from sklearn.linear_model import (
     LinearRegression, Ridge, Lasso, ElasticNet,
     LogisticRegression
 )
+from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error, log_loss, accuracy_score
 
-# XGBoost (baseline)
+# Boosting libraries
 from xgboost import XGBRegressor, XGBClassifier
+try:
+    from lightgbm import LGBMRegressor, LGBMClassifier
+    HAS_LIGHTGBM = True
+except ImportError:
+    HAS_LIGHTGBM = False
+    print("LightGBM not installed. Run: pip install lightgbm")
+
+try:
+    from catboost import CatBoostRegressor, CatBoostClassifier
+    HAS_CATBOOST = True
+except ImportError:
+    HAS_CATBOOST = False
+    print("CatBoost not installed. Run: pip install catboost")
 
 # Data loading
 from run_tier_sa_backtest import load_and_prepare_data, get_feature_columns
@@ -391,29 +406,221 @@ def run_linear_experiments(df: pd.DataFrame, features: List[str]) -> Dict[str, A
     return results
 
 
-def main():
-    """Run all linear experiments."""
+def run_tree_boosting_experiments(df: pd.DataFrame, features: List[str]) -> Dict[str, Any]:
+    """Run Random Forest and Boosting model experiments."""
+    print("\n" + "="*60)
+    print("TREE & BOOSTING MODEL EXPERIMENTS")
     print("="*60)
-    print("MODEL EXPERIMENTS - Linear Models")
+
+    # Split data
+    train_df = df[(df['season'] >= 2018) & (df['season'] <= 2023)].copy()
+    test_df = df[df['season'] == 2024].copy()
+    val_df = df[df['season'] == 2025].copy()
+
+    X_train = train_df[features].copy().fillna(train_df[features].median())
+    X_test = test_df[features].copy().fillna(train_df[features].median())
+    X_val = val_df[features].copy().fillna(train_df[features].median())
+
+    results = {
+        'timestamp': datetime.now().isoformat(),
+        'models': {},
+        'feature_importance': {}
+    }
+
+    # Define all models to test
+    spread_models = {
+        'DecisionTree': DecisionTreeRegressor(max_depth=4, random_state=42),
+        'RandomForest': RandomForestRegressor(n_estimators=100, max_depth=4, random_state=42, n_jobs=-1),
+        'XGBoost_baseline': XGBRegressor(n_estimators=100, max_depth=4, learning_rate=0.1, random_state=42),
+        'XGBoost_tuned': XGBRegressor(n_estimators=243, max_depth=3, learning_rate=0.0207,
+                                       min_child_weight=4, subsample=0.952, random_state=42),
+    }
+
+    # Add LightGBM if available
+    if HAS_LIGHTGBM:
+        spread_models['LightGBM'] = LGBMRegressor(n_estimators=100, max_depth=4, learning_rate=0.1,
+                                                   random_state=42, verbose=-1, n_jobs=-1)
+
+    # Add CatBoost if available
+    if HAS_CATBOOST:
+        spread_models['CatBoost'] = CatBoostRegressor(n_estimators=100, max_depth=4, learning_rate=0.1,
+                                                       random_state=42, verbose=0)
+
+    # --- SPREAD MODELS ---
+    print("\n📊 SPREAD Models (Regression)")
+    print("-" * 70)
+    for name, model in spread_models.items():
+        model.fit(X_train, train_df['result'])
+        pred_val = model.predict(X_val)
+        rmse = np.sqrt(mean_squared_error(val_df['result'], pred_val))
+
+        # Betting evaluation
+        val_copy = val_df.copy()
+        val_copy['pred_spread'] = pred_val
+        val_copy['bet_home'] = val_copy['pred_spread'] > val_copy['spread_line']
+        val_copy['spread_win'] = (
+            ((val_copy['result'] > val_copy['spread_line']) & val_copy['bet_home']) |
+            ((val_copy['result'] < val_copy['spread_line']) & ~val_copy['bet_home'])
+        )
+        wr = val_copy['spread_win'].mean()
+        roi = (wr * 0.91 - (1 - wr)) * 100
+
+        results['models'][f'spread_{name}'] = {'rmse': rmse, 'wr': wr, 'roi': roi}
+        print(f"  {name:20} | RMSE: {rmse:.2f} | WR: {wr:.1%} | ROI: {roi:+.1f}%")
+
+        # Feature importance
+        if hasattr(model, 'feature_importances_'):
+            imp = dict(zip(features, model.feature_importances_))
+            results['feature_importance'][f'spread_{name}'] = imp
+
+    # --- TOTALS MODELS ---
+    print("\n📊 TOTALS Models (Regression)")
+    print("-" * 70)
+
+    totals_models = {
+        'DecisionTree': DecisionTreeRegressor(max_depth=4, random_state=42),
+        'RandomForest': RandomForestRegressor(n_estimators=100, max_depth=4, random_state=42, n_jobs=-1),
+        'XGBoost_baseline': XGBRegressor(n_estimators=100, max_depth=4, learning_rate=0.1, random_state=42),
+        'XGBoost_tuned': XGBRegressor(n_estimators=50, max_depth=3, learning_rate=0.0332,
+                                       min_child_weight=2, subsample=0.840, random_state=42),
+    }
+    if HAS_LIGHTGBM:
+        totals_models['LightGBM'] = LGBMRegressor(n_estimators=100, max_depth=4, learning_rate=0.1,
+                                                   random_state=42, verbose=-1, n_jobs=-1)
+    if HAS_CATBOOST:
+        totals_models['CatBoost'] = CatBoostRegressor(n_estimators=100, max_depth=4, learning_rate=0.1,
+                                                       random_state=42, verbose=0)
+
+    for name, model in totals_models.items():
+        model.fit(X_train, train_df['game_total'])
+        pred_val = model.predict(X_val)
+        rmse = np.sqrt(mean_squared_error(val_df['game_total'], pred_val))
+
+        val_copy = val_df.copy()
+        val_copy['pred_total'] = pred_val
+        val_copy['bet_over'] = val_copy['pred_total'] > val_copy['total_line']
+        val_copy['total_win'] = (
+            ((val_copy['game_total'] > val_copy['total_line']) & val_copy['bet_over']) |
+            ((val_copy['game_total'] < val_copy['total_line']) & ~val_copy['bet_over'])
+        )
+        wr = val_copy['total_win'].mean()
+        roi = (wr * 0.91 - (1 - wr)) * 100
+
+        results['models'][f'totals_{name}'] = {'rmse': rmse, 'wr': wr, 'roi': roi}
+        print(f"  {name:20} | RMSE: {rmse:.2f} | WR: {wr:.1%} | ROI: {roi:+.1f}%")
+
+        if hasattr(model, 'feature_importances_'):
+            imp = dict(zip(features, model.feature_importances_))
+            results['feature_importance'][f'totals_{name}'] = imp
+
+    # --- MONEYLINE MODELS (Classification) ---
+    print("\n📊 MONEYLINE Models (Classification)")
+    print("-" * 70)
+
+    ml_models = {
+        'DecisionTree': DecisionTreeClassifier(max_depth=4, random_state=42),
+        'RandomForest': RandomForestClassifier(n_estimators=100, max_depth=4, random_state=42, n_jobs=-1),
+        'XGBoost_baseline': XGBClassifier(n_estimators=100, max_depth=4, learning_rate=0.1,
+                                           random_state=42, eval_metric='logloss', use_label_encoder=False),
+        'Logistic_L1_C1': LogisticRegression(penalty='l1', C=1.0, max_iter=1000, solver='saga'),
+        'Logistic_L1_C10': LogisticRegression(penalty='l1', C=10.0, max_iter=1000, solver='saga'),
+        'Logistic_L2_C1': LogisticRegression(penalty='l2', C=1.0, max_iter=1000),
+    }
+    if HAS_LIGHTGBM:
+        ml_models['LightGBM'] = LGBMClassifier(n_estimators=100, max_depth=4, learning_rate=0.1,
+                                                random_state=42, verbose=-1, n_jobs=-1)
+    if HAS_CATBOOST:
+        ml_models['CatBoost'] = CatBoostClassifier(n_estimators=100, max_depth=4, learning_rate=0.1,
+                                                    random_state=42, verbose=0)
+
+    # Scale features for logistic regression
+    scaler = StandardScaler()
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_val_scaled = scaler.transform(X_val)
+
+    for name, model in ml_models.items():
+        # Use scaled data for logistic, unscaled for tree-based
+        if 'Logistic' in name:
+            model.fit(X_train_scaled, train_df['home_win'])
+            pred_proba = model.predict_proba(X_val_scaled)[:, 1]
+        else:
+            model.fit(X_train, train_df['home_win'])
+            pred_proba = model.predict_proba(X_val)[:, 1]
+
+        logloss = log_loss(val_df['home_win'], pred_proba)
+        predictions = (pred_proba > 0.5).astype(int)
+        accuracy = accuracy_score(val_df['home_win'], predictions)
+
+        results['models'][f'ml_{name}'] = {'logloss': logloss, 'accuracy': accuracy}
+        print(f"  {name:20} | LogLoss: {logloss:.4f} | Accuracy: {accuracy:.1%}")
+
+        # Count non-zero coefficients for Logistic
+        if 'Logistic' in name and hasattr(model, 'coef_'):
+            n_nonzero = np.sum(model.coef_ != 0)
+            print(f"    → Non-zero coefficients: {n_nonzero}/{len(features)}")
+
+        if hasattr(model, 'feature_importances_'):
+            imp = dict(zip(features, model.feature_importances_))
+            results['feature_importance'][f'ml_{name}'] = imp
+
+    # Save results
+    output_path = Path("results/tree_boosting_experiments.json")
+    output_path.parent.mkdir(exist_ok=True)
+    with open(output_path, 'w') as f:
+        json.dump(results, f, indent=2, default=str)
+    print(f"\n✅ Results saved to {output_path}")
+
+    return results
+
+
+def main():
+    """Run all experiments."""
+    print("="*60)
+    print("MODEL EXPERIMENTS - Full Suite")
     print("="*60)
 
     # Load data (returns games_df, completed_df)
     _, df = load_and_prepare_data()
     features = get_feature_columns(df)
 
-    # Run experiments
-    results = run_linear_experiments(df, features)
+    # Run linear experiments
+    linear_results = run_linear_experiments(df, features)
+
+    # Run tree/boosting experiments
+    tree_results = run_tree_boosting_experiments(df, features)
 
     # Compare to v0.2.0 baseline
     print("\n" + "="*60)
-    print("COMPARISON TO v0.2.0 BASELINE")
+    print("FINAL COMPARISON TO v0.2.0 BASELINE")
     print("="*60)
     print("\nBaseline (XGBoost v0.2.0):")
     print("  Spread: 52.2% WR, -0.4% ROI")
     print("  Totals: 50.0% WR, -4.5% ROI")
     print("  ML: 64.5% Win Accuracy")
 
-    return results
+    # Find best models
+    print("\n🏆 BEST MODELS BY METRIC:")
+    all_models = {**linear_results.get('models', {}), **tree_results.get('models', {})}
+
+    # Best spread ROI
+    spread_models = {k: v for k, v in all_models.items() if 'spread' in k and 'roi' in v}
+    if spread_models:
+        best_spread = max(spread_models.items(), key=lambda x: x[1]['roi'])
+        print(f"  Spread ROI: {best_spread[0]} → {best_spread[1]['roi']:+.1f}%")
+
+    # Best totals ROI
+    totals_models = {k: v for k, v in all_models.items() if 'totals' in k and 'roi' in v}
+    if totals_models:
+        best_totals = max(totals_models.items(), key=lambda x: x[1]['roi'])
+        print(f"  Totals ROI: {best_totals[0]} → {best_totals[1]['roi']:+.1f}%")
+
+    # Best ML accuracy
+    ml_models = {k: v for k, v in all_models.items() if 'ml' in k.lower() or 'moneyline' in k.lower()}
+    if ml_models:
+        best_ml = max(ml_models.items(), key=lambda x: x[1].get('accuracy', 0))
+        print(f"  ML Accuracy: {best_ml[0]} → {best_ml[1]['accuracy']:.1%}")
+
+    return {'linear': linear_results, 'tree_boosting': tree_results}
 
 
 if __name__ == "__main__":
