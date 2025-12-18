@@ -124,32 +124,36 @@ def train_models(train_df: pd.DataFrame, features: list):
     
     models = {}
     
-    # 1. Spread model (predict home margin)
+    # 1. Spread model (predict home margin) - TUNED v0.2.0
     y_spread = train_df['result']
     models['spread'] = XGBRegressor(
-        n_estimators=100, max_depth=4, learning_rate=0.1,
+        n_estimators=243, max_depth=3, learning_rate=0.0207,
+        min_child_weight=4, subsample=0.952, colsample_bytree=0.653,
+        gamma=0.032, reg_alpha=0.861, reg_lambda=0.841,
         random_state=42, n_jobs=-1
     )
     models['spread'].fit(X, y_spread)
-    print(f"  Spread model trained on {len(X)} samples")
-    
-    # 2. Totals model (predict combined score)
+    print(f"  Spread model trained on {len(X)} samples (tuned)")
+
+    # 2. Totals model (predict combined score) - TUNED v0.2.0
     y_totals = train_df['game_total']
     models['totals'] = XGBRegressor(
-        n_estimators=100, max_depth=4, learning_rate=0.1,
+        n_estimators=50, max_depth=3, learning_rate=0.0332,
+        min_child_weight=2, subsample=0.840, colsample_bytree=0.779,
+        gamma=0.076, reg_alpha=0.563, reg_lambda=0.591,
         random_state=42, n_jobs=-1
     )
     models['totals'].fit(X, y_totals)
-    print(f"  Totals model trained on {len(X)} samples")
-    
-    # 3. Moneyline model (predict home win)
+    print(f"  Totals model trained on {len(X)} samples (tuned)")
+
+    # 3. Moneyline model (predict home win) - BASELINE (best performer)
     y_ml = train_df['home_win']
     models['moneyline'] = XGBClassifier(
         n_estimators=100, max_depth=4, learning_rate=0.1,
         random_state=42, n_jobs=-1, use_label_encoder=False, eval_metric='logloss'
     )
     models['moneyline'].fit(X, y_ml)
-    print(f"  Moneyline model trained on {len(X)} samples")
+    print(f"  Moneyline model trained on {len(X)} samples (baseline)")
     
     return models
 
