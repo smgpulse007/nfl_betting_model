@@ -1,31 +1,168 @@
 """
 Model Experiments - Educational Progression through ML/DL Algorithms
+=====================================================================
 
 This module provides a framework to experiment with different model architectures,
 from simple linear models to deep learning, tracking performance against v0.2.0 baseline.
 
+=============================================================================
+UNDERSTANDING L1 vs L2 REGULARIZATION (Lasso vs Ridge)
+=============================================================================
+
+Both are techniques to prevent OVERFITTING by adding a penalty to large coefficients.
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ CONCEPT: Why Regularization?                                                │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Without regularization, models can have HUGE coefficients that fit the      │
+│ training data perfectly but fail on new data (overfitting).                 │
+│                                                                             │
+│ Example from our OLS results:                                               │
+│   pressure_diff coefficient = 431.56 (HUGE!)                                │
+│   away_pressure_rate coefficient = 316.12                                   │
+│                                                                             │
+│ These massive coefficients mean tiny changes in pressure rate cause         │
+│ wild swings in predictions - a sign of overfitting to noise.                │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ L2 REGULARIZATION (Ridge Regression)                                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Loss = MSE + λ * Σ(β²)                                                      │
+│                                                                             │
+│ • Adds the SUM OF SQUARED coefficients as penalty                           │
+│ • Shrinks all coefficients toward zero, but never TO zero                   │
+│ • Good when you believe ALL features have some predictive power             │
+│ • Handles multicollinearity (correlated features) well                      │
+│                                                                             │
+│ Example from our results (spread_ridge):                                    │
+│   pressure_diff: 431.56 (OLS) → 0.16 (Ridge) - DRAMATICALLY reduced!        │
+│   RMSE improved: 12.57 (OLS) → 12.53 (Ridge)                                │
+│   ROI improved: -6.2% (OLS) → -2.8% (Ridge)                                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ L1 REGULARIZATION (Lasso Regression)                                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Loss = MSE + λ * Σ|β|                                                       │
+│                                                                             │
+│ • Adds the SUM OF ABSOLUTE coefficients as penalty                          │
+│ • Can shrink coefficients EXACTLY to zero (feature selection!)              │
+│ • Good when you believe SOME features are noise                             │
+│ • Produces SPARSE models (fewer features)                                   │
+│                                                                             │
+│ Example from our results (spread_lasso):                                    │
+│   Only 2 non-zero features: spread_line (5.13), home_implied_prob (0.06)    │
+│   All other 33 features → 0 (eliminated as noise!)                          │
+│                                                                             │
+│ This tells us: For predicting spread, Vegas spread_line alone is            │
+│ the most important signal. Most of our features are redundant.              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ VISUAL COMPARISON                                                           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│     L2 (Ridge)                          L1 (Lasso)                          │
+│     ──────────                          ──────────                          │
+│        ●                                   ◆                                │
+│       ╱│╲                                 ╱│╲                               │
+│      ╱ │ ╲    Circular                   ╱ │ ╲   Diamond                    │
+│     ╱  │  ╲   constraint                ╱  │  ╲  constraint                 │
+│     ╲  │  ╱                             ◆──●──◆                             │
+│      ╲ │ ╱                               ╲ │ ╱                              │
+│       ╲│╱                                 ╲│╱                               │
+│        ●                                   ◆                                │
+│                                                                             │
+│   Coefficients shrink                 Coefficients hit corners              │
+│   but stay non-zero                   (corners = some β = 0)                │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+=============================================================================
+WHY DID L1 LOGISTIC OUTPERFORM XGBOOST ON WIN ACCURACY? (68% vs 64.5%)
+=============================================================================
+
+Several factors explain this surprising result:
+
+1. FEATURE SELECTION → LESS OVERFITTING
+   ─────────────────────────────────────
+   L1 Logistic kept only 18 of 35 features (17 set to zero)
+   XGBoost uses ALL 35 features, potentially fitting noise
+
+   Key L1 survivors: spread_line (OR=2.29), separation_diff, home_pressure_rate
+   Eliminated: elo_diff, elo_prob, home_implied_prob, cpoe_diff, injury features
+
+   → L1 discovered that simple market-based signals beat complex feature engineering
+
+2. TASK MISMATCH
+   ──────────────
+   Win prediction is CLASSIFICATION (yes/no), not regression
+   XGBoost was tuned for RMSE/spread prediction, not classification accuracy
+   LogisticRegression is purpose-built for binary classification
+
+   XGBoost optimized for: "How many points will home team win by?"
+   LogisticRegression optimized for: "Will home team win? (probability)"
+
+3. CALIBRATED PROBABILITIES
+   ─────────────────────────
+   Logistic regression outputs well-calibrated probabilities
+   XGBoost probabilities can be over/under-confident
+
+   LogisticRegression: P(home_win) is directly interpretable
+   XGBoost: predict_proba() is an approximation from tree votes
+
+4. SIMPLER DECISION BOUNDARY
+   ──────────────────────────
+   Win/Loss in NFL often comes down to a few key factors
+   L1 found: spread_line alone explains most of the variance (OR=2.29)
+   XGBoost may be "overthinking" with complex tree interactions
+
+=============================================================================
+ODDS RATIOS EXPLAINED
+=============================================================================
+
+For LogisticRegression, we can interpret coefficients as ODDS RATIOS:
+
+   Odds Ratio = e^(coefficient)
+
+   • OR = 1.0  → No effect on outcome
+   • OR > 1.0  → Increases probability of home win
+   • OR < 1.0  → Decreases probability of home win
+
+Example from L1 Logistic:
+   spread_line: coefficient = 0.83, OR = e^0.83 = 2.29
+
+   Interpretation: Each 1-point increase in spread_line (favoring home)
+   increases the ODDS of home team winning by 129% (2.29x)
+
+   If home team is -7 vs -6, their odds of winning are 2.29x higher
+
+=============================================================================
+MODEL PROGRESSION ROADMAP
+=============================================================================
+
 Progression:
-1. Linear Models (interpretable baselines)
+1. Linear Models (interpretable baselines) ✅ DONE
    - LinearRegression (spread, totals)
    - LogisticRegression (moneyline) - with odds ratios
-   
-2. Regularized Linear Models
+
+2. Regularized Linear Models ✅ DONE
    - Ridge/Lasso Regression
-   - ElasticNet
-   
+   - ElasticNet (combines L1 + L2)
+
 3. Tree-Based Models
-   - Decision Trees
-   - Random Forests
-   
+   - Decision Trees (single tree, very interpretable)
+   - Random Forests (bagged trees, reduces variance)
+
 4. Boosting Models (current best)
    - XGBoost (v0.2.0 baseline)
-   - LightGBM
-   - CatBoost
-   
+   - LightGBM (histogram-based, faster)
+   - CatBoost (handles categoricals natively)
+
 5. Deep Learning (PyTorch)
-   - Simple MLP
-   - Residual connections
-   - Attention mechanisms
+   - Simple MLP (Multi-Layer Perceptron)
+   - Residual connections (skip connections)
+   - Attention mechanisms (transformer-style)
 """
 
 import json
