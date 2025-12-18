@@ -127,7 +127,9 @@ def show_overview(results, pred_2024, pred_2025):
             'Totals WR': f"{r['totals_wr']*100:.1f}%",
             'Totals ROI': f"{r['totals_roi']:+.1f}%",
             'ML WR': f"{r['ml_wr']*100:.1f}%",
-            'ML Bets': r['ml_bets']
+            'ML ROI': f"{r.get('ml_roi', 0):+.1f}%",
+            'ML Bets': r['ml_bets'],
+            'Win Accuracy': f"{r.get('win_pred_accuracy', 0)*100:.1f}%"
         })
     if results.get('results_2025'):
         r = results['results_2025']
@@ -139,7 +141,9 @@ def show_overview(results, pred_2024, pred_2025):
             'Totals WR': f"{r['totals_wr']*100:.1f}%",
             'Totals ROI': f"{r['totals_roi']:+.1f}%",
             'ML WR': f"{r['ml_wr']*100:.1f}%",
-            'ML Bets': r['ml_bets']
+            'ML ROI': f"{r.get('ml_roi', 0):+.1f}%",
+            'ML Bets': r['ml_bets'],
+            'Win Accuracy': f"{r.get('win_pred_accuracy', 0)*100:.1f}%"
         })
     
     if results_data:
@@ -195,8 +199,62 @@ def show_model_performance(results, weekly_2024, weekly_2025):
     """Model Performance section."""
     st.header("🎯 Model Performance")
 
+    # Summary metrics at top
+    st.subheader("Performance Summary")
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.markdown("### Spread Betting")
+        if results.get('results_2024'):
+            r = results['results_2024']
+            st.metric("2024 Win Rate", f"{r['spread_wr']*100:.1f}%",
+                     f"{r['spread_roi']:+.1f}% ROI")
+        if results.get('results_2025'):
+            r = results['results_2025']
+            st.metric("2025 Win Rate", f"{r['spread_wr']*100:.1f}%",
+                     f"{r['spread_roi']:+.1f}% ROI")
+
+    with col2:
+        st.markdown("### Totals Betting")
+        if results.get('results_2024'):
+            r = results['results_2024']
+            st.metric("2024 Win Rate", f"{r['totals_wr']*100:.1f}%",
+                     f"{r['totals_roi']:+.1f}% ROI")
+        if results.get('results_2025'):
+            r = results['results_2025']
+            st.metric("2025 Win Rate", f"{r['totals_wr']*100:.1f}%",
+                     f"{r['totals_roi']:+.1f}% ROI")
+
+    with col3:
+        st.markdown("### Moneyline Betting")
+        if results.get('results_2024'):
+            r = results['results_2024']
+            ml_roi = r.get('ml_roi', 0)
+            st.metric("2024 Win Rate", f"{r['ml_wr']*100:.1f}%",
+                     f"{ml_roi:+.1f}% ROI ({r['ml_bets']} bets)")
+        if results.get('results_2025'):
+            r = results['results_2025']
+            ml_roi = r.get('ml_roi', 0)
+            st.metric("2025 Win Rate", f"{r['ml_wr']*100:.1f}%",
+                     f"{ml_roi:+.1f}% ROI ({r['ml_bets']} bets)")
+
+    # Win Prediction Accuracy
+    st.subheader("Win Prediction Accuracy (All Games)")
+    col1, col2 = st.columns(2)
+    with col1:
+        if results.get('results_2024'):
+            acc = results['results_2024'].get('win_pred_accuracy', 0) * 100
+            st.metric("2024 Accuracy", f"{acc:.1f}%",
+                     f"{acc - 50:.1f}% vs coin flip")
+    with col2:
+        if results.get('results_2025'):
+            acc = results['results_2025'].get('win_pred_accuracy', 0) * 100
+            st.metric("2025 Accuracy", f"{acc:.1f}%",
+                     f"{acc - 50:.1f}% vs coin flip")
+
     # Comparison chart
-    st.subheader("Performance Comparison")
+    st.subheader("Win Rate Comparison")
 
     comparison_data = {
         'Model': ['Baseline (Elo)', 'TIER S+A (2024)', 'TIER S+A (2025)'],
@@ -205,17 +263,21 @@ def show_model_performance(results, weekly_2024, weekly_2025):
                       results['results_2025']['spread_wr']*100 if results.get('results_2025') else 0],
         'Totals WR': [50.0,
                       results['results_2024']['totals_wr']*100 if results.get('results_2024') else 0,
-                      results['results_2025']['totals_wr']*100 if results.get('results_2025') else 0]
+                      results['results_2025']['totals_wr']*100 if results.get('results_2025') else 0],
+        'ML WR': [55.0,  # Baseline win prediction
+                  results['results_2024']['ml_wr']*100 if results.get('results_2024') else 0,
+                  results['results_2025']['ml_wr']*100 if results.get('results_2025') else 0]
     }
 
     fig = go.Figure()
     fig.add_trace(go.Bar(name='Spread WR', x=comparison_data['Model'], y=comparison_data['Spread WR']))
     fig.add_trace(go.Bar(name='Totals WR', x=comparison_data['Model'], y=comparison_data['Totals WR']))
-    fig.add_hline(y=52.38, line_dash="dash", line_color="red", annotation_text="Breakeven (52.38%)")
-    fig.update_layout(barmode='group', title="Win Rate by Model", yaxis_title="Win Rate (%)")
+    fig.add_trace(go.Bar(name='Moneyline WR', x=comparison_data['Model'], y=comparison_data['ML WR']))
+    fig.add_hline(y=52.38, line_dash="dash", line_color="red", annotation_text="Spread/Totals Breakeven")
+    fig.update_layout(barmode='group', title="Win Rate by Bet Type", yaxis_title="Win Rate (%)")
     st.plotly_chart(fig, use_container_width=True)
 
-    # Weekly performance
+    # Weekly performance - now includes moneyline
     st.subheader("Weekly Performance Trend")
 
     col1, col2 = st.columns(2)
@@ -223,7 +285,13 @@ def show_model_performance(results, weekly_2024, weekly_2025):
     with col1:
         if weekly_2024 is not None:
             st.markdown("**2024 Season**")
-            fig = px.line(weekly_2024, x='week', y=['spread_wr', 'totals_wr'],
+            # Include moneyline if column exists
+            y_cols = ['spread_wr', 'totals_wr']
+            if 'ml_wr' in weekly_2024.columns:
+                y_cols.append('ml_wr')
+            if 'win_accuracy' in weekly_2024.columns:
+                y_cols.append('win_accuracy')
+            fig = px.line(weekly_2024, x='week', y=y_cols,
                          title="2024 Weekly Win Rates",
                          labels={'value': 'Win Rate', 'week': 'Week'})
             fig.add_hline(y=0.5238, line_dash="dash", line_color="red")
@@ -232,7 +300,12 @@ def show_model_performance(results, weekly_2024, weekly_2025):
     with col2:
         if weekly_2025 is not None:
             st.markdown("**2025 Season**")
-            fig = px.line(weekly_2025, x='week', y=['spread_wr', 'totals_wr'],
+            y_cols = ['spread_wr', 'totals_wr']
+            if 'ml_wr' in weekly_2025.columns:
+                y_cols.append('ml_wr')
+            if 'win_accuracy' in weekly_2025.columns:
+                y_cols.append('win_accuracy')
+            fig = px.line(weekly_2025, x='week', y=y_cols,
                          title="2025 Weekly Win Rates",
                          labels={'value': 'Win Rate', 'week': 'Week'})
             fig.add_hline(y=0.5238, line_dash="dash", line_color="red")

@@ -202,6 +202,7 @@ def compute_injury_impact(years: list) -> pd.DataFrame:
     Higher score = more impactful injuries.
 
     Uses nflreadpy (preferred) or nfl-data-py as fallback.
+    nflreadpy API: load_injuries(seasons=None) returns Polars DataFrame
     """
     print(f"Loading injury data ({min(years)}-{max(years)})...")
 
@@ -213,9 +214,10 @@ def compute_injury_impact(years: list) -> pd.DataFrame:
     injuries = None
 
     # Try nflreadpy first (newer, actively maintained)
+    # API: nfl.load_injuries(seasons=[2024]) or nfl.load_injuries() for current
     if HAS_NFLREADPY:
         try:
-            injuries_polars = nfl_new.load_injuries(valid_years)
+            injuries_polars = nfl_new.load_injuries(seasons=valid_years)
             injuries = injuries_polars.to_pandas()
             print(f"   Loaded {len(injuries)} injury records via nflreadpy")
         except Exception as e:

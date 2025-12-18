@@ -187,34 +187,90 @@ def predict_and_evaluate(models: dict, test_df: pd.DataFrame, features: list, da
     
     # Moneyline betting (bet when edge > 5%)
     MIN_EDGE = 0.05
+
+    # Compute implied probabilities from moneyline odds if available
+    if 'home_moneyline' in df.columns and 'away_moneyline' in df.columns:
+        # Convert American odds to implied probability
+        def ml_to_prob(ml):
+            if pd.isna(ml):
+                return 0.5
+            if ml > 0:
+                return 100 / (ml + 100)
+            else:
+                return abs(ml) / (abs(ml) + 100)
+
+        df['home_implied_prob'] = df['home_moneyline'].apply(ml_to_prob)
+        df['away_implied_prob'] = df['away_moneyline'].apply(ml_to_prob)
+    else:
+        # Estimate from spread if moneylines not available
+        df['home_implied_prob'] = 0.5 + (df['spread_line'] / 100)
+        df['away_implied_prob'] = 1 - df['home_implied_prob']
+
     df['ml_edge'] = df['pred_win_prob'] - df['home_implied_prob']
     df['bet_home_ml'] = df['ml_edge'] > MIN_EDGE
     df['bet_away_ml'] = df['ml_edge'] < -MIN_EDGE
-    
-    ml_bets = df[(df['bet_home_ml']) | (df['bet_away_ml'])].copy()
+
+    # Track which games we bet on and actual outcomes
+    df['ml_bet'] = df['bet_home_ml'] | df['bet_away_ml']
+    df['ml_correct'] = (
+        (df['bet_home_ml'] & (df['result'] > 0)) |
+        (df['bet_away_ml'] & (df['result'] < 0))
+    )
+
+    ml_bets = df[df['ml_bet']].copy()
     if len(ml_bets) > 0:
-        ml_bets['ml_correct'] = (
-            (ml_bets['bet_home_ml'] & (ml_bets['result'] > 0)) |
-            (ml_bets['bet_away_ml'] & (ml_bets['result'] < 0))
-        )
         results['ml_wr'] = ml_bets['ml_correct'].mean()
         results['ml_bets'] = len(ml_bets)
+
+        # Calculate actual ROI using real odds
+        ml_profits = []
+        for _, row in ml_bets.iterrows():
+            if row['bet_home_ml']:
+                if row['result'] > 0:  # Home win
+                    if 'home_moneyline' in row and not pd.isna(row.get('home_moneyline')):
+                        ml = row['home_moneyline']
+                        profit = 100/ml if ml > 0 else abs(ml)/100
+                    else:
+                        profit = 0.909  # -110 odds
+                else:
+                    profit = -1
+            else:  # Bet away
+                if row['result'] < 0:  # Away win
+                    if 'away_moneyline' in row and not pd.isna(row.get('away_moneyline')):
+                        ml = row['away_moneyline']
+                        profit = 100/ml if ml > 0 else abs(ml)/100
+                    else:
+                        profit = 0.909
+                else:
+                    profit = -1
+            ml_profits.append(profit)
+
+        results['ml_roi'] = (sum(ml_profits) / len(ml_profits)) * 100
+        results['ml_profit_units'] = sum(ml_profits)
     else:
         results['ml_wr'] = 0
         results['ml_bets'] = 0
-    
+        results['ml_roi'] = 0
+        results['ml_profit_units'] = 0
+
+    # Also track pure win prediction accuracy (no edge filter)
+    df['pred_home_win'] = df['pred_win_prob'] > 0.5
+    df['actual_home_win'] = df['result'] > 0
+    results['win_pred_accuracy'] = (df['pred_home_win'] == df['actual_home_win']).mean()
+
     print(f"\n📊 {dataset_name} Results ({len(df)} games):")
     print(f"  Spread: {results['spread_wr']*100:.1f}% WR, {results['spread_roi']:+.1f}% ROI")
     print(f"  Totals: {results['totals_wr']*100:.1f}% WR, {results['totals_roi']:+.1f}% ROI")
-    print(f"  Moneyline: {results['ml_wr']*100:.1f}% WR on {results['ml_bets']} bets")
+    print(f"  Moneyline: {results['ml_wr']*100:.1f}% WR on {results['ml_bets']} bets, {results['ml_roi']:+.1f}% ROI")
+    print(f"  Win Prediction Accuracy: {results['win_pred_accuracy']*100:.1f}%")
 
     return results, df
 
 
 def week_by_week_analysis(df: pd.DataFrame, dataset_name: str):
-    """Analyze performance week by week."""
+    """Analyze performance week by week including moneyline."""
     print(f"\n📅 Week-by-Week Analysis ({dataset_name}):")
-    print("-" * 60)
+    print("-" * 80)
 
     weekly = []
     for week in sorted(df['week'].unique()):
@@ -226,14 +282,27 @@ def week_by_week_analysis(df: pd.DataFrame, dataset_name: str):
         # Totals
         totals_wr = (week_df['bet_over'] == week_df['went_over']).mean()
 
+        # Moneyline
+        ml_week = week_df[week_df['ml_bet']]
+        ml_bets = len(ml_week)
+        ml_wr = ml_week['ml_correct'].mean() if ml_bets > 0 else 0
+        ml_correct = ml_week['ml_correct'].sum() if ml_bets > 0 else 0
+
+        # Win prediction accuracy (all games)
+        win_acc = (week_df['pred_home_win'] == week_df['actual_home_win']).mean()
+
         weekly.append({
             'week': week,
             'games': len(week_df),
             'spread_wr': spread_wr,
-            'totals_wr': totals_wr
+            'totals_wr': totals_wr,
+            'ml_bets': ml_bets,
+            'ml_wr': ml_wr,
+            'ml_correct': ml_correct,
+            'win_accuracy': win_acc
         })
 
-        print(f"  Week {week:2d}: {len(week_df):2d} games | Spread: {spread_wr*100:5.1f}% | Totals: {totals_wr*100:5.1f}%")
+        print(f"  Week {week:2d}: {len(week_df):2d} games | Spread: {spread_wr*100:5.1f}% | Totals: {totals_wr*100:5.1f}% | ML: {ml_correct}/{ml_bets} ({ml_wr*100:5.1f}%) | Win Acc: {win_acc*100:5.1f}%")
 
     return pd.DataFrame(weekly)
 
