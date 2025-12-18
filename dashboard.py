@@ -6,7 +6,7 @@ Streamlit dashboard for visualizing model performance and backtest results.
 Sections:
 1. Dataset Overview
 2. Feature Profiling
-3. Data Quality Metrics
+3. Feature Importance
 4. Model Performance Across Iterations
 5. 2025 Validation Results
 6. Backtest Results Visualization
@@ -21,9 +21,18 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
+# Import version info
+try:
+    from version import VERSION, VERSION_NAME, DESCRIPTION, BASELINE_METRICS
+except ImportError:
+    VERSION = "0.1.0"
+    VERSION_NAME = "Baseline"
+    DESCRIPTION = "NFL Betting Model with TIER S+A features"
+    BASELINE_METRICS = None
+
 # Page config
 st.set_page_config(
-    page_title="NFL Betting Model Dashboard",
+    page_title=f"NFL Betting Model v{VERSION}",
     page_icon="🏈",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -64,15 +73,28 @@ def load_weekly_stats(year: int):
 
 def main():
     st.title("🏈 NFL Betting Model Dashboard")
-    st.markdown("**TIER S+A Feature Model - 2024 Test & 2025 Validation**")
-    
-    # Sidebar
+    st.markdown(f"**Version {VERSION} ({VERSION_NAME})** — TIER S+A Feature Model")
+
+    # Sidebar - Version info
+    st.sidebar.markdown(f"### 📌 v{VERSION} - {VERSION_NAME}")
+    st.sidebar.markdown("---")
+
+    # Sidebar - Navigation
     st.sidebar.header("Navigation")
     page = st.sidebar.radio(
         "Select Section",
         ["📊 Overview", "📈 Feature Profiling", "🔥 Feature Importance",
          "🎯 Model Performance", "📅 2025 Validation", "💰 Backtest Results"]
     )
+
+    # Sidebar - Baseline metrics
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("### 📊 Baseline Metrics (2025)")
+    if BASELINE_METRICS:
+        metrics = BASELINE_METRICS.get('2025_validation', {})
+        st.sidebar.metric("Spread ROI", f"{metrics.get('spread_roi', 0):+.1f}%")
+        st.sidebar.metric("ML ROI", f"{metrics.get('ml_roi', 0):+.1f}%")
+        st.sidebar.metric("Win Accuracy", f"{metrics.get('win_accuracy', 0)*100:.1f}%")
     
     # Load data
     results = load_backtest_results()
@@ -107,13 +129,19 @@ def show_overview(results, pred_2024, pred_2025):
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
-        st.metric("Model Version", "TIER S+A")
+        st.metric("Model Version", f"v{VERSION}")
     with col2:
         st.metric("Features Used", len(results.get('features', [])))
     with col3:
         st.metric("2024 Games", len(pred_2024) if pred_2024 is not None else 0)
     with col4:
         st.metric("2025 Games", len(pred_2025) if pred_2025 is not None else 0)
+
+    # Version description
+    st.info(f"""
+    **🏷️ {VERSION_NAME} Model (v{VERSION})**
+    {DESCRIPTION}
+    """)
     
     st.subheader("Key Results Summary")
     
