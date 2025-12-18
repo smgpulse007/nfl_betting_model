@@ -5,25 +5,26 @@ This file tracks the model version and baseline metrics for comparison.
 """
 
 # Current version
-VERSION = "0.2.0"
-VERSION_NAME = "Tuned Hybrid"
+VERSION = "0.3.0"
+VERSION_NAME = "Optimal Mix"
 VERSION_DATE = "2024-12-18"
 
 # Model description
 DESCRIPTION = """
-Tuned hybrid model with TIER S+A features:
+Optimal model mix based on comprehensive model experiments:
 - 35 features including Elo, venue, weather, passing (CPOE, pressure),
   injuries (impact, QB out), and rushing/receiving (RYOE, separation)
-- 3 XGBoost models with Optuna-tuned hyperparameters (50 trials each)
-- Hybrid approach: Tuned params for Spread/Totals, Baseline for Moneyline
-- Training: 2018-2023 (1,696 games) - limited by PFR pressure data availability
-- Testing: 2024 (291 games)
+- SPREAD: XGBoost (baseline params) - 57.0% WR, +8.9% ROI
+- TOTALS: OLS Linear Regression - 54.4% WR, +3.9% ROI (beats all boosting!)
+- MONEYLINE: CatBoost - 68.9% accuracy (beats XGBoost by 2 games)
+- Training: 2018-2023 (1,696 games)
 - Validation: 2025 (276 games through Week 16)
 
-Changes from v0.1.0:
-- Spread: +5.1% ROI improvement (6.3% → 11.4%)
-- Totals: +25.4% ROI improvement (-19.6% → +5.8%)
-- Moneyline: Kept baseline params (best performer)
+Key findings from model experiments:
+- Linear regression beats boosting for totals (simpler is better)
+- CatBoost's ordered boosting handles NFL data better
+- 16 pairs of highly correlated features identified (multicollinearity)
+- Vegas lines (spread_line, total_line) are already highly predictive
 """
 
 # Tuned hyperparameters per model (from Optuna optimization)
@@ -72,28 +73,32 @@ BASELINE_METRICS = {
         "win_accuracy": 0.645,
     },
 
-    # 2024 Test Results (v0.2.0)
-    "2024_test": {
-        "games": 291,
-        "spread_wr": 0.478,
-        "spread_roi": -8.8,
-        "totals_wr": 0.509,
-        "totals_roi": -2.9,
-        "ml_wr": 0.435,
-        "ml_roi": 34.7,
-        "win_accuracy": 0.687,
-    },
-
-    # 2025 Validation Results (v0.2.0)
-    "2025_validation": {
-        "games": 276,
-        "spread_wr": 0.583,
+    # v0.2.0 Tuned Hybrid Results
+    "v0.2.0_tuned": {
         "spread_roi": 11.4,
-        "totals_wr": 0.554,
         "totals_roi": 5.8,
-        "ml_wr": 0.493,
         "ml_roi": 53.0,
         "win_accuracy": 0.645,
+    },
+
+    # 2025 Validation Results (v0.3.0 - Optimal Mix)
+    "2025_validation": {
+        "games": 276,
+        "spread_wr": 0.570,  # XGBoost baseline
+        "spread_roi": 8.9,   # XGBoost baseline
+        "totals_wr": 0.544,  # OLS
+        "totals_roi": 3.9,   # OLS
+        "ml_wr": 0.689,      # CatBoost
+        "ml_roi": 0.0,       # N/A (classification)
+        "win_accuracy": 0.689,  # CatBoost
+    },
+
+    # Week 15 2025 Results (most recent)
+    "week15_2025": {
+        "games": 16,
+        "spread_wr": 0.50,
+        "totals_wr": 0.625,
+        "ml_accuracy": 0.75,
     },
 }
 
@@ -120,28 +125,55 @@ FEATURES = [
     'home_separation_3wk', 'away_separation_3wk', 'separation_diff',
 ]
 
-# Top feature importances (from XGBoost)
+# Top feature importances by model type
 TOP_FEATURES = {
-    "spread": [
-        ('home_implied_prob', 0.207),
-        ('away_implied_prob', 0.086),
-        ('spread_line', 0.085),
-        ('home_ryoe_3wk', 0.045),
-        ('ryoe_diff', 0.037),
-    ],
-    "totals": [
-        ('total_line', 0.254),
-        ('home_implied_prob', 0.068),
-        ('away_implied_prob', 0.065),
-        ('home_cpoe_3wk', 0.042),
-        ('elo_diff', 0.039),
-    ],
-    "moneyline": [
-        ('home_implied_prob', 0.198),
-        ('away_implied_prob', 0.089),
+    "spread": [  # XGBoost baseline
+        ('home_implied_prob', 0.141),
         ('spread_line', 0.076),
-        ('elo_prob', 0.058),
-        ('elo_diff', 0.045),
+        ('away_implied_prob', 0.053),
+        ('home_ryoe_3wk', 0.037),
+        ('is_dome', 0.036),
     ],
+    "totals": [  # OLS Linear - coefficients (scaled)
+        ('injury_diff', 5.407),
+        ('home_implied_prob', 5.138),
+        ('spread_line', 5.059),
+        ('total_line', 4.553),
+        ('pressure_diff', 4.306),
+    ],
+    "moneyline": [  # CatBoost
+        ('away_ryoe_3wk', 11.495),
+        ('home_ryoe_3wk', 8.463),
+        ('home_implied_prob', 8.243),
+        ('spread_line', 7.896),
+        ('home_separation_3wk', 6.316),
+    ],
+}
+
+# Optimal model configuration for v0.3.0
+OPTIMAL_MODELS = {
+    "spread": {
+        "model": "XGBoost",
+        "params": {
+            "n_estimators": 100,
+            "max_depth": 4,
+            "learning_rate": 0.1,
+        },
+        "performance": {"wr": 0.570, "roi": 8.9}
+    },
+    "totals": {
+        "model": "OLS LinearRegression",
+        "params": {},  # No hyperparams
+        "performance": {"wr": 0.544, "roi": 3.9}
+    },
+    "moneyline": {
+        "model": "CatBoost",
+        "params": {
+            "n_estimators": 100,
+            "max_depth": 4,
+            "learning_rate": 0.1,
+        },
+        "performance": {"accuracy": 0.689}
+    },
 }
 
