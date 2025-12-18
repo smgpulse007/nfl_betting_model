@@ -85,7 +85,7 @@ def main():
         "Select Section",
         ["📊 Overview", "📈 Feature Profiling", "🔥 Feature Importance",
          "🎯 Model Performance", "📅 2025 Validation", "💰 Backtest Results",
-         "🧪 Model Experiments"]
+         "🧪 Model Experiments", "🔬 Deep Analysis"]
     )
 
     # Sidebar - Baseline metrics
@@ -123,6 +123,8 @@ def main():
         show_backtest_results(pred_2024, pred_2025, weekly_2024, weekly_2025)
     elif page == "🧪 Model Experiments":
         show_model_experiments()
+    elif page == "🔬 Deep Analysis":
+        show_deep_analysis()
 
 
 def show_overview(results, pred_2024, pred_2025):
@@ -1218,6 +1220,308 @@ def show_model_comparison_tab(linear_results):
     | **Linear** | Interpretable, fast, odds ratios | Limited to linear relationships |
     | **XGBoost** | Captures non-linear patterns | Black box, can overfit |
     | **Deep Learning** | *Coming soon* | Needs more data, complex tuning |
+    """)
+
+
+def show_deep_analysis():
+    """Deep Analysis section - Understanding model behavior."""
+    st.header("🔬 Deep Model Analysis")
+    st.markdown("""
+    This section provides deep insights into **why different models perform differently**
+    and helps understand the underlying patterns in NFL betting data.
+    """)
+
+    # Load deep analysis results
+    deep_analysis_file = RESULTS_DIR / "deep_analysis.json"
+    if not deep_analysis_file.exists():
+        st.warning("No deep analysis results found. Run `python deep_analysis.py` first.")
+        return
+
+    with open(deep_analysis_file) as f:
+        analysis = json.load(f)
+
+    # Create tabs
+    tab1, tab2, tab3, tab4, tab5 = st.tabs([
+        "📊 Feature Correlations",
+        "⚠️ Multicollinearity",
+        "🎯 Totals: OLS vs XGBoost",
+        "🏆 ML: CatBoost Analysis",
+        "📅 Week 15 Deep Dive"
+    ])
+
+    with tab1:
+        show_correlation_analysis(analysis)
+
+    with tab2:
+        show_multicollinearity_analysis(analysis)
+
+    with tab3:
+        show_totals_analysis(analysis)
+
+    with tab4:
+        show_catboost_analysis(analysis)
+
+    with tab5:
+        show_week15_analysis(analysis)
+
+
+def show_correlation_analysis(analysis):
+    """Show feature correlations with targets."""
+    st.subheader("Feature Correlations with Targets")
+
+    correlations = analysis.get('correlations', [])
+    if not correlations:
+        st.warning("No correlation data available")
+        return
+
+    corr_df = pd.DataFrame(correlations)
+
+    # Create three columns for each target
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.markdown("#### Spread (Result)")
+        top_spread = corr_df.nlargest(10, 'abs_corr_spread')[['feature', 'corr_spread']]
+        fig = px.bar(top_spread, x='corr_spread', y='feature', orientation='h',
+                     color='corr_spread', color_continuous_scale='RdBu_r',
+                     range_color=[-0.5, 0.5])
+        fig.update_layout(showlegend=False, height=400)
+        st.plotly_chart(fig, use_container_width=True)
+
+    with col2:
+        st.markdown("#### Totals (Game Total)")
+        top_total = corr_df.nlargest(10, 'abs_corr_total')[['feature', 'corr_total']]
+        fig = px.bar(top_total, x='corr_total', y='feature', orientation='h',
+                     color='corr_total', color_continuous_scale='RdBu_r',
+                     range_color=[-0.5, 0.5])
+        fig.update_layout(showlegend=False, height=400)
+        st.plotly_chart(fig, use_container_width=True)
+
+    with col3:
+        st.markdown("#### Moneyline (Home Win)")
+        top_win = corr_df.nlargest(10, 'abs_corr_win')[['feature', 'corr_win']]
+        fig = px.bar(top_win, x='corr_win', y='feature', orientation='h',
+                     color='corr_win', color_continuous_scale='RdBu_r',
+                     range_color=[-0.5, 0.5])
+        fig.update_layout(showlegend=False, height=400)
+        st.plotly_chart(fig, use_container_width=True)
+
+    st.info("""
+    **Key Insight**: `spread_line`, `home_implied_prob`, and `away_implied_prob` have the
+    strongest correlations with outcomes. These are **market-derived features** that already
+    incorporate wisdom of the crowd.
+    """)
+
+
+def show_multicollinearity_analysis(analysis):
+    """Show multicollinearity between features."""
+    st.subheader("Multicollinearity Analysis")
+
+    multi = analysis.get('multicollinearity', [])
+    if not multi:
+        st.success("No highly correlated feature pairs found (|r| > 0.7)")
+        return
+
+    st.warning(f"Found **{len(multi)} highly correlated pairs** (|r| > 0.7)")
+
+    multi_df = pd.DataFrame(multi)
+    multi_df['abs_corr'] = multi_df['correlation'].abs()
+    multi_df = multi_df.sort_values('abs_corr', ascending=False)
+
+    # Display as table
+    st.dataframe(
+        multi_df[['feature1', 'feature2', 'correlation']].head(20),
+        use_container_width=True,
+        hide_index=True
+    )
+
+    # Heatmap of top pairs
+    fig = px.bar(multi_df.head(10), x='correlation', y=multi_df.head(10).apply(
+        lambda r: f"{r['feature1']} ↔ {r['feature2']}", axis=1),
+        orientation='h', color='correlation', color_continuous_scale='RdBu_r',
+        range_color=[-1, 1], title="Top 10 Correlated Feature Pairs")
+    st.plotly_chart(fig, use_container_width=True)
+
+    st.markdown("""
+    **Why This Matters:**
+    - `home_implied_prob` and `away_implied_prob` are **-0.999** correlated (they sum to 1)
+    - `spread_line` and `implied_prob` are **0.989** correlated (same market information)
+    - `elo_diff` and `elo_prob` are **0.986** correlated (one derives from other)
+
+    **Recommendation**: Consider removing redundant features to reduce noise.
+    """)
+
+
+def show_totals_analysis(analysis):
+    """Explain why OLS beats XGBoost for totals."""
+    st.subheader("Why OLS Beats XGBoost for Totals Prediction")
+
+    totals = analysis.get('totals_analysis', {})
+
+    col1, col2 = st.columns(2)
+    with col1:
+        st.metric("OLS RMSE", f"{totals.get('ols_rmse', 0):.2f}")
+    with col2:
+        st.metric("XGBoost RMSE", f"{totals.get('xgb_rmse', 0):.2f}")
+
+    st.success(f"OLS wins by **{totals.get('xgb_rmse', 0) - totals.get('ols_rmse', 0):.2f}** RMSE points")
+
+    # Feature importance comparison
+    importance = totals.get('importance', [])
+    if importance:
+        imp_df = pd.DataFrame(importance)
+
+        fig = make_subplots(rows=1, cols=2, subplot_titles=['OLS Coefficients', 'XGBoost Importance'])
+
+        top_10 = imp_df.head(10)
+        fig.add_trace(
+            go.Bar(x=top_10['ols_coef'], y=top_10['feature'], orientation='h', name='OLS'),
+            row=1, col=1
+        )
+        fig.add_trace(
+            go.Bar(x=top_10['xgb_importance'], y=top_10['feature'], orientation='h', name='XGB'),
+            row=1, col=2
+        )
+        fig.update_layout(height=400, showlegend=False)
+        st.plotly_chart(fig, use_container_width=True)
+
+    st.markdown(f"""
+    ### 💡 Key Insight: Linear Relationship
+
+    The correlation between `total_line` and actual `game_total` is **{totals.get('total_line_correlation', 0):.3f}**.
+
+    **Why OLS wins:**
+    1. **Simple is better**: Game totals have a mostly linear relationship with Vegas lines
+    2. **XGBoost overcomplicates**: Tries to find non-linear patterns that don't exist
+    3. **Regularization**: OLS naturally regularizes by using fewer complex interactions
+    4. **Vegas efficiency**: The total line already incorporates most relevant factors
+
+    **Recommendation**: Use **OLS/Linear Regression** for totals prediction in v0.3.0
+    """)
+
+
+def show_catboost_analysis(analysis):
+    """Explain why CatBoost beats other classifiers."""
+    st.subheader("Why CatBoost Wins for Moneyline Prediction")
+
+    ml_analysis = analysis.get('ml_analysis', {})
+    feature_importance = ml_analysis.get('feature_importance', {})
+
+    st.metric("CatBoost Net Advantage", f"{ml_analysis.get('catboost_advantage', 0)} games over XGBoost")
+
+    # Compare feature importance across models
+    if feature_importance:
+        st.markdown("#### Feature Importance by Model")
+
+        model_tabs = st.tabs(list(feature_importance.keys()))
+
+        for i, (model_name, importance) in enumerate(feature_importance.items()):
+            with model_tabs[i]:
+                imp_df = pd.DataFrame(importance).head(10)
+
+                if 'odds_ratio' in imp_df.columns:
+                    # Logistic model - show odds ratios
+                    fig = px.bar(imp_df, x='odds_ratio', y='feature', orientation='h',
+                                 color='coefficient', color_continuous_scale='RdBu_r',
+                                 title=f"{model_name} - Top 10 Features (Odds Ratios)")
+                    fig.add_vline(x=1.0, line_dash="dash", line_color="gray")
+                else:
+                    fig = px.bar(imp_df, x='importance', y='feature', orientation='h',
+                                 title=f"{model_name} - Top 10 Features")
+
+                st.plotly_chart(fig, use_container_width=True)
+
+    st.markdown("""
+    ### 💡 Why CatBoost Wins
+
+    1. **Ordered Boosting**: CatBoost uses ordered boosting to reduce prediction shift
+    2. **Categorical Handling**: Natively handles `is_dome`, `is_grass`, `div_game` without encoding
+    3. **Better Regularization**: Default regularization is well-tuned for tabular data
+    4. **Symmetric Trees**: Uses oblivious decision trees that are more robust
+
+    **Net Advantage**: CatBoost correctly predicted **2 more games** than XGBoost in 2025
+
+    **Recommendation**: Use **CatBoost** for moneyline prediction in v0.3.0
+    """)
+
+
+def show_week15_analysis(analysis):
+    """Deep dive into Week 15 2025 predictions."""
+    st.subheader("Week 15 2025 - Game-by-Game Analysis")
+
+    week15 = analysis.get('week15_2025', {})
+
+    if not week15:
+        st.warning("No Week 15 2025 data available")
+        return
+
+    summary = week15.get('summary', {})
+
+    # Summary metrics
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        wr = summary.get('spread_wr', 0)
+        st.metric("Spread", f"{wr:.1%}", delta=f"{(wr - 0.5)*100:+.1f}% vs coin flip")
+    with col2:
+        wr = summary.get('totals_wr', 0)
+        st.metric("Totals", f"{wr:.1%}", delta=f"{(wr - 0.5)*100:+.1f}% vs coin flip")
+    with col3:
+        acc = summary.get('ml_accuracy', 0)
+        st.metric("Moneyline", f"{acc:.1%}", delta=f"{(acc - 0.5)*100:+.1f}% vs coin flip")
+
+    # Game-by-game table
+    games = week15.get('games', [])
+    if games:
+        games_df = pd.DataFrame(games)
+
+        # Format for display
+        display_df = games_df[['matchup', 'actual_result', 'spread_line', 'pred_spread',
+                               'spread_correct', 'actual_total', 'total_line', 'pred_total',
+                               'totals_correct', 'pred_win_proba', 'ml_correct']].copy()
+
+        # Add icons
+        display_df['Spread'] = display_df['spread_correct'].map({True: '✅', False: '❌'})
+        display_df['Totals'] = display_df['totals_correct'].map({True: '✅', False: '❌'})
+        display_df['ML'] = display_df['ml_correct'].map({True: '✅', False: '❌'})
+
+        st.dataframe(
+            display_df[['matchup', 'actual_result', 'spread_line', 'pred_spread', 'Spread',
+                        'actual_total', 'total_line', 'pred_total', 'Totals',
+                        'pred_win_proba', 'ML']],
+            use_container_width=True,
+            hide_index=True
+        )
+
+    # Analyze misses
+    st.markdown("### ❌ Miss Analysis")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.markdown("#### Spread Misses")
+        spread_misses = week15.get('spread_misses', [])
+        if spread_misses:
+            for miss in spread_misses:
+                error = miss.get('pred_spread', 0) - miss.get('result', 0)
+                st.write(f"**{miss.get('away_team')} @ {miss.get('home_team')}**: "
+                        f"Pred {miss.get('pred_spread', 0):+.1f}, "
+                        f"Actual {miss.get('result', 0):+.1f} (Error: {error:+.1f})")
+
+    with col2:
+        st.markdown("#### ML Misses")
+        ml_misses = week15.get('ml_misses', [])
+        if ml_misses:
+            for miss in ml_misses:
+                prob = miss.get('pred_win_proba', 0)
+                actual = "Home" if miss.get('home_win') else "Away"
+                st.write(f"**{miss.get('away_team')} @ {miss.get('home_team')}**: "
+                        f"Predicted Home ({prob:.0%}), Actual {actual}")
+
+    st.info("""
+    **Key Observations:**
+    - Large spread misses often involve **unexpected blowouts** (NYJ@JAX, CLE@CHI)
+    - ML misses include **upsets** where underdogs won (LAC@KC, ATL@TB)
+    - Model performs best when games go according to expectations
     """)
 
 
