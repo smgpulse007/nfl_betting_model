@@ -5,26 +5,32 @@ This file tracks the model version and baseline metrics for comparison.
 """
 
 # Current version
-VERSION = "0.3.0"
-VERSION_NAME = "Optimal Mix"
+VERSION = "0.3.1"
+VERSION_NAME = "ESPN API Integration"
 VERSION_DATE = "2024-12-18"
 
 # Model description
 DESCRIPTION = """
-Optimal model mix based on comprehensive model experiments:
-- 35 features including Elo, venue, weather, passing (CPOE, pressure),
-  injuries (impact, QB out), and rushing/receiving (RYOE, separation)
-- SPREAD: XGBoost (baseline params) - 57.0% WR, +8.9% ROI
-- TOTALS: OLS Linear Regression - 54.4% WR, +3.9% ROI (beats all boosting!)
-- MONEYLINE: CatBoost - 68.9% accuracy (beats XGBoost by 2 games)
-- Training: 2018-2023 (1,696 games)
-- Validation: 2025 (276 games through Week 16)
+v0.3.1 - ESPN API Integration for Independent Edge Research
 
-Key findings from model experiments:
-- Linear regression beats boosting for totals (simpler is better)
-- CatBoost's ordered boosting handles NFL data better
-- 16 pairs of highly correlated features identified (multicollinearity)
-- Vegas lines (spread_line, total_line) are already highly predictive
+CRITICAL FINDING: All models are highly correlated with Vegas (r=0.91-0.98)
+- Logistic: 100% agreement with Vegas, r=0.980
+- RandomForest: 100% agreement, r=0.980
+- CatBoost: 94% agreement, r=0.977
+- XGBoost: 81% agreement, r=0.914
+
+This means we have NO independent edge - we're just following the market.
+
+NEW IN v0.3.1:
+- ESPN API data fetcher for real-time injuries, depth charts, odds
+- Week 16 2025 analysis with injury data for all 32 teams
+- Research documentation on alternative data sources
+- Identified potential edge sources: injuries, line movement, weather
+
+NEXT STEPS (v0.4.0):
+- Build features WITHOUT market-derived data (spread_line, implied_prob)
+- Track line movement for sharp money indicators
+- Integrate real-time injury timing advantage
 """
 
 # Tuned hyperparameters per model (from Optuna optimization)
