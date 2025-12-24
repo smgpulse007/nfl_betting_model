@@ -1,0 +1,222 @@
+{
+  "base": [
+    {
+      "feature": "total_wins",
+      "correlation": 1.0,
+      "p_value": 0.0
+    },
+    {
+      "feature": "total_winPercentage",
+      "correlation": 1.0,
+      "p_value": 0.0
+    },
+    {
+      "feature": "total_winPercent",
+      "correlation": 1.0,
+      "p_value": 0.0
+    },
+    {
+      "feature": "total_leagueWinPercent",
+      "correlation": 1.0,
+      "p_value": 0.0
+    },
+    {
+      "feature": "total_losses",
+      "correlation": -0.9958799293702179,
+      "p_value": 0.0
+    },
+    {
+      "feature": "total_pointDifferential",
+      "correlation": 0.7811758140028108,
+      "p_value": 0.0
+    },
+    {
+      "feature": "total_differential",
+      "correlation": 0.7811758140028108,
+      "p_value": 0.0
+    },
+    {
+      "feature": "home_winPercent",
+      "correlation": 0.6258215230341487,
+      "p_value": 0.0
+    },
+    {
+      "feature": "home_winPercentage",
+      "correlation": 0.6258215230341487,
+      "p_value": 0.0
+    },
+    {
+      "feature": "home_wins",
+      "correlation": 0.6258215230341487,
+      "p_value": 0.0
+    }
+  ],
+  "differential": [
+    {
+      "feature": "diff_total_winPercent",
+      "correlation": 0.999035059279939,
+      "p_value": 0.0
+    },
+    {
+      "feature": "diff_total_differential",
+      "correlation": 0.7817268807409824,
+      "p_value": 0.0
+    },
+    {
+      "feature": "diff_total_pointsAgainst",
+      "correlation": -0.7817268807409824,
+      "p_value": 0.0
+    },
+    {
+      "feature": "diff_total_pointsFor",
+      "correlation": 0.7817268807409824,
+      "p_value": 0.0
+    },
+    {
+      "feature": "diff_point_diff_trend",
+      "correlation": 0.22829043681905792,
+      "p_value": 4.294225544558586e-146
+    },
+    {
+      "feature": "diff_points_scored_trend",
+      "correlation": 0.20435757296023357,
+      "p_value": 7.64136603598961e-117
+    },
+    {
+      "feature": "diff_win_streak",
+      "correlation": 0.1985673581526015,
+      "p_value": 1.2564714410176505e-110
+    },
+    {
+      "feature": "diff_points_allowed_trend",
+      "correlation": -0.13087064258311312,
+      "p_value": 2.0084944256344396e-48
+    }
+  ],
+  "opponent": [
+    {
+      "feature": "opp_total_winPercent",
+      "correlation": -0.9961420993409418,
+      "p_value": 0.0
+    },
+    {
+      "feature": "opp_total_differential",
+      "correlation": -0.7817268807409824,
+      "p_value": 0.0
+    },
+    {
+      "feature": "opp_total_pointsFor",
+      "correlation": -0.5662357929028391,
+      "p_value": 0.0
+    },
+    {
+      "feature": "opp_total_pointsAgainst",
+      "correlation": 0.5658788639664303,
+      "p_value": 0.0
+    },
+    {
+      "feature": "opp_point_diff_trend",
+      "correlation": -0.15931119567756782,
+      "p_value": 3.3117492997382603e-71
+    },
+    {
+      "feature": "opp_points_scored_trend",
+      "correlation": -0.1413313138803526,
+      "p_value": 2.7879235334810398e-56
+    },
+    {
+      "feature": "opp_win_streak",
+      "correlation": -0.13937281356724596,
+      "p_value": 6.64547032057514e-55
+    },
+    {
+      "feature": "opp_points_allowed_trend",
+      "correlation": 0.09042934153626112,
+      "p_value": 6.519104729515478e-24
+    }
+  ],
+  "rolling": [
+    {
+      "feature": "diff_total_differential_roll5",
+      "correlation": 0.26294045192394083,
+      "p_value": 7.367673791766208e-195
+    },
+    {
+      "feature": "diff_total_pointsFor_roll5",
+      "correlation": 0.2383777145408428,
+      "p_value": 1.7077376985292186e-159
+    },
+    {
+      "feature": "diff_total_differential_roll3",
+      "correlation": 0.22829043681905792,
+      "p_value": 4.294225544558586e-146
+    },
+    {
+      "feature": "diff_total_pointsFor_roll3",
+      "correlation": 0.20435757296023357,
+      "p_value": 7.64136603598961e-117
+    },
+    {
+      "feature": "opp_total_differential_roll5",
+      "correlation": -0.18505708060650164,
+      "p_value": 7.591607543316806e-96
+    },
+    {
+      "feature": "total_pointDifferential_roll5",
+      "correlation": 0.18398325996763112,
+      "p_value": 2.63025340355274e-103
+    },
+    {
+      "feature": "total_differential_roll5",
+      "correlation": 0.18398325996763112,
+      "p_value": 2.63025340355274e-103
+    },
+    {
+      "feature": "total_pointDifferential_std",
+      "correlation": 0.18242467985604044,
+      "p_value": 1.0182690783901864e-95
+    },
+    {
+      "feature": "total_differential_std",
+      "correlation": 0.18242467985604044,
+      "p_value": 1.0182690783901864e-95
+    },
+    {
+      "feature": "total_leagueWinPercent_roll5",
+      "correlation": 0.16756659170264693,
+      "p_value": 9.00324972011042e-86
+    }
+  ],
+  "streak": [
+    {
+      "feature": "streak_20plus",
+      "correlation": 0.16706264847201788,
+      "p_value": 2.9194707860535383e-85
+    },
+    {
+      "feature": "streak_30plus",
+      "correlation": 0.15986302502731495,
+      "p_value": 3.872595940903325e-78
+    },
+    {
+      "feature": "point_diff_trend",
+      "correlation": 0.1560164440711905,
+      "p_value": 1.815035892226069e-74
+    },
+    {
+      "feature": "points_scored_trend",
+      "correlation": 0.14002206562842912,
+      "p_value": 3.3594547812208674e-60
+    },
+    {
+      "feature": "win_streak",
+      "correlation": 0.1342090406514647,
+      "p_value": 1.506855507915997e-55
+    },
+    {
+      "feature": "points_allowed_trend",
+      "correlation": -0.08646640082279755,
+      "p_value": 7.110398712694574e-24
+    }
+  ]
+}

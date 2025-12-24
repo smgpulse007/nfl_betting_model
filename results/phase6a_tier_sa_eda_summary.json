@@ -1,0 +1,115 @@
+{
+  "total_features": 20,
+  "significant_features": 15,
+  "mean_abs_correlation": 0.05405082258486423,
+  "median_abs_correlation": 0.05289369437528543,
+  "category_stats": {
+    "mean_abs_r": {
+      "tier_sa_base": 0.0513,
+      "tier_sa_differential": 0.0629,
+      "tier_sa_opponent": 0.0492
+    },
+    "median_abs_r": {
+      "tier_sa_base": 0.0522,
+      "tier_sa_differential": 0.0687,
+      "tier_sa_opponent": 0.0511
+    },
+    "max_abs_r": {
+      "tier_sa_base": 0.0776,
+      "tier_sa_differential": 0.1154,
+      "tier_sa_opponent": 0.0808
+    },
+    "total_count": {
+      "tier_sa_base": 7,
+      "tier_sa_differential": 6,
+      "tier_sa_opponent": 7
+    },
+    "significant_count": {
+      "tier_sa_base": 6,
+      "tier_sa_differential": 4,
+      "tier_sa_opponent": 5
+    }
+  },
+  "top_10_features": [
+    {
+      "feature": "diff_cpoe_3wk",
+      "correlation": 0.11535405776878423,
+      "p_value": 9.730903527575583e-13
+    },
+    {
+      "feature": "opp_qb_out",
+      "correlation": 0.08080508183012661,
+      "p_value": 1.3101355988374461e-12
+    },
+    {
+      "feature": "diff_injury_impact",
+      "correlation": -0.07802870312525151,
+      "p_value": 7.661222205130679e-12
+    },
+    {
+      "feature": "opp_cpoe_3wk",
+      "correlation": -0.07797671221589457,
+      "p_value": 1.0381993643686267e-06
+    },
+    {
+      "feature": "qb_out",
+      "correlation": -0.07764110803363344,
+      "p_value": 2.6767687404022967e-12
+    },
+    {
+      "feature": "cpoe_3wk",
+      "correlation": 0.07619028753212312,
+      "p_value": 5.18388778429976e-07
+    },
+    {
+      "feature": "diff_pressure_rate_3wk",
+      "correlation": -0.0750759061237589,
+      "p_value": 2.4366903345776972e-05
+    },
+    {
+      "feature": "diff_separation_3wk",
+      "correlation": 0.06223628364999838,
+      "p_value": 0.00015561925578345064
+    },
+    {
+      "feature": "pressure_rate_3wk",
+      "correlation": -0.05504536516155563,
+      "p_value": 0.0013854538062637197
+    },
+    {
+      "feature": "opp_injury_impact",
+      "correlation": 0.05361025093384448,
+      "p_value": 2.580030507426865e-06
+    }
+  ],
+  "coverage": {
+    "cpoe_3wk": {
+      "non_null": 4330,
+      "pct": 31.69838945827233
+    },
+    "time_to_throw_3wk": {
+      "non_null": 4330,
+      "pct": 31.69838945827233
+    },
+    "pressure_rate_3wk": {
+      "non_null": 3372,
+      "pct": 24.685212298682284
+    },
+    "injury_impact": {
+      "non_null": 8092,
+      "pct": 59.23865300146412
+    },
+    "qb_out": {
+      "non_null": 8092,
+      "pct": 59.23865300146412
+    },
+    "ryoe_3wk": {
+      "non_null": 2954,
+      "pct": 21.625183016105417
+    },
+    "separation_3wk": {
+      "non_null": 4262,
+      "pct": 31.20058565153733
+    }
+  }
+}

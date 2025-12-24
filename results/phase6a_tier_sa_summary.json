@@ -1,0 +1,39 @@
+{
+  "timestamp": "2025-12-24T12:34:32.638538",
+  "total_rows": 13660,
+  "total_features": 584,
+  "tier_sa_features_added": 7,
+  "opponent_tier_sa_features": 7,
+  "differential_features": 6,
+  "tier_sa_coverage": {
+    "cpoe_3wk": {
+      "non_null": 4330,
+      "pct": 31.69838945827233
+    },
+    "time_to_throw_3wk": {
+      "non_null": 4330,
+      "pct": 31.69838945827233
+    },
+    "pressure_rate_3wk": {
+      "non_null": 3372,
+      "pct": 24.685212298682284
+    },
+    "injury_impact": {
+      "non_null": 8092,
+      "pct": 59.23865300146412
+    },
+    "qb_out": {
+      "non_null": 8092,
+      "pct": 59.23865300146412
+    },
+    "ryoe_3wk": {
+      "non_null": 2954,
+      "pct": 21.625183016105417
+    },
+    "separation_3wk": {
+      "non_null": 4262,
+      "pct": 31.20058565153733
+    }
+  },
+  "output_file": "..\\results\\game_level_features_complete_with_tier_sa.parquet"
+}

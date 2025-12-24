@@ -1,0 +1,9 @@
+{
+  "timestamp": "2025-12-24T12:19:13.594706",
+  "total_rows": 13564,
+  "total_features": 564,
+  "opponent_features": 14,
+  "differential_features": 14,
+  "contextual_features": 2,
+  "output_file": "..\\results\\game_level_features_with_opponents.parquet"
+}

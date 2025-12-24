@@ -36,6 +36,18 @@ try:
 except ImportError:
     show_phase4_eda = None
 
+# Import Phase 5D Game-Level EDA dashboard
+try:
+    from phase5d_game_level_eda_dashboard import show_phase5d_game_level_eda
+except ImportError:
+    show_phase5d_game_level_eda = None
+
+# Import Phase 6 Feature Engineering dashboard
+try:
+    from phase6_feature_engineering_dashboard import show_phase6_feature_engineering
+except ImportError:
+    show_phase6_feature_engineering = None
+
 # Page config
 st.set_page_config(
     page_title=f"NFL Betting Model v{VERSION}",
@@ -91,7 +103,10 @@ def main():
         "Select Section",
         ["📊 Overview", "📈 Feature Profiling", "🔥 Feature Importance",
          "🎯 Model Performance", "📅 2025 Validation", "💰 Backtest Results",
-         "🧪 Model Experiments", "🔬 Deep Analysis", "📊 Phase 4: Historical EDA (1999-2024)"]
+         "🧪 Model Experiments", "🔬 Deep Analysis",
+         "📊 Phase 4: Historical EDA (1999-2024)",
+         "🎮 Phase 5D: Game-Level EDA (1999-2024)",
+         "🔧 Phase 6: Feature Engineering (1999-2024)"]
     )
 
     # Sidebar - Baseline metrics
@@ -136,6 +151,16 @@ def main():
             show_phase4_eda()
         else:
             st.error("Phase 4 EDA module not available. Check phase4_eda_dashboard.py exists.")
+    elif page == "🎮 Phase 5D: Game-Level EDA (1999-2024)":
+        if show_phase5d_game_level_eda is not None:
+            show_phase5d_game_level_eda()
+        else:
+            st.error("Phase 5D Game-Level EDA module not available. Check phase5d_game_level_eda_dashboard.py exists.")
+    elif page == "🔧 Phase 6: Feature Engineering (1999-2024)":
+        if show_phase6_feature_engineering is not None:
+            show_phase6_feature_engineering()
+        else:
+            st.error("Phase 6 Feature Engineering module not available. Check phase6_feature_engineering_dashboard.py exists.")
 
 
 def show_overview(results, pred_2024, pred_2025):

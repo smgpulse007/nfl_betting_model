@@ -1,0 +1,6 @@
+category,mean_abs_r,median_abs_r,max_abs_r,significant_count,total_count
+differential,0.5133,0.505,0.999,8,8
+opponent,0.4301,0.3626,0.9961,8,8
+base,0.2223,0.1466,1.0,184,256
+streak,0.1406,0.148,0.1671,6,6
+rolling,0.1161,0.1157,0.2629,162,162

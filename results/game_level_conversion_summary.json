@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-12-24T12:50:25.099062",
+  "input_rows": 13660,
+  "input_features": 584,
+  "output_rows": 6636,
+  "output_features": 1160,
+  "home_features": 577,
+  "away_features": 577,
+  "date_range": {
+    "min": "1999-09-01 00:00:00",
+    "max": "2024-12-29 00:00:00"
+  },
+  "year_range": {
+    "min": 1999,
+    "max": 2024
+  },
+  "home_win_rate": 0.5646473779385172,
+  "output_file": "..\\results\\game_level_predictions_dataset.parquet"
+}

@@ -1,0 +1,77 @@
+v0.3.1: ESPN API Integration & Comprehensive Model Validation
+
+## Summary
+Completed comprehensive validation of moneyline model on 2025 Week 1-16 data (251 games),
+integrated ESPN API for independent data sources, and identified path to improve accuracy
+from 68.5% to 75%+ by reducing Vegas dependency.
+
+## Model Performance (2025 Weeks 1-16)
+- Moneyline: 68.5% accuracy (172/251), beats Vegas 67.3% by +1.2%
+- High-confidence picks (80%+): 90% accuracy (34/38 games)
+- Spread: 52.2% accuracy (minimal edge over 50% baseline)
+- Totals: 50.6% accuracy (essentially random)
+
+## Key Findings
+1. XGBoost has proven edge on moneyline, especially high-confidence picks
+2. Vegas correlation = 0.932 (too high - needs reduction to <0.85)
+3. High-confidence picks = only 15% of games (need 25%+)
+4. Week 16 validation: XGBoost 73.3% vs Vegas 60% (+13.3% edge)
+
+## ESPN API Integration
+- Researched and documented ESPN's hidden public API
+- Built espn_independent_data.py wrapper (tested & working)
+- Identified 323 independent stats per team (279 team stats + 44 record stats)
+- Endpoints: team statistics, team records, roster/injuries, game summaries
+
+## Feature Audit
+- Identified 13 Vegas-dependent features (spread, total, moneyline odds)
+- Identified 73 independent features (TIER S+A: CPOE, pressure, RYOE, separation, injuries)
+- Missing: live 2025 injury data (currently imputed from 2024 medians)
+- Missing: team offensive/defensive stats, QB/RB/WR performance, home/away splits
+
+## Data Quality Issues
+- 2025 injury data imputed from 2024 medians (not real-time)
+- nfl-data-py has stale/incorrect odds for 2025 (SF @ IND had 8-point swing)
+- Advanced metrics (CPOE, pressure, RYOE) imputed for 2025 games
+- ESPN API only provides current week live data, not historical weeks
+
+## Enhancement Roadmap (v0.4.0)
+Phase 1 (Week 1): Data collection from ESPN API
+Phase 2 (Week 2): Feature engineering with statistical validation
+Phase 3 (Week 3): Model retraining with new features
+Phase 4 (Week 4): Production deployment with monitoring dashboard
+
+## Success Metrics
+- Overall accuracy: 75%+ (vs current 68.5%)
+- High-confidence accuracy: 90%+ on 80%+ picks (maintain)
+- High-confidence volume: 25% of games (vs current 15%)
+- Vegas correlation: <0.85 (vs current 0.932)
+
+## Files Added
+- ESPN_API_RESEARCH.md - Comprehensive ESPN API documentation
+- MONEYLINE_ENHANCEMENT_PLAN.md - 4-week implementation roadmap
+- 2025_ACCURACY_REPORT.md - Detailed accuracy analysis
+- espn_independent_data.py - ESPN API wrapper (tested & working)
+- audit_current_features.py - Feature dependency analysis
+- analyze_2025_accuracy.py - Full 2025 evaluation script
+- prepare_2025_full_dataset.py - Complete data pipeline
+- results/2025_week1_16_evaluation.csv - Full predictions & results
+
+## Files Modified
+- README.md - Updated with v0.3.1 status, performance metrics, roadmap
+- espn_game_api.py - Enhanced with injury extraction
+
+## Strategic Philosophy
+The goal is NOT to ignore Vegas lines, but to:
+1. Identify genuine independent edges that Vegas doesn't capture
+2. Leverage Vegas information strategically (baseline, not feature)
+3. Build feature-rich dataset with rigorous statistical validation
+4. Scrutinize every feature addition with significance testing
+
+## Next Steps
+1. Create feature branch: feature/moneyline-enhancement-v2
+2. Fetch ESPN data for all 32 teams (2024 & 2025)
+3. Engineer new features with statistical validation
+4. Retrain model and validate on 2025 data
+5. Create Streamlit dashboard for feature tracking
+

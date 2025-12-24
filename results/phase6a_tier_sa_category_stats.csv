@@ -1,0 +1,4 @@
+category,mean_abs_r,median_abs_r,max_abs_r,total_count,significant_count
+tier_sa_base,0.0513,0.0522,0.0776,7,6
+tier_sa_differential,0.0629,0.0687,0.1154,6,4
+tier_sa_opponent,0.0492,0.0511,0.0808,7,5

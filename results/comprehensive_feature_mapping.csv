@@ -1,0 +1,324 @@
+espn_feature,feature_type,category,confidence,nfl_data_py_source,derivation_formula,years_available,notes
+general_fumbles,general,EXACT MATCH,High,play-by-play,pbp['fumble'].sum() or pbp['fumble_lost'].sum(),1999-2024,Can derive from play-by-play
+general_fumblesLost,general,EXACT MATCH,High,play-by-play,pbp['fumble'].sum() or pbp['fumble_lost'].sum(),1999-2024,Can derive from play-by-play
+general_fumblesForced,general,EXACT MATCH,High,play-by-play,pbp['fumble'].sum() or pbp['fumble_lost'].sum(),1999-2024,Can derive from play-by-play
+general_fumblesRecovered,general,EXACT MATCH,High,play-by-play,pbp['fumble'].sum() or pbp['fumble_lost'].sum(),1999-2024,Can derive from play-by-play
+general_fumblesTouchdowns,general,EXACT MATCH,High,play-by-play,pbp['fumble'].sum() or pbp['fumble_lost'].sum(),1999-2024,Can derive from play-by-play
+general_gamesPlayed,general,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: gamesPlayed
+general_offensiveTwoPtReturns,general,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: offensiveTwoPtReturns
+general_offensiveFumblesTouchdowns,general,EXACT MATCH,High,play-by-play,pbp['fumble'].sum() or pbp['fumble_lost'].sum(),1999-2024,Can derive from play-by-play
+general_defensiveFumblesTouchdowns,general,EXACT MATCH,High,play-by-play,pbp['fumble'].sum() or pbp['fumble_lost'].sum(),1999-2024,Can derive from play-by-play
+general_totalPenalties,general,EXACT MATCH,High,play-by-play,pbp['penalty'].sum(),1999-2024,Can derive from play-by-play
+general_totalPenaltyYards,general,EXACT MATCH,High,play-by-play,pbp['penalty'].sum(),1999-2024,Can derive from play-by-play
+passing_avgGain,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: avgGain
+passing_completionPct,passing,EXACT MATCH,High,play-by-play,pbp['complete_pass'].sum() / pbp['pass_attempt'].sum() * 100,1999-2024,Completion percentage
+passing_completions,passing,EXACT MATCH,High,play-by-play,pbp['complete_pass'].sum(),1999-2024,Count of completed passes
+passing_ESPNQBRating,passing,CANNOT DERIVE,N/A,play-by-play,N/A - ESPN proprietary metric,2024-2025 (ESPN only),ESPN QBR is proprietary
+passing_interceptionPct,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: interceptionPct
+passing_interceptions,passing,EXACT MATCH,High,play-by-play,pbp['interception'].sum(),1999-2024,Count of interceptions thrown
+passing_longPassing,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: longPassing
+passing_miscYards,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: miscYards
+passing_netPassingYards,passing,EXACT MATCH,High,play-by-play,pbp[pbp['play_type']=='pass']['yards_gained'].sum(),1999-2024,Sum of yards_gained on pass plays
+passing_netPassingYardsPerGame,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: netPassingYardsPerGame
+passing_netTotalYards,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: netTotalYards
+passing_netYardsPerGame,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: netYardsPerGame
+passing_passingAttempts,passing,EXACT MATCH,High,play-by-play,pbp['pass_attempt'].sum(),1999-2024,Count of pass attempts
+passing_passingBigPlays,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: passingBigPlays
+passing_passingFirstDowns,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: passingFirstDowns
+passing_passingFumbles,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: passingFumbles
+passing_passingFumblesLost,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: passingFumblesLost
+passing_passingTouchdownPct,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: passingTouchdownPct
+passing_passingTouchdowns,passing,EXACT MATCH,High,play-by-play,pbp['pass_touchdown'].sum(),1999-2024,Count of passing TDs
+passing_passingYards,passing,EXACT MATCH,High,play-by-play,pbp[pbp['play_type']=='pass']['yards_gained'].sum(),1999-2024,Sum of yards_gained on pass plays
+passing_passingYardsAfterCatch,passing,EXACT MATCH,High,play-by-play,pbp[pbp['complete_pass']==1]['yards_after_catch'].sum(),2006-2024,YAC available from 2006+
+passing_passingYardsAtCatch,passing,EXACT MATCH,High,play-by-play,pbp[pbp['complete_pass']==1]['air_yards'].sum(),2006-2024,Air yards available from 2006+
+passing_passingYardsPerGame,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: passingYardsPerGame
+passing_QBRating,passing,CLOSE APPROXIMATION,Medium,play-by-play,"Calculate from completions, attempts, yards, TDs, INTs using NFL formula",1999-2024,Can calculate from basic stats
+passing_sacks,passing,EXACT MATCH,High,play-by-play,pbp['sack'].sum(),1999-2024,Count of sacks taken
+passing_sackYardsLost,passing,EXACT MATCH,High,play-by-play,abs(pbp[pbp['sack']==1]['yards_gained'].sum()),1999-2024,Yards lost on sacks
+passing_netPassingAttempts,passing,EXACT MATCH,High,play-by-play,pbp['pass_attempt'].sum(),1999-2024,Count of pass attempts
+passing_teamGamesPlayed,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: teamGamesPlayed
+passing_totalOffensivePlays,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalOffensivePlays
+passing_totalPoints,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalPoints
+passing_totalPointsPerGame,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalPointsPerGame
+passing_totalTouchdowns,passing,EXACT MATCH,High,play-by-play,pbp['pass_touchdown'].sum(),1999-2024,Count of passing TDs
+passing_totalYards,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalYards
+passing_totalYardsFromScrimmage,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalYardsFromScrimmage
+passing_twoPointPassConvs,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: twoPointPassConvs
+passing_twoPtPass,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: twoPtPass
+passing_twoPtPassAttempts,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: twoPtPassAttempts
+passing_yardsFromScrimmagePerGame,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: yardsFromScrimmagePerGame
+passing_yardsPerCompletion,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: yardsPerCompletion
+passing_yardsPerGame,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: yardsPerGame
+passing_yardsPerPassAttempt,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: yardsPerPassAttempt
+passing_netYardsPerPassAttempt,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: netYardsPerPassAttempt
+passing_quarterbackRating,passing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: quarterbackRating
+rushing_avgGain,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: avgGain
+rushing_ESPNRBRating,rushing,CANNOT DERIVE,N/A,play-by-play,N/A - ESPN proprietary metric,2024-2025 (ESPN only),ESPN RB Rating is proprietary
+rushing_longRushing,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: longRushing
+rushing_miscYards,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: miscYards
+rushing_netTotalYards,rushing,EXACT MATCH,High,play-by-play,pbp[pbp['play_type']=='run']['yards_gained'].sum(),1999-2024,Sum of yards_gained on rush plays
+rushing_netYardsPerGame,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: netYardsPerGame
+rushing_rushingAttempts,rushing,EXACT MATCH,High,play-by-play,pbp['rush_attempt'].sum(),1999-2024,Count of rush attempts
+rushing_rushingBigPlays,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: rushingBigPlays
+rushing_rushingFirstDowns,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: rushingFirstDowns
+rushing_rushingFumbles,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: rushingFumbles
+rushing_rushingFumblesLost,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: rushingFumblesLost
+rushing_rushingTouchdowns,rushing,EXACT MATCH,High,play-by-play,pbp['rush_touchdown'].sum(),1999-2024,Count of rushing TDs
+rushing_rushingYards,rushing,EXACT MATCH,High,play-by-play,pbp[pbp['play_type']=='run']['yards_gained'].sum(),1999-2024,Sum of yards_gained on rush plays
+rushing_rushingYardsPerGame,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: rushingYardsPerGame
+rushing_stuffs,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: stuffs
+rushing_stuffYardsLost,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: stuffYardsLost
+rushing_teamGamesPlayed,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: teamGamesPlayed
+rushing_totalOffensivePlays,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalOffensivePlays
+rushing_totalPoints,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalPoints
+rushing_totalPointsPerGame,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalPointsPerGame
+rushing_totalTouchdowns,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalTouchdowns
+rushing_totalYards,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalYards
+rushing_totalYardsFromScrimmage,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalYardsFromScrimmage
+rushing_twoPointRushConvs,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: twoPointRushConvs
+rushing_twoPtRush,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: twoPtRush
+rushing_twoPtRushAttempts,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: twoPtRushAttempts
+rushing_yardsFromScrimmagePerGame,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: yardsFromScrimmagePerGame
+rushing_yardsPerGame,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: yardsPerGame
+rushing_yardsPerRushAttempt,rushing,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: yardsPerRushAttempt
+receiving_avgGain,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: avgGain
+receiving_ESPNWRRating,receiving,CANNOT DERIVE,N/A,play-by-play,N/A - ESPN proprietary metric,2024-2025 (ESPN only),ESPN WR Rating is proprietary
+receiving_longReception,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: longReception
+receiving_miscYards,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: miscYards
+receiving_netTotalYards,receiving,EXACT MATCH,High,play-by-play,pbp[pbp['complete_pass']==1]['yards_gained'].sum(),1999-2024,Same as passing yards (team perspective)
+receiving_netYardsPerGame,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: netYardsPerGame
+receiving_receivingBigPlays,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: receivingBigPlays
+receiving_receivingFirstDowns,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: receivingFirstDowns
+receiving_receivingFumbles,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: receivingFumbles
+receiving_receivingFumblesLost,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: receivingFumblesLost
+receiving_receivingTargets,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: receivingTargets
+receiving_receivingTouchdowns,receiving,EXACT MATCH,High,play-by-play,pbp['pass_touchdown'].sum(),1999-2024,Same as passing TDs
+receiving_receivingYards,receiving,EXACT MATCH,High,play-by-play,pbp[pbp['complete_pass']==1]['yards_gained'].sum(),1999-2024,Same as passing yards (team perspective)
+receiving_receivingYardsAfterCatch,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: receivingYardsAfterCatch
+receiving_receivingYardsAtCatch,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: receivingYardsAtCatch
+receiving_receivingYardsPerGame,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: receivingYardsPerGame
+receiving_receptions,receiving,EXACT MATCH,High,play-by-play,pbp['complete_pass'].sum(),1999-2024,Same as completions
+receiving_teamGamesPlayed,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: teamGamesPlayed
+receiving_totalOffensivePlays,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalOffensivePlays
+receiving_totalPoints,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalPoints
+receiving_totalPointsPerGame,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalPointsPerGame
+receiving_totalTouchdowns,receiving,EXACT MATCH,High,play-by-play,pbp['pass_touchdown'].sum(),1999-2024,Same as passing TDs
+receiving_totalYards,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalYards
+receiving_totalYardsFromScrimmage,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalYardsFromScrimmage
+receiving_twoPointRecConvs,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: twoPointRecConvs
+receiving_twoPtReception,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: twoPtReception
+receiving_twoPtReceptionAttempts,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: twoPtReceptionAttempts
+receiving_yardsFromScrimmagePerGame,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: yardsFromScrimmagePerGame
+receiving_yardsPerGame,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: yardsPerGame
+receiving_yardsPerReception,receiving,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: yardsPerReception
+defensive_assistTackles,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: assistTackles
+defensive_avgInterceptionYards,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: avgInterceptionYards
+defensive_avgSackYards,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: avgSackYards
+defensive_avgStuffYards,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: avgStuffYards
+defensive_blockedFieldGoalTouchdowns,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: blockedFieldGoalTouchdowns
+defensive_blockedPuntTouchdowns,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: blockedPuntTouchdowns
+defensive_defensiveTouchdowns,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: defensiveTouchdowns
+defensive_hurries,defensive,CANNOT DERIVE,N/A,play-by-play,N/A - Not in play-by-play,2024-2025 (ESPN only),QB hurries not tracked in nfl-data-py
+defensive_kicksBlocked,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: kicksBlocked
+defensive_longInterception,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: longInterception
+defensive_miscTouchdowns,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: miscTouchdowns
+defensive_passesBattedDown,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: passesBattedDown
+defensive_passesDefended,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: passesDefended
+defensive_twoPtReturns,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: twoPtReturns
+defensive_sacks,defensive,EXACT MATCH,High,play-by-play,pbp[pbp['defteam']==team]['sack'].sum(),1999-2024,Sacks by defense
+defensive_sackYards,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: sackYards
+defensive_safeties,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: safeties
+defensive_soloTackles,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: soloTackles
+defensive_stuffs,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: stuffs
+defensive_stuffYards,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: stuffYards
+defensive_tacklesForLoss,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: tacklesForLoss
+defensive_teamGamesPlayed,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: teamGamesPlayed
+defensive_totalTackles,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalTackles
+defensive_yardsAllowed,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: yardsAllowed
+defensive_pointsAllowed,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: pointsAllowed
+defensive_onePtSafetiesMade,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: onePtSafetiesMade
+defensive_missedFieldGoalReturnTd,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: missedFieldGoalReturnTd
+defensive_blockedPuntEzRecTd,defensive,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: blockedPuntEzRecTd
+defensiveInterceptions_interceptions,defensiveInterceptions,EXACT MATCH,High,play-by-play,pbp[pbp['defteam']==team]['interception'].sum(),1999-2024,Interceptions by defense
+defensiveInterceptions_interceptionTouchdowns,defensiveInterceptions,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: interceptionTouchdowns
+defensiveInterceptions_interceptionYards,defensiveInterceptions,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: interceptionYards
+kicking_avgKickoffReturnYards,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+kicking_avgKickoffYards,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+kicking_extraPointAttempts,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_extraPointPct,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_extraPointsBlocked,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_extraPointsBlockedPct,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_extraPointsMade,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fairCatches,kicking,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: fairCatches
+kicking_fairCatchPct,kicking,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: fairCatchPct
+kicking_fieldGoalAttempts,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fieldGoalAttempts1_19,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fieldGoalAttempts20_29,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fieldGoalAttempts30_39,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fieldGoalAttempts40_49,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fieldGoalAttempts50_59,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fieldGoalAttempts60_99,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fieldGoalAttempts50,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fieldGoalAttemptYards,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fieldGoalPct,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fieldGoalsBlocked,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fieldGoalsBlockedPct,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fieldGoalsMade,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fieldGoalsMade1_19,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fieldGoalsMade20_29,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fieldGoalsMade30_39,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fieldGoalsMade40_49,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fieldGoalsMade50_59,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fieldGoalsMade60_99,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fieldGoalsMade50,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fieldGoalsMadeYards,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_fieldGoalsMissedYards,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['field_goal_attempt']==1 or pbp['extra_point_attempt']==1],1999-2024,Can derive from play-by-play
+kicking_kickoffReturns,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+kicking_kickoffReturnTouchdowns,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+kicking_kickoffReturnYards,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+kicking_kickoffs,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+kicking_kickoffYards,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+kicking_longFieldGoalAttempt,kicking,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: longFieldGoalAttempt
+kicking_longFieldGoalMade,kicking,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: longFieldGoalMade
+kicking_longKickoff,kicking,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+kicking_teamGamesPlayed,kicking,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: teamGamesPlayed
+kicking_totalKickingPoints,kicking,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalKickingPoints
+kicking_touchbackPct,kicking,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: touchbackPct
+kicking_touchbacks,kicking,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: touchbacks
+returning_defFumbleReturns,returning,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+returning_defFumbleReturnYards,returning,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+returning_fumbleRecoveries,returning,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: fumbleRecoveries
+returning_fumbleRecoveryYards,returning,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: fumbleRecoveryYards
+returning_kickReturnFairCatches,returning,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+returning_kickReturnFairCatchPct,returning,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+returning_kickReturnFumbles,returning,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+returning_kickReturnFumblesLost,returning,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+returning_kickReturns,returning,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+returning_kickReturnTouchdowns,returning,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+returning_kickReturnYards,returning,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+returning_longKickReturn,returning,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+returning_longPuntReturn,returning,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+returning_miscFumbleReturns,returning,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+returning_miscFumbleReturnYards,returning,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+returning_oppFumbleRecoveries,returning,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: oppFumbleRecoveries
+returning_oppFumbleRecoveryYards,returning,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: oppFumbleRecoveryYards
+returning_oppSpecialTeamFumbleReturns,returning,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+returning_oppSpecialTeamFumbleReturnYards,returning,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+returning_puntReturnFairCatches,returning,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+returning_puntReturnFairCatchPct,returning,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+returning_puntReturnFumbles,returning,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+returning_puntReturnFumblesLost,returning,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+returning_puntReturns,returning,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+returning_puntReturnsStartedInsideThe10,returning,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+returning_puntReturnsStartedInsideThe20,returning,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+returning_puntReturnTouchdowns,returning,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+returning_puntReturnYards,returning,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+returning_specialTeamFumbleReturns,returning,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+returning_specialTeamFumbleReturnYards,returning,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+returning_teamGamesPlayed,returning,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: teamGamesPlayed
+returning_yardsPerKickReturn,returning,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+returning_yardsPerPuntReturn,returning,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+returning_yardsPerReturn,returning,EXACT MATCH,High,play-by-play,pbp[pbp['kickoff_attempt']==1 or pbp['return']==1],1999-2024,Can derive from play-by-play
+punting_avgPuntReturnYards,punting,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+punting_fairCatches,punting,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: fairCatches
+punting_grossAvgPuntYards,punting,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+punting_longPunt,punting,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+punting_netAvgPuntYards,punting,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+punting_puntReturns,punting,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+punting_puntReturnYards,punting,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+punting_punts,punting,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+punting_puntsBlocked,punting,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+punting_puntsBlockedPct,punting,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+punting_puntsInside10,punting,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+punting_puntsInside10Pct,punting,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+punting_puntsInside20,punting,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+punting_puntsInside20Pct,punting,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+punting_puntYards,punting,EXACT MATCH,High,play-by-play,pbp[pbp['punt_attempt']==1],1999-2024,Can derive from play-by-play
+punting_teamGamesPlayed,punting,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: teamGamesPlayed
+punting_touchbackPct,punting,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: touchbackPct
+punting_touchbacks,punting,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: touchbacks
+scoring_defensivePoints,scoring,EXACT MATCH,High,play-by-play,pbp['touchdown'].sum() or pbp['field_goal_result']=='made',1999-2024,Can derive from play-by-play scoring plays
+scoring_fieldGoals,scoring,EXACT MATCH,High,play-by-play,pbp['touchdown'].sum() or pbp['field_goal_result']=='made',1999-2024,Can derive from play-by-play scoring plays
+scoring_kickExtraPoints,scoring,EXACT MATCH,High,play-by-play,pbp['touchdown'].sum() or pbp['field_goal_result']=='made',1999-2024,Can derive from play-by-play scoring plays
+scoring_kickExtraPointsMade,scoring,EXACT MATCH,High,play-by-play,pbp['touchdown'].sum() or pbp['field_goal_result']=='made',1999-2024,Can derive from play-by-play scoring plays
+scoring_miscPoints,scoring,EXACT MATCH,High,play-by-play,pbp['touchdown'].sum() or pbp['field_goal_result']=='made',1999-2024,Can derive from play-by-play scoring plays
+scoring_passingTouchdowns,scoring,EXACT MATCH,High,play-by-play,pbp['touchdown'].sum() or pbp['field_goal_result']=='made',1999-2024,Can derive from play-by-play scoring plays
+scoring_receivingTouchdowns,scoring,EXACT MATCH,High,play-by-play,pbp['touchdown'].sum() or pbp['field_goal_result']=='made',1999-2024,Can derive from play-by-play scoring plays
+scoring_returnTouchdowns,scoring,EXACT MATCH,High,play-by-play,pbp['touchdown'].sum() or pbp['field_goal_result']=='made',1999-2024,Can derive from play-by-play scoring plays
+scoring_rushingTouchdowns,scoring,EXACT MATCH,High,play-by-play,pbp['touchdown'].sum() or pbp['field_goal_result']=='made',1999-2024,Can derive from play-by-play scoring plays
+scoring_totalPoints,scoring,EXACT MATCH,High,play-by-play,pbp['touchdown'].sum() or pbp['field_goal_result']=='made',1999-2024,Can derive from play-by-play scoring plays
+scoring_totalPointsPerGame,scoring,EXACT MATCH,High,play-by-play,pbp['touchdown'].sum() or pbp['field_goal_result']=='made',1999-2024,Can derive from play-by-play scoring plays
+scoring_totalTouchdowns,scoring,EXACT MATCH,High,play-by-play,pbp['touchdown'].sum() or pbp['field_goal_result']=='made',1999-2024,Can derive from play-by-play scoring plays
+scoring_totalTwoPointConvs,scoring,EXACT MATCH,High,play-by-play,pbp['touchdown'].sum() or pbp['field_goal_result']=='made',1999-2024,Can derive from play-by-play scoring plays
+scoring_twoPointPassConvs,scoring,EXACT MATCH,High,play-by-play,pbp['touchdown'].sum() or pbp['field_goal_result']=='made',1999-2024,Can derive from play-by-play scoring plays
+scoring_twoPointRecConvs,scoring,EXACT MATCH,High,play-by-play,pbp['touchdown'].sum() or pbp['field_goal_result']=='made',1999-2024,Can derive from play-by-play scoring plays
+scoring_twoPointRushConvs,scoring,EXACT MATCH,High,play-by-play,pbp['touchdown'].sum() or pbp['field_goal_result']=='made',1999-2024,Can derive from play-by-play scoring plays
+scoring_onePtSafetiesMade,scoring,EXACT MATCH,High,play-by-play,pbp['touchdown'].sum() or pbp['field_goal_result']=='made',1999-2024,Can derive from play-by-play scoring plays
+miscellaneous_firstDowns,miscellaneous,EXACT MATCH,High,play-by-play,pbp['first_down'].sum(),1999-2024,Can derive from play-by-play
+miscellaneous_firstDownsPassing,miscellaneous,EXACT MATCH,High,play-by-play,pbp['first_down'].sum(),1999-2024,Can derive from play-by-play
+miscellaneous_firstDownsPenalty,miscellaneous,EXACT MATCH,High,play-by-play,pbp['first_down'].sum(),1999-2024,Can derive from play-by-play
+miscellaneous_firstDownsPerGame,miscellaneous,EXACT MATCH,High,play-by-play,pbp['first_down'].sum(),1999-2024,Can derive from play-by-play
+miscellaneous_firstDownsRushing,miscellaneous,EXACT MATCH,High,play-by-play,pbp['first_down'].sum(),1999-2024,Can derive from play-by-play
+miscellaneous_fourthDownAttempts,miscellaneous,EXACT MATCH,High,play-by-play,pbp[pbp['down']==3 or pbp['down']==4],1999-2024,Can derive from down/distance data
+miscellaneous_fourthDownConvPct,miscellaneous,EXACT MATCH,High,play-by-play,pbp[pbp['down']==3 or pbp['down']==4],1999-2024,Can derive from down/distance data
+miscellaneous_fourthDownConvs,miscellaneous,EXACT MATCH,High,play-by-play,pbp[pbp['down']==3 or pbp['down']==4],1999-2024,Can derive from down/distance data
+miscellaneous_fumblesLost,miscellaneous,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: fumblesLost
+miscellaneous_possessionTimeSeconds,miscellaneous,EXACT MATCH,High,play-by-play,pbp.groupby('posteam')['game_seconds_remaining'].diff(),1999-2024,Can calculate from play timestamps
+miscellaneous_redzoneEfficiencyPct,miscellaneous,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: redzoneEfficiencyPct
+miscellaneous_redzoneFieldGoalPct,miscellaneous,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: redzoneFieldGoalPct
+miscellaneous_redzoneScoringPct,miscellaneous,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: redzoneScoringPct
+miscellaneous_redzoneTouchdownPct,miscellaneous,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: redzoneTouchdownPct
+miscellaneous_thirdDownAttempts,miscellaneous,EXACT MATCH,High,play-by-play,pbp[pbp['down']==3 or pbp['down']==4],1999-2024,Can derive from down/distance data
+miscellaneous_thirdDownConvPct,miscellaneous,EXACT MATCH,High,play-by-play,pbp[pbp['down']==3 or pbp['down']==4],1999-2024,Can derive from down/distance data
+miscellaneous_thirdDownConvs,miscellaneous,EXACT MATCH,High,play-by-play,pbp[pbp['down']==3 or pbp['down']==4],1999-2024,Can derive from down/distance data
+miscellaneous_totalGiveaways,miscellaneous,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalGiveaways
+miscellaneous_totalPenalties,miscellaneous,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalPenalties
+miscellaneous_totalPenaltyYards,miscellaneous,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalPenaltyYards
+miscellaneous_totalTakeaways,miscellaneous,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalTakeaways
+miscellaneous_totalDrives,miscellaneous,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: totalDrives
+miscellaneous_turnOverDifferential,miscellaneous,PARTIAL MATCH,Low,play-by-play,TBD,1999-2024,Need to analyze: turnOverDifferential
+total_OTLosses,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_OTWins,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_avgPointsAgainst,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_avgPointsFor,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_clincher,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_differential,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_divisionWinPercent,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_gamesBehind,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_gamesPlayed,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_leagueWinPercent,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_losses,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_playoffSeed,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_pointDifferential,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_points,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_pointsAgainst,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_pointsFor,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_streak,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_ties,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_winPercent,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_wins,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_divisionLosses,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_divisionRecord,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_divisionTies,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+total_divisionWins,total,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+home_wins,home,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+home_losses,home,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+home_ties,home,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+home_winPercent,home,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+home_OTLosses,home,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+road_wins,road,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+road_losses,road,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+road_ties,road,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+road_winPercent,road,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+road_OTLosses,road,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+vsdiv_divisionWins,vsdiv,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+vsdiv_divisionLosses,vsdiv,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+vsdiv_divisionTies,vsdiv,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+vsdiv_divisionWinPercent,vsdiv,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+vsdiv_OTLosses,vsdiv,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+vsconf_wins,vsconf,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+vsconf_losses,vsconf,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+vsconf_ties,vsconf,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+vsconf_leagueWinPercent,vsconf,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results
+vsconf_OTLosses,vsconf,EXACT MATCH,High,schedules,Calculate from schedule results,1999-2024,Can derive from game results

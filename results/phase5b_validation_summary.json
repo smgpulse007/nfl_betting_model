@@ -1,0 +1,12 @@
+{
+  "total_features_compared": 183,
+  "mean_correlation": 0.9585551296293883,
+  "median_correlation": 0.9999999999999999,
+  "min_correlation": 0.3780680188076504,
+  "max_correlation": 1.0,
+  "perfect_correlations": 134,
+  "excellent_correlations": 156,
+  "good_correlations": 167,
+  "poor_correlations": 16,
+  "validation_passed": false
+}

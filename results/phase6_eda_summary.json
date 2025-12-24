@@ -1,0 +1,34 @@
+{
+  "timestamp": "2025-12-24T12:21:57.340446",
+  "total_rows": 13564,
+  "total_features": 564,
+  "feature_categories": {
+    "base": 380,
+    "rolling": 162,
+    "opponent": 14,
+    "differential": 14,
+    "streak": 15
+  },
+  "missing_values": {
+    "features_with_missing": 185,
+    "total_features": 564,
+    "pct_complete": 67.19858156028369
+  },
+  "predictive_power": {
+    "total_analyzed": 440,
+    "significant_features": 368,
+    "mean_abs_correlation": 0.18674120058759958,
+    "top_10_features": [
+      "total_wins",
+      "total_winPercentage",
+      "total_winPercent",
+      "total_leagueWinPercent",
+      "diff_total_winPercent",
+      "opp_total_winPercent",
+      "total_losses",
+      "opp_total_differential",
+      "diff_total_differential",
+      "diff_total_pointsAgainst"
+    ]
+  }
+}

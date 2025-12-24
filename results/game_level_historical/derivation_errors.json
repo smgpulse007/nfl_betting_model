@@ -1,0 +1,38 @@
+[
+  {
+    "year": 1999,
+    "game_id": "1999_01_BAL_STL",
+    "team": "BAL",
+    "error": "No play-by-play data found for game_id: 1999_01_BAL_STL"
+  },
+  {
+    "year": 1999,
+    "game_id": "1999_01_BAL_STL",
+    "team": "STL",
+    "error": "No play-by-play data found for game_id: 1999_01_BAL_STL"
+  },
+  {
+    "year": 2000,
+    "game_id": "2000_03_SD_KC",
+    "team": "SD",
+    "error": "No play-by-play data found for game_id: 2000_03_SD_KC"
+  },
+  {
+    "year": 2000,
+    "game_id": "2000_03_SD_KC",
+    "team": "KC",
+    "error": "No play-by-play data found for game_id: 2000_03_SD_KC"
+  },
+  {
+    "year": 2000,
+    "game_id": "2000_06_BUF_MIA",
+    "team": "BUF",
+    "error": "No play-by-play data found for game_id: 2000_06_BUF_MIA"
+  },
+  {
+    "year": 2000,
+    "game_id": "2000_06_BUF_MIA",
+    "team": "MIA",
+    "error": "No play-by-play data found for game_id: 2000_06_BUF_MIA"
+  }
+]

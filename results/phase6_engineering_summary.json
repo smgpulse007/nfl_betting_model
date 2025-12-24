@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-12-24T12:15:41.549744",
+  "total_rows": 13564,
+  "total_features": 532,
+  "base_features": 191,
+  "rolling_features": 150,
+  "streak_features": 6,
+  "top_features_used": [
+    "total_winPercent",
+    "total_leagueWinPercent",
+    "total_wins",
+    "total_losses",
+    "total_differential",
+    "total_pointDifferential",
+    "home_wins",
+    "home_winPercent",
+    "road_losses",
+    "total_pointsAgainst"
+  ],
+  "output_file": "..\\results\\game_level_features_engineered.parquet"
+}
