@@ -1,0 +1,12 @@
+{
+  "dataset_shape": [
+    829,
+    193
+  ],
+  "years_covered": "1999-2024",
+  "unique_teams": 35,
+  "total_features": 191,
+  "highly_skewed_features": 54,
+  "significant_temporal_trends": 163,
+  "high_correlation_pairs": 1118
+}

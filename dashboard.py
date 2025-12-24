@@ -30,6 +30,12 @@ except ImportError:
     DESCRIPTION = "NFL Betting Model with TIER S+A features"
     BASELINE_METRICS = None
 
+# Import Phase 4 EDA dashboard
+try:
+    from phase4_eda_dashboard import show_phase4_eda
+except ImportError:
+    show_phase4_eda = None
+
 # Page config
 st.set_page_config(
     page_title=f"NFL Betting Model v{VERSION}",
@@ -85,7 +91,7 @@ def main():
         "Select Section",
         ["📊 Overview", "📈 Feature Profiling", "🔥 Feature Importance",
          "🎯 Model Performance", "📅 2025 Validation", "💰 Backtest Results",
-         "🧪 Model Experiments", "🔬 Deep Analysis"]
+         "🧪 Model Experiments", "🔬 Deep Analysis", "📊 Phase 4: Historical EDA (1999-2024)"]
     )
 
     # Sidebar - Baseline metrics
@@ -125,6 +131,11 @@ def main():
         show_model_experiments()
     elif page == "🔬 Deep Analysis":
         show_deep_analysis()
+    elif page == "📊 Phase 4: Historical EDA (1999-2024)":
+        if show_phase4_eda is not None:
+            show_phase4_eda()
+        else:
+            st.error("Phase 4 EDA module not available. Check phase4_eda_dashboard.py exists.")
 
 
 def show_overview(results, pred_2024, pred_2025):
