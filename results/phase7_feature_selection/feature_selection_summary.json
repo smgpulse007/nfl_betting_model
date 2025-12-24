@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-12-24T13:27:08.952220",
+  "total_features": 1147,
+  "selected_features": 150,
+  "selection_methods": {
+    "variance_threshold": 993,
+    "top_correlation": 300,
+    "top_mutual_info": 250,
+    "top_rf_importance": 200,
+    "top_xgb_importance": 150
+  },
+  "train_size": 6084,
+  "val_size": 280,
+  "test_size": 272
+}
