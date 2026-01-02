@@ -1,0 +1,20 @@
+{
+  "status": "IN_PROGRESS",
+  "historical_data": {
+    "file": "pregame_features_1999_2024.parquet",
+    "games": 6636,
+    "features": 224,
+    "seasons": "1999-2024"
+  },
+  "2025_data": {
+    "available": true,
+    "games": 480,
+    "approach_documented": true
+  },
+  "next_steps": [
+    "Derive or locate 2025 pre-game features",
+    "Validate no data leakage",
+    "Combine with historical data",
+    "Proceed to feature selection"
+  ]
+}

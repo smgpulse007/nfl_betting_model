@@ -1,0 +1,427 @@
+[
+  {
+    "feature_1": "home_diff_point_diff_trend",
+    "feature_2": "away_diff_point_diff_trend",
+    "correlation": -1.0
+  },
+  {
+    "feature_1": "away_opp_point_diff_trend",
+    "feature_2": "home_point_diff_trend",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "home_opp_points_allowed_trend",
+    "feature_2": "away_points_allowed_trend",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "home_opp_points_allowed_trend",
+    "feature_2": "home_opp_total_pointsAgainst_roll3",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "away_opp_points_allowed_trend",
+    "feature_2": "home_points_allowed_trend",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "away_opp_points_allowed_trend",
+    "feature_2": "away_opp_total_pointsAgainst_roll3",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "home_opp_points_scored_trend",
+    "feature_2": "away_points_scored_trend",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "home_opp_points_scored_trend",
+    "feature_2": "home_opp_total_pointsFor_roll3",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "away_opp_points_scored_trend",
+    "feature_2": "home_points_scored_trend",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "home_diff_point_diff_trend",
+    "feature_2": "home_diff_total_differential_roll3",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "home_opp_win_streak",
+    "feature_2": "away_win_streak",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "away_opp_win_streak",
+    "feature_2": "home_win_streak",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "home_point_diff_trend",
+    "feature_2": "away_opp_total_differential_roll3",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "home_points_allowed_trend",
+    "feature_2": "away_opp_total_pointsAgainst_roll3",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "away_points_allowed_trend",
+    "feature_2": "home_opp_total_pointsAgainst_roll3",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "home_points_scored_trend",
+    "feature_2": "away_opp_total_pointsFor_roll3",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "away_points_scored_trend",
+    "feature_2": "home_opp_total_pointsFor_roll3",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "home_diff_total_differential",
+    "feature_2": "away_diff_total_differential",
+    "correlation": -1.0
+  },
+  {
+    "feature_1": "home_diff_total_differential_roll3",
+    "feature_2": "away_diff_total_differential_roll3",
+    "correlation": -1.0
+  },
+  {
+    "feature_1": "home_diff_total_differential_roll5",
+    "feature_2": "away_diff_total_differential_roll5",
+    "correlation": -1.0
+  },
+  {
+    "feature_1": "home_diff_total_pointsAgainst",
+    "feature_2": "away_diff_total_pointsAgainst",
+    "correlation": -1.0
+  },
+  {
+    "feature_1": "home_diff_total_pointsAgainst_roll3",
+    "feature_2": "away_diff_total_pointsAgainst_roll3",
+    "correlation": -1.0
+  },
+  {
+    "feature_1": "home_diff_total_pointsAgainst_roll5",
+    "feature_2": "away_diff_total_pointsAgainst_roll5",
+    "correlation": -1.0
+  },
+  {
+    "feature_1": "home_diff_total_pointsFor",
+    "feature_2": "away_diff_total_pointsFor",
+    "correlation": -1.0
+  },
+  {
+    "feature_1": "home_diff_total_pointsFor_roll3",
+    "feature_2": "away_diff_total_pointsFor_roll3",
+    "correlation": -1.0
+  },
+  {
+    "feature_1": "home_diff_total_pointsFor_roll5",
+    "feature_2": "away_diff_total_pointsFor_roll5",
+    "correlation": -1.0
+  },
+  {
+    "feature_1": "home_diff_total_winPercent",
+    "feature_2": "away_diff_total_winPercent",
+    "correlation": -1.0
+  },
+  {
+    "feature_1": "away_opp_point_diff_trend",
+    "feature_2": "away_opp_total_differential_roll3",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "away_opp_points_scored_trend",
+    "feature_2": "away_opp_total_pointsFor_roll3",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "home_diff_points_allowed_trend",
+    "feature_2": "home_diff_total_pointsAgainst_roll3",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "home_diff_points_scored_trend",
+    "feature_2": "away_diff_total_pointsFor_roll3",
+    "correlation": -1.0
+  },
+  {
+    "feature_1": "home_diff_point_diff_trend",
+    "feature_2": "away_diff_total_differential_roll3",
+    "correlation": -1.0
+  },
+  {
+    "feature_1": "away_diff_point_diff_trend",
+    "feature_2": "home_diff_total_differential_roll3",
+    "correlation": -1.0
+  },
+  {
+    "feature_1": "away_diff_point_diff_trend",
+    "feature_2": "away_diff_total_differential_roll3",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "home_diff_points_allowed_trend",
+    "feature_2": "away_diff_points_allowed_trend",
+    "correlation": -1.0
+  },
+  {
+    "feature_1": "home_diff_points_allowed_trend",
+    "feature_2": "away_diff_total_pointsAgainst_roll3",
+    "correlation": -1.0
+  },
+  {
+    "feature_1": "away_diff_points_allowed_trend",
+    "feature_2": "home_diff_total_pointsAgainst_roll3",
+    "correlation": -1.0
+  },
+  {
+    "feature_1": "away_diff_points_allowed_trend",
+    "feature_2": "away_diff_total_pointsAgainst_roll3",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "home_diff_points_scored_trend",
+    "feature_2": "away_diff_points_scored_trend",
+    "correlation": -1.0
+  },
+  {
+    "feature_1": "home_diff_points_scored_trend",
+    "feature_2": "home_diff_total_pointsFor_roll3",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "home_div_game",
+    "feature_2": "away_div_game",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "home_opp_point_diff_trend",
+    "feature_2": "away_point_diff_trend",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "away_diff_points_scored_trend",
+    "feature_2": "home_diff_total_pointsFor_roll3",
+    "correlation": -1.0
+  },
+  {
+    "feature_1": "away_diff_points_scored_trend",
+    "feature_2": "away_diff_total_pointsFor_roll3",
+    "correlation": 1.0
+  },
+  {
+    "feature_1": "home_diff_win_streak",
+    "feature_2": "away_diff_win_streak",
+    "correlation": -1.0
+  },
+  {
+    "feature_1": "home_opp_point_diff_trend",
+    "feature_2": "home_opp_total_differential_roll3",
+    "correlation": 0.9999999999999998
+  },
+  {
+    "feature_1": "away_point_diff_trend",
+    "feature_2": "home_opp_total_differential_roll3",
+    "correlation": 0.9999999999999998
+  },
+  {
+    "feature_1": "away_opp_total_differential_roll3",
+    "feature_2": "away_opp_total_differential_roll5",
+    "correlation": 0.9720163280235877
+  },
+  {
+    "feature_1": "home_point_diff_trend",
+    "feature_2": "away_opp_total_differential_roll5",
+    "correlation": 0.9720163280235877
+  },
+  {
+    "feature_1": "away_opp_point_diff_trend",
+    "feature_2": "away_opp_total_differential_roll5",
+    "correlation": 0.9720163280235877
+  },
+  {
+    "feature_1": "home_opp_total_differential_roll3",
+    "feature_2": "home_opp_total_differential_roll5",
+    "correlation": 0.9688754579800656
+  },
+  {
+    "feature_1": "home_opp_point_diff_trend",
+    "feature_2": "home_opp_total_differential_roll5",
+    "correlation": 0.9688754579800654
+  },
+  {
+    "feature_1": "away_point_diff_trend",
+    "feature_2": "home_opp_total_differential_roll5",
+    "correlation": 0.9688754579800654
+  },
+  {
+    "feature_1": "home_diff_point_diff_trend",
+    "feature_2": "home_diff_total_differential_roll5",
+    "correlation": 0.9671154352072513
+  },
+  {
+    "feature_1": "home_diff_point_diff_trend",
+    "feature_2": "away_diff_total_differential_roll5",
+    "correlation": -0.9671154352072513
+  },
+  {
+    "feature_1": "away_diff_point_diff_trend",
+    "feature_2": "home_diff_total_differential_roll5",
+    "correlation": -0.9671154352072513
+  },
+  {
+    "feature_1": "away_diff_point_diff_trend",
+    "feature_2": "away_diff_total_differential_roll5",
+    "correlation": 0.9671154352072513
+  },
+  {
+    "feature_1": "home_diff_total_differential_roll3",
+    "feature_2": "away_diff_total_differential_roll5",
+    "correlation": -0.9671154352072509
+  },
+  {
+    "feature_1": "away_diff_total_differential_roll3",
+    "feature_2": "home_diff_total_differential_roll5",
+    "correlation": -0.9671154352072509
+  },
+  {
+    "feature_1": "away_diff_total_differential_roll3",
+    "feature_2": "away_diff_total_differential_roll5",
+    "correlation": 0.9671154352072509
+  },
+  {
+    "feature_1": "home_diff_total_differential_roll3",
+    "feature_2": "home_diff_total_differential_roll5",
+    "correlation": 0.9671154352072509
+  },
+  {
+    "feature_1": "home_streak_20plus",
+    "feature_2": "home_streak_30plus",
+    "correlation": 0.9398300968874705
+  },
+  {
+    "feature_1": "away_streak_20plus",
+    "feature_2": "away_streak_30plus",
+    "correlation": 0.9383710038466051
+  },
+  {
+    "feature_1": "away_diff_points_scored_trend",
+    "feature_2": "home_diff_total_pointsFor_roll5",
+    "correlation": -0.93528296067931
+  },
+  {
+    "feature_1": "home_diff_total_pointsFor_roll3",
+    "feature_2": "away_diff_total_pointsFor_roll5",
+    "correlation": -0.93528296067931
+  },
+  {
+    "feature_1": "away_diff_points_scored_trend",
+    "feature_2": "away_diff_total_pointsFor_roll5",
+    "correlation": 0.93528296067931
+  },
+  {
+    "feature_1": "home_diff_points_scored_trend",
+    "feature_2": "home_diff_total_pointsFor_roll5",
+    "correlation": 0.93528296067931
+  },
+  {
+    "feature_1": "home_diff_points_scored_trend",
+    "feature_2": "away_diff_total_pointsFor_roll5",
+    "correlation": -0.93528296067931
+  },
+  {
+    "feature_1": "away_diff_total_pointsFor_roll3",
+    "feature_2": "away_diff_total_pointsFor_roll5",
+    "correlation": 0.93528296067931
+  },
+  {
+    "feature_1": "away_diff_total_pointsFor_roll3",
+    "feature_2": "home_diff_total_pointsFor_roll5",
+    "correlation": -0.93528296067931
+  },
+  {
+    "feature_1": "home_diff_total_pointsFor_roll3",
+    "feature_2": "home_diff_total_pointsFor_roll5",
+    "correlation": 0.93528296067931
+  },
+  {
+    "feature_1": "away_diff_points_allowed_trend",
+    "feature_2": "away_diff_total_pointsAgainst_roll5",
+    "correlation": 0.9285635701111671
+  },
+  {
+    "feature_1": "away_diff_points_allowed_trend",
+    "feature_2": "home_diff_total_pointsAgainst_roll5",
+    "correlation": -0.9285635701111671
+  },
+  {
+    "feature_1": "home_diff_points_allowed_trend",
+    "feature_2": "away_diff_total_pointsAgainst_roll5",
+    "correlation": -0.9285635701111671
+  },
+  {
+    "feature_1": "home_diff_points_allowed_trend",
+    "feature_2": "home_diff_total_pointsAgainst_roll5",
+    "correlation": 0.9285635701111671
+  },
+  {
+    "feature_1": "away_diff_total_pointsAgainst_roll3",
+    "feature_2": "away_diff_total_pointsAgainst_roll5",
+    "correlation": 0.9285635701111671
+  },
+  {
+    "feature_1": "away_diff_total_pointsAgainst_roll3",
+    "feature_2": "home_diff_total_pointsAgainst_roll5",
+    "correlation": -0.9285635701111671
+  },
+  {
+    "feature_1": "home_diff_total_pointsAgainst_roll3",
+    "feature_2": "away_diff_total_pointsAgainst_roll5",
+    "correlation": -0.9285635701111671
+  },
+  {
+    "feature_1": "home_diff_total_pointsAgainst_roll3",
+    "feature_2": "home_diff_total_pointsAgainst_roll5",
+    "correlation": 0.9285635701111671
+  },
+  {
+    "feature_1": "home_points_scored_trend",
+    "feature_2": "away_opp_total_pointsFor_roll5",
+    "correlation": 0.9090692224996607
+  },
+  {
+    "feature_1": "away_opp_points_scored_trend",
+    "feature_2": "away_opp_total_pointsFor_roll5",
+    "correlation": 0.9090692224996607
+  },
+  {
+    "feature_1": "away_opp_total_pointsFor_roll3",
+    "feature_2": "away_opp_total_pointsFor_roll5",
+    "correlation": 0.9090692224996607
+  },
+  {
+    "feature_1": "home_opp_total_pointsFor_roll3",
+    "feature_2": "home_opp_total_pointsFor_roll5",
+    "correlation": 0.9058168601207266
+  },
+  {
+    "feature_1": "away_points_scored_trend",
+    "feature_2": "home_opp_total_pointsFor_roll5",
+    "correlation": 0.9058168601207266
+  },
+  {
+    "feature_1": "home_opp_points_scored_trend",
+    "feature_2": "home_opp_total_pointsFor_roll5",
+    "correlation": 0.9058168601207266
+  }
+]

@@ -1,0 +1,2050 @@
+{
+  "XGBoost": [
+    {
+      "feature": "home_diff_total_differential",
+      "importance_mean": 0.02070175438596491,
+      "importance_std": 0.018194936368370784
+    },
+    {
+      "feature": "home_diff_total_pointsFor",
+      "importance_mean": 0.0007017543859649145,
+      "importance_std": 0.006036719485643966
+    },
+    {
+      "feature": "away_diff_total_pointsAgainst_roll3",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_diff_total_pointsFor_roll3",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_diff_total_pointsFor_roll3",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_divisionTies",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_divisionTies",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_divisionLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_divisionLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_OTLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_opp_total_differential_roll3",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_opp_total_differential_roll3",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_OTLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsconf_wins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsconf_wins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsconf_ties",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_rest_advantage",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_opp_total_pointsAgainst_roll3",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsconf_ties",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsconf_losses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsconf_losses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_opp_total_pointsFor_roll3",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_opp_total_pointsFor_roll3",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsconf_leagueWinPercent",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsconf_leagueWinPercent",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsconf_OTLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsconf_OTLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_scored_20plus",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_scored_20plus",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_scored_30plus",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_scored_30plus",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_opp_total_pointsAgainst_roll3",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_divisionWinPercent",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_diff_total_pointsAgainst_roll3",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_points_scored_trend",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_rest_advantage",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_div_game",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_wins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_wins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_diff_win_streak",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_ties",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_ties",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_losses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_losses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_divisionWins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_point_diff_trend",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_points_allowed_trend",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_points_allowed_trend",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_point_diff_trend",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_points_scored_trend",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_divisionWins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_diff_total_pointsAgainst",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_divisionWinPercent",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_win_streak",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_diff_total_differential_roll3",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_diff_total_differential_roll3",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_win_streak",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_streak_20plus",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_streak_20plus",
+      "importance_mean": -0.00035087719298245725,
+      "importance_std": 0.0010526315789473716
+    },
+    {
+      "feature": "home_diff_total_pointsAgainst_roll5",
+      "importance_mean": -0.0010526315789473716,
+      "importance_std": 0.003157894736842115
+    },
+    {
+      "feature": "away_diff_total_differential_roll5",
+      "importance_mean": -0.001403508771929829,
+      "importance_std": 0.004759529812719501
+    },
+    {
+      "feature": "home_diff_total_pointsAgainst",
+      "importance_mean": -0.001403508771929829,
+      "importance_std": 0.0028070175438596576
+    },
+    {
+      "feature": "away_diff_total_pointsFor",
+      "importance_mean": -0.001403508771929829,
+      "importance_std": 0.0028070175438596576
+    },
+    {
+      "feature": "away_opp_point_diff_trend",
+      "importance_mean": -0.0017543859649122862,
+      "importance_std": 0.0035954213213893436
+    },
+    {
+      "feature": "home_div_game",
+      "importance_mean": -0.0021052631578947433,
+      "importance_std": 0.0028070175438596576
+    },
+    {
+      "feature": "away_streak_30plus",
+      "importance_mean": -0.0021052631578947433,
+      "importance_std": 0.0017189401703741655
+    },
+    {
+      "feature": "away_opp_win_streak",
+      "importance_mean": -0.0024561403508772004,
+      "importance_std": 0.0027404384827742732
+    },
+    {
+      "feature": "away_opp_points_scored_trend",
+      "importance_mean": -0.002807017543859658,
+      "importance_std": 0.0030588764516074995
+    },
+    {
+      "feature": "home_opp_total_pointsAgainst_roll5",
+      "importance_mean": -0.002807017543859658,
+      "importance_std": 0.0021052631578947437
+    },
+    {
+      "feature": "home_diff_total_winPercent",
+      "importance_mean": -0.002807017543859658,
+      "importance_std": 0.0026257244819466335
+    },
+    {
+      "feature": "away_opp_total_pointsAgainst",
+      "importance_mean": -0.003157894736842115,
+      "importance_std": 0.002456140350877201
+    },
+    {
+      "feature": "away_diff_total_pointsAgainst_roll5",
+      "importance_mean": -0.003157894736842115,
+      "importance_std": 0.0039851988391580995
+    },
+    {
+      "feature": "home_opp_total_differential",
+      "importance_mean": -0.0038596491228070295,
+      "importance_std": 0.004823763889427215
+    },
+    {
+      "feature": "home_opp_points_allowed_trend",
+      "importance_mean": -0.004912280701754401,
+      "importance_std": 0.005011528721784472
+    },
+    {
+      "feature": "home_opp_point_diff_trend",
+      "importance_mean": -0.004912280701754401,
+      "importance_std": 0.004210526315789487
+    },
+    {
+      "feature": "away_diff_total_differential",
+      "importance_mean": -0.004912280701754401,
+      "importance_std": 0.005251448963893267
+    },
+    {
+      "feature": "home_diff_total_differential_roll5",
+      "importance_mean": -0.005263157894736847,
+      "importance_std": 0.0063255285534455875
+    },
+    {
+      "feature": "home_diff_points_allowed_trend",
+      "importance_mean": -0.0052631578947368585,
+      "importance_std": 0.0028288623678240613
+    },
+    {
+      "feature": "home_streak_30plus",
+      "importance_mean": -0.005964912280701773,
+      "importance_std": 0.0027404384827742732
+    },
+    {
+      "feature": "home_opp_total_pointsFor_roll5",
+      "importance_mean": -0.005964912280701773,
+      "importance_std": 0.003157894736842115
+    },
+    {
+      "feature": "home_opp_total_winPercent",
+      "importance_mean": -0.005964912280701773,
+      "importance_std": 0.003157894736842115
+    },
+    {
+      "feature": "home_diff_points_scored_trend",
+      "importance_mean": -0.00631578947368423,
+      "importance_std": 0.0021052631578947433
+    },
+    {
+      "feature": "away_diff_points_scored_trend",
+      "importance_mean": -0.00631578947368423,
+      "importance_std": 0.0026257244819466335
+    },
+    {
+      "feature": "away_opp_total_winPercent",
+      "importance_mean": -0.00631578947368423,
+      "importance_std": 0.004091896066558119
+    },
+    {
+      "feature": "away_opp_points_allowed_trend",
+      "importance_mean": -0.007017543859649145,
+      "importance_std": 0.004438284435324055
+    },
+    {
+      "feature": "away_diff_total_winPercent",
+      "importance_mean": -0.007368421052631602,
+      "importance_std": 0.00291460486418179
+    },
+    {
+      "feature": "home_diff_total_pointsFor_roll5",
+      "importance_mean": -0.007719298245614059,
+      "importance_std": 0.005390277717802549
+    },
+    {
+      "feature": "away_opp_total_differential",
+      "importance_mean": -0.008070175438596505,
+      "importance_std": 0.008310680198124226
+    },
+    {
+      "feature": "away_opp_total_pointsFor_roll5",
+      "importance_mean": -0.008070175438596516,
+      "importance_std": 0.002246710258748375
+    },
+    {
+      "feature": "home_diff_win_streak",
+      "importance_mean": -0.008421052631578963,
+      "importance_std": 0.004759529812719472
+    },
+    {
+      "feature": "away_diff_points_allowed_trend",
+      "importance_mean": -0.008421052631578973,
+      "importance_std": 0.002327455993231867
+    },
+    {
+      "feature": "away_opp_total_pointsAgainst_roll5",
+      "importance_mean": -0.008421052631578973,
+      "importance_std": 0.0035782593077844215
+    },
+    {
+      "feature": "away_opp_total_pointsFor",
+      "importance_mean": -0.008421052631578973,
+      "importance_std": 0.0035782593077844215
+    },
+    {
+      "feature": "away_diff_total_pointsFor_roll5",
+      "importance_mean": -0.00877192982456142,
+      "importance_std": 0.006127806735639632
+    },
+    {
+      "feature": "home_opp_points_scored_trend",
+      "importance_mean": -0.009473684210526346,
+      "importance_std": 0.002246710258748375
+    },
+    {
+      "feature": "away_diff_point_diff_trend",
+      "importance_mean": -0.009824561403508802,
+      "importance_std": 0.00662033763653097
+    },
+    {
+      "feature": "home_opp_total_pointsFor",
+      "importance_mean": -0.009824561403508802,
+      "importance_std": 0.0037790630225505413
+    },
+    {
+      "feature": "home_opp_total_pointsAgainst",
+      "importance_mean": -0.010526315789473717,
+      "importance_std": 0.0027178830499701256
+    },
+    {
+      "feature": "home_diff_point_diff_trend",
+      "importance_mean": -0.011929824561403535,
+      "importance_std": 0.005480876965548528
+    },
+    {
+      "feature": "away_opp_total_differential_roll5",
+      "importance_mean": -0.011929824561403546,
+      "importance_std": 0.00449342051749675
+    },
+    {
+      "feature": "home_opp_total_differential_roll5",
+      "importance_mean": -0.0168421052631579,
+      "importance_std": 0.006803761203391315
+    },
+    {
+      "feature": "home_opp_win_streak",
+      "importance_mean": -0.017543859649122816,
+      "importance_std": 0.003508771929824528
+    }
+  ],
+  "LightGBM": [
+    {
+      "feature": "away_diff_total_differential",
+      "importance_mean": 0.02035087719298251,
+      "importance_std": 0.012825029391225996
+    },
+    {
+      "feature": "away_diff_point_diff_trend",
+      "importance_mean": 0.011228070175438632,
+      "importance_std": 0.00964752777885443
+    },
+    {
+      "feature": "away_opp_total_differential_roll5",
+      "importance_mean": 0.010877192982456175,
+      "importance_std": 0.006920379973093361
+    },
+    {
+      "feature": "away_diff_total_winPercent",
+      "importance_mean": 0.00877192982456143,
+      "importance_std": 0.004772445792538767
+    },
+    {
+      "feature": "away_opp_total_pointsFor_roll5",
+      "importance_mean": 0.007368421052631602,
+      "importance_std": 0.004283001970432891
+    },
+    {
+      "feature": "home_diff_total_winPercent",
+      "importance_mean": 0.0038596491228070295,
+      "importance_std": 0.006920379973093362
+    },
+    {
+      "feature": "home_diff_total_differential",
+      "importance_mean": 0.0035087719298245723,
+      "importance_std": 0.014720124184844235
+    },
+    {
+      "feature": "home_diff_total_pointsFor",
+      "importance_mean": 0.0035087719298245723,
+      "importance_std": 0.004151634935508516
+    },
+    {
+      "feature": "away_opp_total_pointsFor",
+      "importance_mean": 0.003157894736842115,
+      "importance_std": 0.004283001970432891
+    },
+    {
+      "feature": "home_diff_total_pointsAgainst_roll5",
+      "importance_mean": 0.002807017543859658,
+      "importance_std": 0.004091896066558119
+    },
+    {
+      "feature": "home_win_streak",
+      "importance_mean": 0.002807017543859658,
+      "importance_std": 0.004091896066558119
+    },
+    {
+      "feature": "away_opp_total_pointsAgainst_roll3",
+      "importance_mean": 0.0024561403508772004,
+      "importance_std": 0.00445213247033318
+    },
+    {
+      "feature": "home_opp_total_differential_roll3",
+      "importance_mean": 0.0021052631578947433,
+      "importance_std": 0.002327455993231867
+    },
+    {
+      "feature": "away_opp_total_pointsFor_roll3",
+      "importance_mean": 0.0021052631578947433,
+      "importance_std": 0.00449342051749675
+    },
+    {
+      "feature": "away_diff_total_pointsFor",
+      "importance_mean": 0.0021052631578947433,
+      "importance_std": 0.006507802452979462
+    },
+    {
+      "feature": "away_opp_win_streak",
+      "importance_mean": 0.0017543859649122862,
+      "importance_std": 0.004225120904839415
+    },
+    {
+      "feature": "home_div_game",
+      "importance_mean": 0.001403508771929829,
+      "importance_std": 0.0017189401703741655
+    },
+    {
+      "feature": "home_opp_total_pointsFor_roll3",
+      "importance_mean": 0.001403508771929829,
+      "importance_std": 0.003907203061635115
+    },
+    {
+      "feature": "away_opp_total_winPercent",
+      "importance_mean": 0.0010526315789473827,
+      "importance_std": 0.006479363267585751
+    },
+    {
+      "feature": "away_opp_total_differential",
+      "importance_mean": 0.0010526315789473827,
+      "importance_std": 0.007199398080239721
+    },
+    {
+      "feature": "away_opp_points_scored_trend",
+      "importance_mean": 0.0007017543859649256,
+      "importance_std": 0.005829209728363558
+    },
+    {
+      "feature": "home_opp_win_streak",
+      "importance_mean": 0.0007017543859649145,
+      "importance_std": 0.004654911986463733
+    },
+    {
+      "feature": "home_points_allowed_trend",
+      "importance_mean": 0.00035087719298245725,
+      "importance_std": 0.003310168818265485
+    },
+    {
+      "feature": "away_opp_total_differential_roll3",
+      "importance_mean": 0.00035087719298245725,
+      "importance_std": 0.005072572735017896
+    },
+    {
+      "feature": "home_diff_total_pointsAgainst_roll3",
+      "importance_mean": 0.00035087719298245725,
+      "importance_std": 0.0018895315112752707
+    },
+    {
+      "feature": "away_vsdiv_divisionWinPercent",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_scored_20plus",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_divisionWins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_opp_total_pointsAgainst_roll3",
+      "importance_mean": 0.0,
+      "importance_std": 0.0022191422176620276
+    },
+    {
+      "feature": "home_vsdiv_divisionWins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_divisionLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_scored_20plus",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsconf_leagueWinPercent",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_OTLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsconf_wins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsconf_wins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsconf_ties",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsconf_ties",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsconf_losses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsconf_losses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsconf_leagueWinPercent",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_scored_30plus",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsconf_OTLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsconf_OTLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_streak_30plus",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_streak_20plus",
+      "importance_mean": 0.0,
+      "importance_std": 0.0015691705105261731
+    },
+    {
+      "feature": "away_vsdiv_divisionLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_OTLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_scored_30plus",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_divisionWinPercent",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_rest_advantage",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_divisionTies",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_ties",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_losses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_wins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_wins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_div_game",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_rest_advantage",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_diff_total_pointsFor_roll3",
+      "importance_mean": 0.0,
+      "importance_std": 0.003138341021052346
+    },
+    {
+      "feature": "home_vsdiv_losses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_divisionTies",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_opp_total_differential",
+      "importance_mean": 0.0,
+      "importance_std": 0.0038436670702117043
+    },
+    {
+      "feature": "away_vsdiv_ties",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_diff_points_scored_trend",
+      "importance_mean": -0.00035087719298244614,
+      "importance_std": 0.005536748715108594
+    },
+    {
+      "feature": "away_diff_total_differential_roll5",
+      "importance_mean": -0.00035087719298244614,
+      "importance_std": 0.0059649122807017545
+    },
+    {
+      "feature": "away_diff_total_pointsAgainst_roll3",
+      "importance_mean": -0.00035087719298245725,
+      "importance_std": 0.0010526315789473716
+    },
+    {
+      "feature": "away_opp_points_allowed_trend",
+      "importance_mean": -0.0007017543859649033,
+      "importance_std": 0.005156820511122475
+    },
+    {
+      "feature": "away_diff_points_allowed_trend",
+      "importance_mean": -0.0007017543859649145,
+      "importance_std": 0.0030588764516075
+    },
+    {
+      "feature": "away_win_streak",
+      "importance_mean": -0.0007017543859649145,
+      "importance_std": 0.0030588764516075
+    },
+    {
+      "feature": "home_diff_total_pointsAgainst",
+      "importance_mean": -0.0007017543859649145,
+      "importance_std": 0.003437880340748331
+    },
+    {
+      "feature": "home_opp_total_differential_roll5",
+      "importance_mean": -0.0010526315789473716,
+      "importance_std": 0.005447078840793007
+    },
+    {
+      "feature": "home_opp_point_diff_trend",
+      "importance_mean": -0.0010526315789473716,
+      "importance_std": 0.004452132470333179
+    },
+    {
+      "feature": "home_opp_total_pointsAgainst",
+      "importance_mean": -0.0014035087719298067,
+      "importance_std": 0.007393441230072088
+    },
+    {
+      "feature": "away_diff_total_pointsAgainst",
+      "importance_mean": -0.0014035087719298177,
+      "importance_std": 0.0047595298127194804
+    },
+    {
+      "feature": "home_opp_total_winPercent",
+      "importance_mean": -0.001403508771929829,
+      "importance_std": 0.0032158425929514766
+    },
+    {
+      "feature": "home_opp_points_allowed_trend",
+      "importance_mean": -0.001403508771929829,
+      "importance_std": 0.0035782593077844215
+    },
+    {
+      "feature": "home_streak_30plus",
+      "importance_mean": -0.001403508771929829,
+      "importance_std": 0.0017189401703741655
+    },
+    {
+      "feature": "home_diff_points_scored_trend",
+      "importance_mean": -0.001754385964912275,
+      "importance_std": 0.004507099150408809
+    },
+    {
+      "feature": "away_diff_total_differential_roll3",
+      "importance_mean": -0.0021052631578947325,
+      "importance_std": 0.0059130875601237625
+    },
+    {
+      "feature": "home_point_diff_trend",
+      "importance_mean": -0.0021052631578947433,
+      "importance_std": 0.0028070175438596576
+    },
+    {
+      "feature": "away_diff_total_pointsAgainst_roll5",
+      "importance_mean": -0.0021052631578947433,
+      "importance_std": 0.00449342051749675
+    },
+    {
+      "feature": "home_diff_points_allowed_trend",
+      "importance_mean": -0.0021052631578947433,
+      "importance_std": 0.0023274559932318665
+    },
+    {
+      "feature": "away_diff_total_pointsFor_roll5",
+      "importance_mean": -0.0024561403508771783,
+      "importance_std": 0.006087491779964015
+    },
+    {
+      "feature": "away_opp_point_diff_trend",
+      "importance_mean": -0.0024561403508772004,
+      "importance_std": 0.002246710258748375
+    },
+    {
+      "feature": "home_diff_total_pointsFor_roll3",
+      "importance_mean": -0.0028070175438596246,
+      "importance_std": 0.006036719485643925
+    },
+    {
+      "feature": "home_opp_total_pointsFor_roll5",
+      "importance_mean": -0.0031578947368420818,
+      "importance_std": 0.006364335841128766
+    },
+    {
+      "feature": "away_points_allowed_trend",
+      "importance_mean": -0.003157894736842115,
+      "importance_std": 0.003310168818265485
+    },
+    {
+      "feature": "home_diff_point_diff_trend",
+      "importance_mean": -0.00350877192982455,
+      "importance_std": 0.008594700851870791
+    },
+    {
+      "feature": "home_streak_20plus",
+      "importance_mean": -0.0035087719298245723,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_points_scored_trend",
+      "importance_mean": -0.0035087719298245723,
+      "importance_std": 0.0035087719298245727
+    },
+    {
+      "feature": "away_point_diff_trend",
+      "importance_mean": -0.0038596491228070073,
+      "importance_std": 0.004283001970432856
+    },
+    {
+      "feature": "home_diff_total_differential_roll5",
+      "importance_mean": -0.004210526315789487,
+      "importance_std": 0.004091896066558118
+    },
+    {
+      "feature": "away_diff_win_streak",
+      "importance_mean": -0.004561403508771922,
+      "importance_std": 0.005447078840792984
+    },
+    {
+      "feature": "home_opp_total_pointsAgainst_roll5",
+      "importance_mean": -0.005263157894736847,
+      "importance_std": 0.0035954213213893168
+    },
+    {
+      "feature": "home_diff_total_differential_roll3",
+      "importance_mean": -0.006666666666666654,
+      "importance_std": 0.00759873958866936
+    },
+    {
+      "feature": "away_opp_total_pointsAgainst_roll5",
+      "importance_mean": -0.007719298245614003,
+      "importance_std": 0.006237329415660031
+    },
+    {
+      "feature": "away_points_scored_trend",
+      "importance_mean": -0.007719298245614015,
+      "importance_std": 0.004382454735718142
+    },
+    {
+      "feature": "home_diff_total_pointsFor_roll5",
+      "importance_mean": -0.00807017543859645,
+      "importance_std": 0.01205813352802777
+    },
+    {
+      "feature": "home_opp_total_pointsFor",
+      "importance_mean": -0.00912280701754381,
+      "importance_std": 0.005913087560123734
+    },
+    {
+      "feature": "home_diff_win_streak",
+      "importance_mean": -0.00947368421052629,
+      "importance_std": 0.006286481707778541
+    },
+    {
+      "feature": "away_opp_total_pointsAgainst",
+      "importance_mean": -0.00947368421052629,
+      "importance_std": 0.007368421052631552
+    },
+    {
+      "feature": "home_opp_points_scored_trend",
+      "importance_mean": -0.010877192982456086,
+      "importance_std": 0.004561403508771908
+    }
+  ],
+  "CatBoost": [
+    {
+      "feature": "away_diff_total_pointsFor_roll5",
+      "importance_mean": 0.013333333333333286,
+      "importance_std": 0.005614035087719283
+    },
+    {
+      "feature": "home_diff_total_differential",
+      "importance_mean": 0.010175438596491204,
+      "importance_std": 0.01500589809146884
+    },
+    {
+      "feature": "away_diff_total_differential_roll5",
+      "importance_mean": 0.007368421052631557,
+      "importance_std": 0.005964912280701729
+    },
+    {
+      "feature": "home_diff_total_pointsFor",
+      "importance_mean": 0.007017543859649112,
+      "importance_std": 0.003843667070211663
+    },
+    {
+      "feature": "home_diff_total_differential_roll5",
+      "importance_mean": 0.0070175438596491,
+      "importance_std": 0.004962152850431888
+    },
+    {
+      "feature": "away_diff_total_differential",
+      "importance_mean": 0.006666666666666677,
+      "importance_std": 0.007916150296616471
+    },
+    {
+      "feature": "away_diff_total_pointsFor",
+      "importance_mean": 0.00596491228070174,
+      "importance_std": 0.006087491779964012
+    },
+    {
+      "feature": "home_opp_total_pointsFor_roll5",
+      "importance_mean": 0.004912280701754401,
+      "importance_std": 0.0023274559932318665
+    },
+    {
+      "feature": "home_opp_total_differential",
+      "importance_mean": 0.004210526315789475,
+      "importance_std": 0.00343788034074831
+    },
+    {
+      "feature": "away_opp_total_differential_roll5",
+      "importance_mean": 0.004210526315789475,
+      "importance_std": 0.004091896066558101
+    },
+    {
+      "feature": "home_diff_point_diff_trend",
+      "importance_mean": 0.004210526315789465,
+      "importance_std": 0.005614035087719284
+    },
+    {
+      "feature": "home_opp_total_differential_roll5",
+      "importance_mean": 0.0038596491228070073,
+      "importance_std": 0.005072572735017868
+    },
+    {
+      "feature": "home_opp_points_allowed_trend",
+      "importance_mean": 0.0035087719298245723,
+      "importance_std": 0.0015691705105261731
+    },
+    {
+      "feature": "away_diff_total_winPercent",
+      "importance_mean": 0.002807017543859658,
+      "importance_std": 0.004091896066558118
+    },
+    {
+      "feature": "home_diff_total_pointsFor_roll5",
+      "importance_mean": 0.002807017543859658,
+      "importance_std": 0.0021052631578947433
+    },
+    {
+      "feature": "home_opp_total_pointsAgainst",
+      "importance_mean": 0.002807017543859658,
+      "importance_std": 0.0026257244819466335
+    },
+    {
+      "feature": "away_opp_total_pointsFor_roll3",
+      "importance_mean": 0.002807017543859658,
+      "importance_std": 0.0014035087719298288
+    },
+    {
+      "feature": "away_opp_total_pointsFor",
+      "importance_mean": 0.0024561403508772004,
+      "importance_std": 0.0027404384827742732
+    },
+    {
+      "feature": "home_div_game",
+      "importance_mean": 0.0024561403508772004,
+      "importance_std": 0.0016079212964757385
+    },
+    {
+      "feature": "home_opp_total_pointsAgainst_roll5",
+      "importance_mean": 0.0021052631578947433,
+      "importance_std": 0.0017189401703741655
+    },
+    {
+      "feature": "away_opp_total_differential_roll3",
+      "importance_mean": 0.0021052631578947325,
+      "importance_std": 0.004493420517496729
+    },
+    {
+      "feature": "home_win_streak",
+      "importance_mean": 0.001403508771929829,
+      "importance_std": 0.0017189401703741655
+    },
+    {
+      "feature": "away_opp_total_pointsAgainst",
+      "importance_mean": 0.001403508771929829,
+      "importance_std": 0.0017189401703741655
+    },
+    {
+      "feature": "away_diff_win_streak",
+      "importance_mean": 0.001403508771929829,
+      "importance_std": 0.002327455993231867
+    },
+    {
+      "feature": "away_diff_total_differential_roll3",
+      "importance_mean": 0.0014035087719298177,
+      "importance_std": 0.005480876965548528
+    },
+    {
+      "feature": "away_diff_total_pointsAgainst",
+      "importance_mean": 0.0014035087719298177,
+      "importance_std": 0.003907203061635089
+    },
+    {
+      "feature": "home_point_diff_trend",
+      "importance_mean": 0.0010526315789473716,
+      "importance_std": 0.001607921296475738
+    },
+    {
+      "feature": "away_opp_total_pointsAgainst_roll5",
+      "importance_mean": 0.0010526315789473716,
+      "importance_std": 0.002246710258748375
+    },
+    {
+      "feature": "away_opp_total_pointsFor_roll5",
+      "importance_mean": 0.0010526315789473716,
+      "importance_std": 0.003157894736842115
+    },
+    {
+      "feature": "away_point_diff_trend",
+      "importance_mean": 0.0007017543859649145,
+      "importance_std": 0.0014035087719298288
+    },
+    {
+      "feature": "home_points_scored_trend",
+      "importance_mean": 0.0007017543859649145,
+      "importance_std": 0.0014035087719298288
+    },
+    {
+      "feature": "home_opp_win_streak",
+      "importance_mean": 0.0007017543859649145,
+      "importance_std": 0.0014035087719298288
+    },
+    {
+      "feature": "home_diff_total_pointsFor_roll3",
+      "importance_mean": 0.0007017543859649145,
+      "importance_std": 0.0021052631578947433
+    },
+    {
+      "feature": "home_diff_total_winPercent",
+      "importance_mean": 0.0007017543859649033,
+      "importance_std": 0.004091896066558092
+    },
+    {
+      "feature": "home_diff_points_scored_trend",
+      "importance_mean": 0.00035087719298245725,
+      "importance_std": 0.0010526315789473716
+    },
+    {
+      "feature": "away_opp_win_streak",
+      "importance_mean": 0.00035087719298245725,
+      "importance_std": 0.0010526315789473716
+    },
+    {
+      "feature": "away_win_streak",
+      "importance_mean": 0.00035087719298245725,
+      "importance_std": 0.0018895315112752707
+    },
+    {
+      "feature": "home_diff_total_pointsAgainst_roll3",
+      "importance_mean": 0.00035087719298245725,
+      "importance_std": 0.0018895315112752707
+    },
+    {
+      "feature": "away_points_allowed_trend",
+      "importance_mean": 0.00035087719298245725,
+      "importance_std": 0.0018895315112752705
+    },
+    {
+      "feature": "home_vsdiv_divisionLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsconf_losses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsconf_losses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsconf_leagueWinPercent",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsconf_leagueWinPercent",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsconf_ties",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsconf_OTLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsconf_ties",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsconf_wins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsconf_wins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_OTLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsconf_OTLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_OTLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_divisionWinPercent",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_divisionLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_divisionTies",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_divisionTies",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_divisionWinPercent",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_streak_20plus",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_divisionWins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_divisionWins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_losses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_losses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_ties",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_ties",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_wins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_wins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_div_game",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_rest_advantage",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_streak_30plus",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_rest_advantage",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_diff_total_pointsAgainst_roll5",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_streak_20plus",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_scored_30plus",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_scored_30plus",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_scored_20plus",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_scored_20plus",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_opp_points_scored_trend",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_points_scored_trend",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_opp_points_scored_trend",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_opp_total_pointsFor_roll3",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_diff_total_pointsAgainst_roll3",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_points_allowed_trend",
+      "importance_mean": 0.0,
+      "importance_std": 0.0022191422176620276
+    },
+    {
+      "feature": "home_opp_total_differential_roll3",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_opp_points_allowed_trend",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_opp_total_pointsAgainst_roll3",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_diff_total_pointsAgainst",
+      "importance_mean": 0.0,
+      "importance_std": 0.0022191422176620276
+    },
+    {
+      "feature": "home_streak_30plus",
+      "importance_mean": -0.00035087719298245725,
+      "importance_std": 0.0010526315789473716
+    },
+    {
+      "feature": "away_diff_points_allowed_trend",
+      "importance_mean": -0.00035087719298245725,
+      "importance_std": 0.002456140350877201
+    },
+    {
+      "feature": "away_opp_total_winPercent",
+      "importance_mean": -0.00035087719298245725,
+      "importance_std": 0.0018895315112752705
+    },
+    {
+      "feature": "away_diff_point_diff_trend",
+      "importance_mean": -0.0003508771929824683,
+      "importance_std": 0.006554926909568214
+    },
+    {
+      "feature": "away_opp_total_pointsAgainst_roll3",
+      "importance_mean": -0.0007017543859649145,
+      "importance_std": 0.0014035087719298288
+    },
+    {
+      "feature": "away_diff_total_pointsAgainst_roll5",
+      "importance_mean": -0.0007017543859649145,
+      "importance_std": 0.0021052631578947433
+    },
+    {
+      "feature": "away_diff_points_scored_trend",
+      "importance_mean": -0.0007017543859649145,
+      "importance_std": 0.0021052631578947433
+    },
+    {
+      "feature": "home_diff_points_allowed_trend",
+      "importance_mean": -0.0007017543859649145,
+      "importance_std": 0.003437880340748331
+    },
+    {
+      "feature": "home_opp_point_diff_trend",
+      "importance_mean": -0.0010526315789473716,
+      "importance_std": 0.001607921296475738
+    },
+    {
+      "feature": "away_diff_total_pointsFor_roll3",
+      "importance_mean": -0.0010526315789473716,
+      "importance_std": 0.002246710258748375
+    },
+    {
+      "feature": "home_diff_win_streak",
+      "importance_mean": -0.0010526315789473716,
+      "importance_std": 0.003157894736842115
+    },
+    {
+      "feature": "home_opp_total_pointsFor",
+      "importance_mean": -0.0010526315789473716,
+      "importance_std": 0.001607921296475738
+    },
+    {
+      "feature": "home_opp_total_winPercent",
+      "importance_mean": -0.0021052631578947433,
+      "importance_std": 0.0017189401703741655
+    },
+    {
+      "feature": "away_opp_point_diff_trend",
+      "importance_mean": -0.0024561403508772004,
+      "importance_std": 0.0016079212964757385
+    },
+    {
+      "feature": "home_diff_total_differential_roll3",
+      "importance_mean": -0.002807017543859658,
+      "importance_std": 0.005390277717802549
+    },
+    {
+      "feature": "away_opp_total_differential",
+      "importance_mean": -0.004210526315789487,
+      "importance_std": 0.004654911986463733
+    }
+  ],
+  "RandomForest": [
+    {
+      "feature": "home_diff_point_diff_trend",
+      "importance_mean": 0.0031578947368420818,
+      "importance_std": 0.007916150296616454
+    },
+    {
+      "feature": "away_scored_30plus",
+      "importance_mean": 0.0010526315789473716,
+      "importance_std": 0.002246710258748375
+    },
+    {
+      "feature": "away_diff_total_pointsFor",
+      "importance_mean": 0.0010526315789473606,
+      "importance_std": 0.004974542764476424
+    },
+    {
+      "feature": "away_div_game",
+      "importance_mean": 0.0007017543859649145,
+      "importance_std": 0.0030588764516075
+    },
+    {
+      "feature": "away_diff_win_streak",
+      "importance_mean": 0.0007017543859648923,
+      "importance_std": 0.008566003940865752
+    },
+    {
+      "feature": "home_scored_30plus",
+      "importance_mean": 0.00035087719298245725,
+      "importance_std": 0.0018895315112752707
+    },
+    {
+      "feature": "away_diff_total_differential_roll3",
+      "importance_mean": 0.00035087719298244614,
+      "importance_std": 0.006167858186402432
+    },
+    {
+      "feature": "home_streak_20plus",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsconf_OTLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsconf_OTLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_OTLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsconf_leagueWinPercent",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsconf_losses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsconf_losses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsconf_ties",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsconf_ties",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsconf_wins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsconf_wins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsconf_leagueWinPercent",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_divisionLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_OTLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_divisionLosses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_divisionTies",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_divisionTies",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_divisionWinPercent",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_divisionWinPercent",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_divisionWins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_divisionWins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_losses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_losses",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_ties",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_ties",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_vsdiv_wins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_vsdiv_wins",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_rest_advantage",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "home_scored_20plus",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_rest_advantage",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "feature": "away_scored_20plus",
+      "importance_mean": -0.00035087719298245725,
+      "importance_std": 0.0010526315789473716
+    },
+    {
+      "feature": "home_div_game",
+      "importance_mean": -0.0007017543859649145,
+      "importance_std": 0.0026257244819466335
+    },
+    {
+      "feature": "away_diff_total_pointsAgainst_roll5",
+      "importance_mean": -0.0007017543859649145,
+      "importance_std": 0.004654911986463733
+    },
+    {
+      "feature": "away_streak_20plus",
+      "importance_mean": -0.001403508771929829,
+      "importance_std": 0.0017189401703741655
+    },
+    {
+      "feature": "away_diff_total_differential_roll5",
+      "importance_mean": -0.0021052631578947546,
+      "importance_std": 0.009698438569182642
+    },
+    {
+      "feature": "home_diff_total_pointsAgainst_roll3",
+      "importance_mean": -0.0024561403508772004,
+      "importance_std": 0.005216164472743351
+    },
+    {
+      "feature": "home_points_scored_trend",
+      "importance_mean": -0.0024561403508772004,
+      "importance_std": 0.004452132470333179
+    },
+    {
+      "feature": "home_opp_total_winPercent",
+      "importance_mean": -0.0024561403508772004,
+      "importance_std": 0.002740438482774273
+    },
+    {
+      "feature": "away_opp_total_pointsAgainst_roll5",
+      "importance_mean": -0.002807017543859658,
+      "importance_std": 0.004912280701754402
+    },
+    {
+      "feature": "away_opp_win_streak",
+      "importance_mean": -0.003157894736842115,
+      "importance_std": 0.006554926909568232
+    },
+    {
+      "feature": "home_opp_points_scored_trend",
+      "importance_mean": -0.003157894736842115,
+      "importance_std": 0.0036632654417230112
+    },
+    {
+      "feature": "away_diff_total_winPercent",
+      "importance_mean": -0.003157894736842126,
+      "importance_std": 0.00655492690956821
+    },
+    {
+      "feature": "home_opp_total_differential",
+      "importance_mean": -0.0035087719298245723,
+      "importance_std": 0.004962152850431928
+    },
+    {
+      "feature": "away_diff_total_pointsAgainst",
+      "importance_mean": -0.0035087719298245723,
+      "importance_std": 0.005204349815505744
+    },
+    {
+      "feature": "home_streak_30plus",
+      "importance_mean": -0.0038596491228070295,
+      "importance_std": 0.002456140350877201
+    },
+    {
+      "feature": "home_opp_win_streak",
+      "importance_mean": -0.0038596491228070295,
+      "importance_std": 0.0036632654417230117
+    },
+    {
+      "feature": "home_diff_win_streak",
+      "importance_mean": -0.0038596491228070295,
+      "importance_std": 0.008515551648780095
+    },
+    {
+      "feature": "home_diff_total_differential_roll5",
+      "importance_mean": -0.004210526315789498,
+      "importance_std": 0.008708542909467277
+    },
+    {
+      "feature": "home_diff_total_pointsFor",
+      "importance_mean": -0.004561403508771944,
+      "importance_std": 0.006666666666666688
+    },
+    {
+      "feature": "home_diff_total_differential_roll3",
+      "importance_mean": -0.0045614035087719555,
+      "importance_std": 0.007533652825818909
+    },
+    {
+      "feature": "home_win_streak",
+      "importance_mean": -0.004912280701754401,
+      "importance_std": 0.003215842592951477
+    },
+    {
+      "feature": "away_opp_point_diff_trend",
+      "importance_mean": -0.004912280701754412,
+      "importance_std": 0.011445267670386042
+    },
+    {
+      "feature": "home_diff_total_pointsFor_roll3",
+      "importance_mean": -0.0052631578947368585,
+      "importance_std": 0.005023796864307508
+    },
+    {
+      "feature": "away_opp_points_scored_trend",
+      "importance_mean": -0.0052631578947368585,
+      "importance_std": 0.0052631578947368585
+    },
+    {
+      "feature": "away_opp_total_pointsFor_roll5",
+      "importance_mean": -0.0052631578947368585,
+      "importance_std": 0.0061278067356396616
+    },
+    {
+      "feature": "home_opp_total_differential_roll5",
+      "importance_mean": -0.005614035087719316,
+      "importance_std": 0.0054808769655485465
+    },
+    {
+      "feature": "away_opp_points_allowed_trend",
+      "importance_mean": -0.005964912280701773,
+      "importance_std": 0.005447078840793007
+    },
+    {
+      "feature": "home_diff_total_differential",
+      "importance_mean": -0.005964912280701773,
+      "importance_std": 0.005447078840793007
+    },
+    {
+      "feature": "away_point_diff_trend",
+      "importance_mean": -0.006666666666666687,
+      "importance_std": 0.005536748715108613
+    },
+    {
+      "feature": "home_opp_total_pointsAgainst_roll3",
+      "importance_mean": -0.006666666666666687,
+      "importance_std": 0.005072572735017896
+    },
+    {
+      "feature": "home_opp_points_allowed_trend",
+      "importance_mean": -0.007017543859649145,
+      "importance_std": 0.0056577247356481225
+    },
+    {
+      "feature": "away_opp_total_differential_roll3",
+      "importance_mean": -0.007719298245614059,
+      "importance_std": 0.005390277717802548
+    },
+    {
+      "feature": "away_diff_total_pointsFor_roll5",
+      "importance_mean": -0.007719298245614059,
+      "importance_std": 0.008421052631578973
+    },
+    {
+      "feature": "home_diff_total_pointsAgainst_roll5",
+      "importance_mean": -0.007719298245614059,
+      "importance_std": 0.003779063022550541
+    },
+    {
+      "feature": "away_opp_total_winPercent",
+      "importance_mean": -0.008070175438596516,
+      "importance_std": 0.003526272147761727
+    },
+    {
+      "feature": "home_opp_total_pointsFor_roll3",
+      "importance_mean": -0.008070175438596516,
+      "importance_std": 0.004166435820013317
+    },
+    {
+      "feature": "away_diff_points_scored_trend",
+      "importance_mean": -0.008421052631578973,
+      "importance_std": 0.005701079582200692
+    },
+    {
+      "feature": "home_diff_total_winPercent",
+      "importance_mean": -0.008421052631578973,
+      "importance_std": 0.005701079582200692
+    },
+    {
+      "feature": "away_streak_30plus",
+      "importance_mean": -0.008421052631578973,
+      "importance_std": 0.004210526315789487
+    },
+    {
+      "feature": "home_diff_total_pointsFor_roll5",
+      "importance_mean": -0.00877192982456142,
+      "importance_std": 0.007061267297367749
+    },
+    {
+      "feature": "away_diff_point_diff_trend",
+      "importance_mean": -0.00877192982456143,
+      "importance_std": 0.010438227916241098
+    },
+    {
+      "feature": "home_diff_points_scored_trend",
+      "importance_mean": -0.00877192982456143,
+      "importance_std": 0.0052631578947368585
+    },
+    {
+      "feature": "home_diff_points_allowed_trend",
+      "importance_mean": -0.00877192982456143,
+      "importance_std": 0.006884707673806542
+    },
+    {
+      "feature": "away_diff_total_pointsAgainst_roll3",
+      "importance_mean": -0.009122807017543888,
+      "importance_std": 0.007052544295523454
+    },
+    {
+      "feature": "home_points_allowed_trend",
+      "importance_mean": -0.009122807017543888,
+      "importance_std": 0.003907203061635115
+    },
+    {
+      "feature": "away_points_scored_trend",
+      "importance_mean": -0.009473684210526346,
+      "importance_std": 0.005447078840793007
+    },
+    {
+      "feature": "away_win_streak",
+      "importance_mean": -0.009824561403508802,
+      "importance_std": 0.004091896066558118
+    },
+    {
+      "feature": "away_diff_points_allowed_trend",
+      "importance_mean": -0.009824561403508802,
+      "importance_std": 0.006982367979695601
+    },
+    {
+      "feature": "home_point_diff_trend",
+      "importance_mean": -0.009824561403508802,
+      "importance_std": 0.004654911986463734
+    },
+    {
+      "feature": "away_diff_total_pointsFor_roll3",
+      "importance_mean": -0.01017543859649126,
+      "importance_std": 0.005964912280701773
+    },
+    {
+      "feature": "home_opp_total_pointsFor",
+      "importance_mean": -0.01017543859649126,
+      "importance_std": 0.002456140350877201
+    },
+    {
+      "feature": "home_opp_point_diff_trend",
+      "importance_mean": -0.010877192982456175,
+      "importance_std": 0.004283001970432892
+    },
+    {
+      "feature": "away_opp_total_differential_roll5",
+      "importance_mean": -0.0115789473684211,
+      "importance_std": 0.00915648305312273
+    },
+    {
+      "feature": "away_opp_total_pointsFor",
+      "importance_mean": -0.011929824561403546,
+      "importance_std": 0.004759529812719501
+    },
+    {
+      "feature": "away_opp_total_pointsAgainst_roll3",
+      "importance_mean": -0.011929824561403546,
+      "importance_std": 0.0054808769655485465
+    },
+    {
+      "feature": "home_opp_total_pointsAgainst_roll5",
+      "importance_mean": -0.011929824561403546,
+      "importance_std": 0.003215842592951477
+    },
+    {
+      "feature": "away_opp_total_differential",
+      "importance_mean": -0.012280701754386003,
+      "importance_std": 0.006325528553445615
+    },
+    {
+      "feature": "away_points_allowed_trend",
+      "importance_mean": -0.012280701754386003,
+      "importance_std": 0.005711866875824476
+    },
+    {
+      "feature": "home_diff_total_pointsAgainst",
+      "importance_mean": -0.01263157894736846,
+      "importance_std": 0.004759529812719501
+    },
+    {
+      "feature": "home_opp_total_pointsAgainst",
+      "importance_mean": -0.01263157894736846,
+      "importance_std": 0.005011528721784472
+    },
+    {
+      "feature": "home_opp_total_pointsFor_roll5",
+      "importance_mean": -0.014385964912280747,
+      "importance_std": 0.005964912280701773
+    },
+    {
+      "feature": "away_diff_total_differential",
+      "importance_mean": -0.01508771929824565,
+      "importance_std": 0.007199398080239718
+    },
+    {
+      "feature": "away_opp_total_pointsFor_roll3",
+      "importance_mean": -0.01508771929824565,
+      "importance_std": 0.005668594533825786
+    },
+    {
+      "feature": "home_opp_total_differential_roll3",
+      "importance_mean": -0.015789473684210565,
+      "importance_std": 0.005492096786841581
+    },
+    {
+      "feature": "away_opp_total_pointsAgainst",
+      "importance_mean": -0.01649122807017549,
+      "importance_std": 0.0035262721477617273
+    }
+  ]
+}

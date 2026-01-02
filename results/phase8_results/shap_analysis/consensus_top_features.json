@@ -1,0 +1,236 @@
+[
+  {
+    "feature": "home_diff_point_diff_trend",
+    "avg_rank": 1.0,
+    "ranks": {
+      "LightGBM": 1,
+      "CatBoost": 1,
+      "RandomForest": 1
+    }
+  },
+  {
+    "feature": "away_diff_point_diff_trend",
+    "avg_rank": 2.0,
+    "ranks": {
+      "LightGBM": 2,
+      "CatBoost": 2,
+      "RandomForest": 2
+    }
+  },
+  {
+    "feature": "home_diff_win_streak",
+    "avg_rank": 7.0,
+    "ranks": {
+      "LightGBM": 7,
+      "CatBoost": 7,
+      "RandomForest": 7
+    }
+  },
+  {
+    "feature": "away_diff_win_streak",
+    "avg_rank": 8.0,
+    "ranks": {
+      "LightGBM": 8,
+      "CatBoost": 8,
+      "RandomForest": 8
+    }
+  },
+  {
+    "feature": "away_opp_point_diff_trend",
+    "avg_rank": 10.0,
+    "ranks": {
+      "LightGBM": 10,
+      "CatBoost": 10,
+      "RandomForest": 10
+    }
+  },
+  {
+    "feature": "home_diff_total_differential",
+    "avg_rank": 25.0,
+    "ranks": {
+      "LightGBM": 25,
+      "CatBoost": 25,
+      "RandomForest": 25
+    }
+  },
+  {
+    "feature": "away_diff_total_differential",
+    "avg_rank": 26.0,
+    "ranks": {
+      "LightGBM": 26,
+      "CatBoost": 26,
+      "RandomForest": 26
+    }
+  },
+  {
+    "feature": "home_diff_total_differential_roll3",
+    "avg_rank": 27.0,
+    "ranks": {
+      "LightGBM": 27,
+      "CatBoost": 27,
+      "RandomForest": 27
+    }
+  },
+  {
+    "feature": "away_diff_total_differential_roll3",
+    "avg_rank": 28.0,
+    "ranks": {
+      "LightGBM": 28,
+      "CatBoost": 28,
+      "RandomForest": 28
+    }
+  },
+  {
+    "feature": "home_diff_total_differential_roll5",
+    "avg_rank": 29.0,
+    "ranks": {
+      "LightGBM": 29,
+      "CatBoost": 29,
+      "RandomForest": 29
+    }
+  },
+  {
+    "feature": "away_diff_total_differential_roll5",
+    "avg_rank": 30.0,
+    "ranks": {
+      "LightGBM": 30,
+      "CatBoost": 30,
+      "RandomForest": 30
+    }
+  },
+  {
+    "feature": "home_diff_total_pointsFor",
+    "avg_rank": 37.0,
+    "ranks": {
+      "LightGBM": 37,
+      "CatBoost": 37,
+      "RandomForest": 37
+    }
+  },
+  {
+    "feature": "away_diff_total_pointsFor",
+    "avg_rank": 38.0,
+    "ranks": {
+      "LightGBM": 38,
+      "CatBoost": 38,
+      "RandomForest": 38
+    }
+  },
+  {
+    "feature": "home_diff_total_pointsFor_roll3",
+    "avg_rank": 39.0,
+    "ranks": {
+      "LightGBM": 39,
+      "CatBoost": 39,
+      "RandomForest": 39
+    }
+  },
+  {
+    "feature": "home_diff_total_pointsFor_roll5",
+    "avg_rank": 41.0,
+    "ranks": {
+      "LightGBM": 41,
+      "CatBoost": 41,
+      "RandomForest": 41
+    }
+  },
+  {
+    "feature": "away_diff_total_pointsFor_roll5",
+    "avg_rank": 42.0,
+    "ranks": {
+      "LightGBM": 42,
+      "CatBoost": 42,
+      "RandomForest": 42
+    }
+  },
+  {
+    "feature": "home_diff_total_winPercent",
+    "avg_rank": 43.0,
+    "ranks": {
+      "LightGBM": 43,
+      "CatBoost": 43,
+      "RandomForest": 43
+    }
+  },
+  {
+    "feature": "away_diff_total_winPercent",
+    "avg_rank": 44.0,
+    "ranks": {
+      "LightGBM": 44,
+      "CatBoost": 44,
+      "RandomForest": 44
+    }
+  },
+  {
+    "feature": "home_opp_total_differential",
+    "avg_rank": 45.0,
+    "ranks": {
+      "LightGBM": 45,
+      "CatBoost": 45,
+      "RandomForest": 45
+    }
+  },
+  {
+    "feature": "away_opp_total_differential",
+    "avg_rank": 46.0,
+    "ranks": {
+      "LightGBM": 46,
+      "CatBoost": 46,
+      "RandomForest": 46
+    }
+  },
+  {
+    "feature": "away_opp_total_differential_roll3",
+    "avg_rank": 48.0,
+    "ranks": {
+      "LightGBM": 48,
+      "CatBoost": 48,
+      "RandomForest": 48
+    }
+  },
+  {
+    "feature": "home_opp_total_differential_roll5",
+    "avg_rank": 49.0,
+    "ranks": {
+      "LightGBM": 49,
+      "CatBoost": 49,
+      "RandomForest": 49
+    }
+  },
+  {
+    "feature": "away_opp_total_differential_roll5",
+    "avg_rank": 50.0,
+    "ranks": {
+      "LightGBM": 50,
+      "CatBoost": 50,
+      "RandomForest": 50
+    }
+  },
+  {
+    "feature": "home_opp_total_pointsAgainst",
+    "avg_rank": 51.0,
+    "ranks": {
+      "LightGBM": 51,
+      "CatBoost": 51,
+      "RandomForest": 51
+    }
+  },
+  {
+    "feature": "away_opp_total_pointsAgainst",
+    "avg_rank": 52.0,
+    "ranks": {
+      "LightGBM": 52,
+      "CatBoost": 52,
+      "RandomForest": 52
+    }
+  },
+  {
+    "feature": "home_opp_total_winPercent",
+    "avg_rank": 63.0,
+    "ranks": {
+      "LightGBM": 63,
+      "CatBoost": 63,
+      "RandomForest": 63
+    }
+  }
+]

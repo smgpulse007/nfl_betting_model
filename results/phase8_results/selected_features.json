@@ -1,0 +1,1151 @@
+{
+  "n_features": 143,
+  "features": [
+    "home_home_winPercent",
+    "away_qb_out",
+    "home_opp_total_differential_roll5",
+    "home_home_wins_roll3",
+    "away_road_wins_roll5",
+    "away_away_losses",
+    "home_diff_total_pointsAgainst_roll3",
+    "away_opp_qb_out",
+    "home_streak_30plus",
+    "away_diff_total_pointsAgainst_roll5",
+    "away_opp_injury_impact",
+    "home_home_losses_roll5",
+    "away_diff_total_differential_roll5",
+    "away_diff_total_pointsFor_roll5",
+    "home_home_OTLosses",
+    "home_road_wins_roll3",
+    "home_diff_points_scored_trend",
+    "home_diff_total_pointsFor",
+    "home_opp_points_allowed_trend",
+    "away_opp_point_diff_trend",
+    "away_opp_total_winPercent",
+    "away_point_diff_trend",
+    "away_diff_total_pointsFor_roll3",
+    "home_opp_total_winPercent",
+    "home_diff_total_pointsFor_roll3",
+    "away_road_winPercent_std",
+    "away_road_wins_roll3",
+    "home_road_wins_roll5",
+    "home_opp_points_scored_trend",
+    "temp_extreme",
+    "home_opp_point_diff_trend",
+    "home_injury_impact",
+    "away_opp_total_pointsAgainst",
+    "home_diff_total_differential_roll3",
+    "away_road_winPercent_roll3",
+    "home_diff_win_streak",
+    "away_opp_points_scored_trend",
+    "away_home_wins_roll5",
+    "away_diff_points_allowed_trend",
+    "away_opp_total_differential_roll5",
+    "away_road_losses_roll3",
+    "away_home_winPercent_roll3",
+    "home_home_losses_std",
+    "away_diff_total_pointsAgainst_roll3",
+    "away_road_losses",
+    "away_diff_total_pointsAgainst",
+    "home_opp_total_pointsAgainst_roll5",
+    "home_home_wins_std",
+    "home_opp_total_pointsAgainst",
+    "away_injury_impact",
+    "away_scored_20plus",
+    "home_road_losses_roll3",
+    "away_home_losses_roll5",
+    "home_home_winPercentage",
+    "home_diff_total_pointsAgainst",
+    "away_scored_30plus",
+    "home_opp_total_pointsFor_roll5",
+    "away_road_losses_std",
+    "home_opp_win_streak",
+    "away_diff_point_diff_trend",
+    "home_home_winPercent_roll5",
+    "home_diff_total_differential_roll5",
+    "away_away_OTLosses",
+    "away_away_pointsFor",
+    "away_div_game",
+    "home_home_winPercent_roll3",
+    "away_diff_total_pointsFor",
+    "home_diff_total_differential",
+    "home_opp_total_differential_roll3",
+    "home_home_wins",
+    "home_road_winPercent_roll3",
+    "home_road_losses_roll5",
+    "away_home_winPercent_roll5",
+    "home_streak_20plus",
+    "home_opp_qb_out",
+    "wind_high",
+    "away_opp_total_pointsFor_roll3",
+    "away_road_winPercent",
+    "home_home_pointsFor",
+    "home_opp_total_differential",
+    "home_diff_total_pointsAgainst_roll5",
+    "away_opp_total_differential",
+    "away_opp_total_pointsFor",
+    "away_opp_total_pointsAgainst_roll3",
+    "home_point_diff_trend",
+    "home_diff_point_diff_trend",
+    "home_home_losses_roll3",
+    "away_road_OTLosses",
+    "away_away_winPercentage",
+    "away_home_losses_std",
+    "temp",
+    "home_diff_points_allowed_trend",
+    "home_home_losses",
+    "home_div_game",
+    "home_diff_injury_impact",
+    "away_opp_total_pointsAgainst_roll5",
+    "home_opp_injury_impact",
+    "away_opp_win_streak",
+    "away_road_losses_roll5",
+    "away_home_wins_roll3",
+    "away_points_allowed_trend",
+    "away_away_wins",
+    "away_diff_total_differential_roll3",
+    "home_road_winPercent_roll5",
+    "wind",
+    "home_scored_30plus",
+    "away_streak_30plus",
+    "away_diff_points_scored_trend",
+    "home_road_winPercent_std",
+    "away_road_wins_std",
+    "away_diff_total_winPercent",
+    "away_opp_total_pointsFor_roll5",
+    "home_home_pointsAgainst",
+    "home_opp_total_pointsFor",
+    "is_outdoor",
+    "away_opp_points_allowed_trend",
+    "away_diff_injury_impact",
+    "away_road_winPercent_roll5",
+    "away_home_winPercent_std",
+    "away_away_winPercent",
+    "home_opp_total_pointsFor_roll3",
+    "home_diff_total_pointsFor_roll5",
+    "away_diff_win_streak",
+    "home_opp_total_pointsAgainst_roll3",
+    "home_points_allowed_trend",
+    "away_diff_total_differential",
+    "home_qb_out",
+    "home_win_streak",
+    "away_home_losses_roll3",
+    "home_scored_20plus",
+    "away_streak_20plus",
+    "away_away_pointsAgainst",
+    "away_opp_total_differential_roll3",
+    "home_diff_total_winPercent",
+    "away_points_scored_trend",
+    "home_home_winPercent_std",
+    "away_road_wins",
+    "away_win_streak",
+    "away_home_wins_std",
+    "home_home_wins_roll5",
+    "home_points_scored_trend",
+    "home_road_losses_std",
+    "home_road_wins_std"
+  ],
+  "feature_scores": [
+    {
+      "feature": "home_home_winPercent",
+      "correlation": 0.9999999999999979,
+      "mutual_info": 0.6833961283615668,
+      "importance": 0.11439118191953382,
+      "combined_score": 0.6076758059204863
+    },
+    {
+      "feature": "away_road_losses",
+      "correlation": 0.9999999999999999,
+      "mutual_info": 0.683157076917696,
+      "importance": 0.09806312505672557,
+      "combined_score": 0.602681768284096
+    },
+    {
+      "feature": "home_home_wins",
+      "correlation": 0.9999999999999999,
+      "mutual_info": 0.683157076917696,
+      "importance": 0.08313651630067931,
+      "combined_score": 0.5982037856572822
+    },
+    {
+      "feature": "away_road_wins",
+      "correlation": 0.9960986986419741,
+      "mutual_info": 0.6695673287010113,
+      "importance": 0.07305796862532501,
+      "combined_score": 0.5885739316605941
+    },
+    {
+      "feature": "home_home_losses",
+      "correlation": 0.9960986986419741,
+      "mutual_info": 0.6706207634379897,
+      "importance": 0.06313749643371322,
+      "combined_score": 0.586019163897902
+    },
+    {
+      "feature": "home_home_winPercentage",
+      "correlation": 0.9999999999999979,
+      "mutual_info": 0.6832048872064702,
+      "importance": 0.039033569563122504,
+      "combined_score": 0.5849920257515242
+    },
+    {
+      "feature": "away_away_winPercentage",
+      "correlation": 0.9960986986419698,
+      "mutual_info": 0.6695346967537306,
+      "importance": 0.057882625635383336,
+      "combined_score": 0.5840082759846982
+    },
+    {
+      "feature": "away_away_losses",
+      "correlation": 0.9999999999999999,
+      "mutual_info": 0.6832526974952444,
+      "importance": 0.0331738250534976,
+      "combined_score": 0.5832532265141469
+    },
+    {
+      "feature": "away_away_winPercent",
+      "correlation": 0.9960986986419698,
+      "mutual_info": 0.6700270922417826,
+      "importance": 0.05061566572011518,
+      "combined_score": 0.5820251462053385
+    },
+    {
+      "feature": "away_away_wins",
+      "correlation": 0.9960986986419741,
+      "mutual_info": 0.6696102172250677,
+      "importance": 0.045857904378477796,
+      "combined_score": 0.5804310677961627
+    },
+    {
+      "feature": "away_road_winPercent",
+      "correlation": 0.9960986986419698,
+      "mutual_info": 0.6697345100965224,
+      "importance": 0.02181324319814266,
+      "combined_score": 0.5732673865906426
+    },
+    {
+      "feature": "home_diff_total_winPercent",
+      "correlation": 0.9666947663901004,
+      "mutual_info": 0.608820304473356,
+      "importance": 0.05216940221727329,
+      "combined_score": 0.5491873723715546
+    },
+    {
+      "feature": "away_opp_total_winPercent",
+      "correlation": 0.9675531789832933,
+      "mutual_info": 0.6093224496305087,
+      "importance": 0.03998949168480041,
+      "combined_score": 0.5459917810526317
+    },
+    {
+      "feature": "home_opp_total_winPercent",
+      "correlation": 0.9641188708763786,
+      "mutual_info": 0.6040740212403484,
+      "importance": 0.02779051254937061,
+      "combined_score": 0.539202423523864
+    },
+    {
+      "feature": "away_diff_total_winPercent",
+      "correlation": 0.9666947663901004,
+      "mutual_info": 0.6114149215935945,
+      "importance": 0.012869114066228718,
+      "combined_score": 0.5384351327743366
+    },
+    {
+      "feature": "away_opp_total_differential",
+      "correlation": 0.7634711324517334,
+      "mutual_info": 0.6342865460253033,
+      "importance": 0.03965988290564,
+      "combined_score": 0.4946539230173333
+    },
+    {
+      "feature": "home_diff_total_pointsAgainst",
+      "correlation": 0.7634711324517334,
+      "mutual_info": 0.6368148876313091,
+      "importance": 0.02684837480344897,
+      "combined_score": 0.4918218072290783
+    },
+    {
+      "feature": "away_diff_total_pointsAgainst",
+      "correlation": 0.7634711324517334,
+      "mutual_info": 0.6350379298548123,
+      "importance": 0.029127880833962626,
+      "combined_score": 0.49179487592763377
+    },
+    {
+      "feature": "away_diff_total_differential",
+      "correlation": 0.7634711324517334,
+      "mutual_info": 0.6352759258695544,
+      "importance": 0.028227232822028367,
+      "combined_score": 0.49161987992995027
+    },
+    {
+      "feature": "away_diff_total_pointsFor",
+      "correlation": 0.7634711324517334,
+      "mutual_info": 0.6358470715940043,
+      "importance": 0.01960968925441972,
+      "combined_score": 0.48926307514944767
+    },
+    {
+      "feature": "home_diff_total_pointsFor",
+      "correlation": 0.7634711324517334,
+      "mutual_info": 0.6366825290226252,
+      "importance": 0.010549090555269158,
+      "combined_score": 0.4868790785111508
+    },
+    {
+      "feature": "home_opp_total_differential",
+      "correlation": 0.7634711324517334,
+      "mutual_info": 0.6361160802071755,
+      "importance": 0.009702087304491585,
+      "combined_score": 0.48639839800973766
+    },
+    {
+      "feature": "home_diff_total_differential",
+      "correlation": 0.7634711324517334,
+      "mutual_info": 0.6345153069034839,
+      "importance": 0.00943446616923191,
+      "combined_score": 0.48567780234768315
+    },
+    {
+      "feature": "home_home_pointsAgainst",
+      "correlation": 0.5727564526808797,
+      "mutual_info": 0.21106634993313222,
+      "importance": 3.875241940271246e-06,
+      "combined_score": 0.2562546383500989
+    },
+    {
+      "feature": "away_away_pointsFor",
+      "correlation": 0.5727564526808797,
+      "mutual_info": 0.2017619839900333,
+      "importance": 7.724691938425218e-06,
+      "combined_score": 0.2525340468078588
+    },
+    {
+      "feature": "home_opp_total_pointsFor",
+      "correlation": 0.5643583175766668,
+      "mutual_info": 0.19909069485810238,
+      "importance": 0.0027398325121900683,
+      "combined_score": 0.249765722969898
+    },
+    {
+      "feature": "away_opp_total_pointsAgainst",
+      "correlation": 0.5643583175766668,
+      "mutual_info": 0.19914195079807606,
+      "importance": 3.9213424763223034e-05,
+      "combined_score": 0.24897603961965942
+    },
+    {
+      "feature": "away_away_pointsAgainst",
+      "correlation": 0.5489050073531284,
+      "mutual_info": 0.19172881423963473,
+      "importance": 0.001273369777204626,
+      "combined_score": 0.24174503883495382
+    },
+    {
+      "feature": "home_home_pointsFor",
+      "correlation": 0.5489050073531284,
+      "mutual_info": 0.18856151281132583,
+      "importance": 4.397940976103821e-06,
+      "combined_score": 0.24009742671276169
+    },
+    {
+      "feature": "home_opp_total_pointsAgainst",
+      "correlation": 0.5374893261807792,
+      "mutual_info": 0.18747931616343338,
+      "importance": 9.10901493164178e-05,
+      "combined_score": 0.23626585136440204
+    },
+    {
+      "feature": "away_opp_total_pointsFor",
+      "correlation": 0.5374893261807792,
+      "mutual_info": 0.18347908517289513,
+      "importance": 0.0009072965885856492,
+      "combined_score": 0.23491062089996748
+    },
+    {
+      "feature": "away_scored_20plus",
+      "correlation": 0.4886264095495872,
+      "mutual_info": 0.13235673945036686,
+      "importance": 0.004950781101790946,
+      "combined_score": 0.20101585297556018
+    },
+    {
+      "feature": "home_scored_20plus",
+      "correlation": 0.4801438885986653,
+      "mutual_info": 0.12272812136448863,
+      "importance": 0.0,
+      "combined_score": 0.19313441512539503
+    },
+    {
+      "feature": "away_scored_30plus",
+      "correlation": 0.4233330294271104,
+      "mutual_info": 0.09371631845407702,
+      "importance": 0.0,
+      "combined_score": 0.16448643620976391
+    },
+    {
+      "feature": "home_scored_30plus",
+      "correlation": 0.3939643985738516,
+      "mutual_info": 0.0820321355469833,
+      "importance": 0.0,
+      "combined_score": 0.1510021737909488
+    },
+    {
+      "feature": "away_diff_total_differential_roll5",
+      "correlation": 0.26919356502605324,
+      "mutual_info": 0.044471479994734775,
+      "importance": 0.0,
+      "combined_score": 0.09854666150570988
+    },
+    {
+      "feature": "home_diff_total_differential_roll5",
+      "correlation": 0.26919356502605324,
+      "mutual_info": 0.035110613405002766,
+      "importance": 0.0005517601523252684,
+      "combined_score": 0.09496784291551466
+    },
+    {
+      "feature": "home_diff_total_differential_roll3",
+      "correlation": 0.23590724713836186,
+      "mutual_info": 0.03481227488067251,
+      "importance": 0.00037150636329425564,
+      "combined_score": 0.08480853600276585
+    },
+    {
+      "feature": "home_diff_total_pointsFor_roll5",
+      "correlation": 0.24019908793895497,
+      "mutual_info": 0.030026914885052047,
+      "importance": 0.0008865357420541972,
+      "combined_score": 0.08433645305832357
+    },
+    {
+      "feature": "away_diff_total_differential_roll3",
+      "correlation": 0.23590724713836186,
+      "mutual_info": 0.031551823277451874,
+      "importance": 2.451723029421818e-05,
+      "combined_score": 0.08340025862157759
+    },
+    {
+      "feature": "home_diff_point_diff_trend",
+      "correlation": 0.2359072471383618,
+      "mutual_info": 0.028933618329588295,
+      "importance": 1.5625058863127494e-06,
+      "combined_score": 0.08234609022510975
+    },
+    {
+      "feature": "away_diff_total_pointsFor_roll5",
+      "correlation": 0.24019908793895497,
+      "mutual_info": 0.0232823211610782,
+      "importance": 2.4606422707411494e-05,
+      "combined_score": 0.08138003677293
+    },
+    {
+      "feature": "away_diff_point_diff_trend",
+      "correlation": 0.2359072471383618,
+      "mutual_info": 0.023238422128960323,
+      "importance": 2.302360559716445e-07,
+      "combined_score": 0.08006761206390946
+    },
+    {
+      "feature": "away_diff_points_scored_trend",
+      "correlation": 0.2076350286602176,
+      "mutual_info": 0.024450951454808578,
+      "importance": 1.4226082478469231e-06,
+      "combined_score": 0.07207131596246308
+    },
+    {
+      "feature": "home_diff_points_scored_trend",
+      "correlation": 0.2076350286602176,
+      "mutual_info": 0.022177999400720516,
+      "importance": 0.0006426843542491133,
+      "combined_score": 0.07135451366462822
+    },
+    {
+      "feature": "home_diff_total_pointsFor_roll3",
+      "correlation": 0.2076350286602176,
+      "mutual_info": 0.02180799019612989,
+      "importance": 0.00016650016015503686,
+      "combined_score": 0.07106365472456375
+    },
+    {
+      "feature": "away_opp_total_differential_roll5",
+      "correlation": 0.20251205223920113,
+      "mutual_info": 0.02299625299522745,
+      "importance": 0.0,
+      "combined_score": 0.06995211686985132
+    },
+    {
+      "feature": "home_diff_win_streak",
+      "correlation": 0.2072259628685454,
+      "mutual_info": 0.016529281576387334,
+      "importance": 3.8626345859522146e-05,
+      "combined_score": 0.06879108939487641
+    },
+    {
+      "feature": "away_diff_win_streak",
+      "correlation": 0.2072259628685454,
+      "mutual_info": 0.015694713852957953,
+      "importance": 0.0003736306862038917,
+      "combined_score": 0.06855776360760797
+    },
+    {
+      "feature": "away_diff_total_pointsFor_roll3",
+      "correlation": 0.2076350286602176,
+      "mutual_info": 0.014420189484276147,
+      "importance": 0.000345744762215814,
+      "combined_score": 0.06816230782044048
+    },
+    {
+      "feature": "home_home_OTLosses",
+      "correlation": 0.18906018342600125,
+      "mutual_info": 0.01795012961751663,
+      "importance": 0.0,
+      "combined_score": 0.06389810687480703
+    },
+    {
+      "feature": "home_point_diff_trend",
+      "correlation": 0.17752033939290848,
+      "mutual_info": 0.019862581735130558,
+      "importance": 1.0003042429921512e-06,
+      "combined_score": 0.061201434603197664
+    },
+    {
+      "feature": "away_opp_total_pointsFor_roll5",
+      "correlation": 0.17420277400605844,
+      "mutual_info": 0.018809620912942027,
+      "importance": 0.0,
+      "combined_score": 0.05978468056699434
+    },
+    {
+      "feature": "home_streak_20plus",
+      "correlation": 0.16745430258396493,
+      "mutual_info": 0.019427155693048537,
+      "importance": 4.061358458281343e-07,
+      "combined_score": 0.058007274893162646
+    },
+    {
+      "feature": "away_opp_point_diff_trend",
+      "correlation": 0.1771639582408484,
+      "mutual_info": 0.011004438251233761,
+      "importance": 3.402875203848453e-06,
+      "combined_score": 0.057551983635309174
+    },
+    {
+      "feature": "home_opp_total_differential_roll5",
+      "correlation": 0.17654620433485094,
+      "mutual_info": 0.01093159371973318,
+      "importance": 0.0,
+      "combined_score": 0.05733649878834855
+    },
+    {
+      "feature": "away_streak_30plus",
+      "correlation": 0.16369649423149515,
+      "mutual_info": 0.019066165896962417,
+      "importance": 0.0,
+      "combined_score": 0.05673541462823351
+    },
+    {
+      "feature": "home_opp_total_pointsFor_roll5",
+      "correlation": 0.1603675013220357,
+      "mutual_info": 0.020663183894321424,
+      "importance": 0.0,
+      "combined_score": 0.05637552395433928
+    },
+    {
+      "feature": "away_diff_total_pointsAgainst_roll5",
+      "correlation": 0.16391657637970722,
+      "mutual_info": 0.016866813607472775,
+      "importance": 0.00026681195999727215,
+      "combined_score": 0.05600174194490046
+    },
+    {
+      "feature": "away_streak_20plus",
+      "correlation": 0.1699189806978078,
+      "mutual_info": 0.010880516443511734,
+      "importance": 0.0,
+      "combined_score": 0.055327900786747035
+    },
+    {
+      "feature": "away_opp_total_differential_roll3",
+      "correlation": 0.17716395824084846,
+      "mutual_info": 0.004054387417063765,
+      "importance": 0.0,
+      "combined_score": 0.05477094243908004
+    },
+    {
+      "feature": "away_away_OTLosses",
+      "correlation": 0.15747768194489983,
+      "mutual_info": 0.01801778463972914,
+      "importance": 0.0,
+      "combined_score": 0.0544504184393616
+    },
+    {
+      "feature": "home_diff_total_pointsAgainst_roll5",
+      "correlation": 0.16391657637970722,
+      "mutual_info": 0.012913210456310331,
+      "importance": 0.0,
+      "combined_score": 0.0543402570964363
+    },
+    {
+      "feature": "home_streak_30plus",
+      "correlation": 0.16198275618813018,
+      "mutual_info": 0.009413912674848035,
+      "importance": 0.0,
+      "combined_score": 0.052360391926378265
+    },
+    {
+      "feature": "home_opp_point_diff_trend",
+      "correlation": 0.15317854784566953,
+      "mutual_info": 0.015941028608507324,
+      "importance": 0.0,
+      "combined_score": 0.05232997579710379
+    },
+    {
+      "feature": "away_point_diff_trend",
+      "correlation": 0.1555369808021666,
+      "mutual_info": 0.012227982433979268,
+      "importance": 0.0,
+      "combined_score": 0.05155228721424169
+    },
+    {
+      "feature": "home_road_losses_std",
+      "correlation": 0.1384908335993452,
+      "mutual_info": 0.0246136185169048,
+      "importance": 2.0160356630383233e-06,
+      "combined_score": 0.05139330229726439
+    },
+    {
+      "feature": "home_win_streak",
+      "correlation": 0.15230124845835882,
+      "mutual_info": 0.011039449552134428,
+      "importance": 0.0,
+      "combined_score": 0.05010615435836142
+    },
+    {
+      "feature": "home_road_wins_roll5",
+      "correlation": 0.14779571394704621,
+      "mutual_info": 0.014384550465417867,
+      "importance": 0.0,
+      "combined_score": 0.05009253437028101
+    },
+    {
+      "feature": "away_road_OTLosses",
+      "correlation": 0.15747768194489983,
+      "mutual_info": 0.007025253722521718,
+      "importance": 0.0,
+      "combined_score": 0.050053406072478636
+    },
+    {
+      "feature": "away_opp_win_streak",
+      "correlation": 0.1515014865480712,
+      "mutual_info": 0.01001984222999841,
+      "importance": 0.0,
+      "combined_score": 0.04945838285642072
+    },
+    {
+      "feature": "away_opp_points_scored_trend",
+      "correlation": 0.1476726553722736,
+      "mutual_info": 0.012223581551366713,
+      "importance": 0.0,
+      "combined_score": 0.04919122923222877
+    },
+    {
+      "feature": "home_points_scored_trend",
+      "correlation": 0.14743382898730628,
+      "mutual_info": 0.01115745827486414,
+      "importance": 1.2270217684344174e-05,
+      "combined_score": 0.04869681307144284
+    },
+    {
+      "feature": "away_home_winPercent_roll5",
+      "correlation": 0.1443983845415722,
+      "mutual_info": 0.013330564017167923,
+      "importance": 0.0,
+      "combined_score": 0.04865174096933883
+    },
+    {
+      "feature": "home_diff_points_allowed_trend",
+      "correlation": 0.14018954507617828,
+      "mutual_info": 0.015379024216611192,
+      "importance": 4.734884556851994e-07,
+      "combined_score": 0.04820861525603467
+    },
+    {
+      "feature": "home_road_losses_roll5",
+      "correlation": 0.14884792427027677,
+      "mutual_info": 0.008713569827603074,
+      "importance": 0.0,
+      "combined_score": 0.048139805212124256
+    },
+    {
+      "feature": "home_road_winPercent_std",
+      "correlation": 0.13893953509414717,
+      "mutual_info": 0.01549083960646147,
+      "importance": 0.0,
+      "combined_score": 0.04787819637082874
+    },
+    {
+      "feature": "away_opp_total_pointsFor_roll3",
+      "correlation": 0.1476726553722736,
+      "mutual_info": 0.008759145440102145,
+      "importance": 0.0,
+      "combined_score": 0.04780545478772293
+    },
+    {
+      "feature": "home_opp_win_streak",
+      "correlation": 0.14040639164459948,
+      "mutual_info": 0.014130375708545806,
+      "importance": 0.0,
+      "combined_score": 0.047774067776798164
+    },
+    {
+      "feature": "home_road_wins_std",
+      "correlation": 0.13893953509414717,
+      "mutual_info": 0.013316337420482771,
+      "importance": 1.1377365153711728e-05,
+      "combined_score": 0.04701180870598337
+    },
+    {
+      "feature": "away_points_scored_trend",
+      "correlation": 0.1447884099806786,
+      "mutual_info": 0.007439349121110883,
+      "importance": 0.0,
+      "combined_score": 0.04641226264264793
+    },
+    {
+      "feature": "away_home_wins_roll5",
+      "correlation": 0.14439838454157156,
+      "mutual_info": 0.006864957443367459,
+      "importance": 9.56929754294354e-06,
+      "combined_score": 0.046068369129081334
+    },
+    {
+      "feature": "home_opp_total_differential_roll3",
+      "correlation": 0.15317854784566956,
+      "mutual_info": 0.0,
+      "importance": 5.718157038869777e-07,
+      "combined_score": 0.045953735898412035
+    },
+    {
+      "feature": "away_win_streak",
+      "correlation": 0.14120733087834522,
+      "mutual_info": 0.008526606638481038,
+      "importance": 0.0,
+      "combined_score": 0.045772841918895975
+    },
+    {
+      "feature": "home_opp_points_scored_trend",
+      "correlation": 0.1407555036447252,
+      "mutual_info": 0.007440595044794218,
+      "importance": 0.0,
+      "combined_score": 0.04520288911133524
+    },
+    {
+      "feature": "home_opp_total_pointsFor_roll3",
+      "correlation": 0.1407555036447252,
+      "mutual_info": 0.007424282543855298,
+      "importance": 0.0,
+      "combined_score": 0.045196364110959675
+    },
+    {
+      "feature": "home_diff_total_pointsAgainst_roll3",
+      "correlation": 0.14018954507617828,
+      "mutual_info": 0.007834717367633637,
+      "importance": 1.430840860761772e-06,
+      "combined_score": 0.045191179722165166
+    },
+    {
+      "feature": "away_home_wins_std",
+      "correlation": 0.12555395901022715,
+      "mutual_info": 0.01809887125265419,
+      "importance": 0.0,
+      "combined_score": 0.04490573620412982
+    },
+    {
+      "feature": "home_road_winPercent_roll5",
+      "correlation": 0.14779571394704685,
+      "mutual_info": 0.0010701182356229744,
+      "importance": 9.345624574220623e-06,
+      "combined_score": 0.044769565165735506
+    },
+    {
+      "feature": "away_home_losses_roll5",
+      "correlation": 0.13350397246754253,
+      "mutual_info": 0.011026102264548143,
+      "importance": 1.3259201702338065e-08,
+      "combined_score": 0.044461636623842525
+    },
+    {
+      "feature": "away_diff_points_allowed_trend",
+      "correlation": 0.14018954507617828,
+      "mutual_info": 0.0054095815355204024,
+      "importance": 5.219657375271484e-05,
+      "combined_score": 0.044236355109187456
+    },
+    {
+      "feature": "away_home_winPercent_std",
+      "correlation": 0.12555395901022698,
+      "mutual_info": 0.01528932340132938,
+      "importance": 0.0,
+      "combined_score": 0.043781917063599844
+    },
+    {
+      "feature": "home_road_winPercent_roll3",
+      "correlation": 0.12330148178067592,
+      "mutual_info": 0.01621362115856151,
+      "importance": 0.0,
+      "combined_score": 0.04347589299762738
+    },
+    {
+      "feature": "away_diff_total_pointsAgainst_roll3",
+      "correlation": 0.14018954507617828,
+      "mutual_info": 0.002952723204369345,
+      "importance": 0.0,
+      "combined_score": 0.04323795280460122
+    },
+    {
+      "feature": "home_road_losses_roll3",
+      "correlation": 0.1274526052006184,
+      "mutual_info": 0.012498182034178296,
+      "importance": 0.0,
+      "combined_score": 0.043235054373856836
+    },
+    {
+      "feature": "away_opp_total_pointsAgainst_roll5",
+      "correlation": 0.12655269449593617,
+      "mutual_info": 0.010445555042856824,
+      "importance": 0.0,
+      "combined_score": 0.042144030365923575
+    },
+    {
+      "feature": "away_home_losses_std",
+      "correlation": 0.12455185601433527,
+      "mutual_info": 0.00979665346037839,
+      "importance": 0.0,
+      "combined_score": 0.04128421818845193
+    },
+    {
+      "feature": "home_home_winPercent_roll5",
+      "correlation": 0.11837617125942933,
+      "mutual_info": 0.0050658737602220505,
+      "importance": 0.0,
+      "combined_score": 0.03753920088191762
+    },
+    {
+      "feature": "home_home_losses_roll5",
+      "correlation": 0.11935134282586946,
+      "mutual_info": 0.0034118047515012684,
+      "importance": 0.0,
+      "combined_score": 0.037170124748361344
+    },
+    {
+      "feature": "home_road_wins_roll3",
+      "correlation": 0.12330148178067636,
+      "mutual_info": 0.0,
+      "importance": 0.0,
+      "combined_score": 0.03699044453420291
+    },
+    {
+      "feature": "away_road_wins_std",
+      "correlation": 0.10403775847375757,
+      "mutual_info": 0.01441019132004806,
+      "importance": 1.3532126080319357e-06,
+      "combined_score": 0.036975810033928906
+    },
+    {
+      "feature": "away_opp_total_pointsAgainst_roll3",
+      "correlation": 0.11313700933405112,
+      "mutual_info": 0.006936811729126635,
+      "importance": 0.0,
+      "combined_score": 0.036715827491865985
+    },
+    {
+      "feature": "home_points_allowed_trend",
+      "correlation": 0.11398948131747033,
+      "mutual_info": 0.004271493901511825,
+      "importance": 0.0,
+      "combined_score": 0.03590544195584583
+    },
+    {
+      "feature": "home_home_wins_std",
+      "correlation": 0.10481885283657515,
+      "mutual_info": 0.010921248373845227,
+      "importance": 0.0,
+      "combined_score": 0.035814155200510636
+    },
+    {
+      "feature": "home_home_wins_roll5",
+      "correlation": 0.11837617125942887,
+      "mutual_info": 0.0,
+      "importance": 0.0,
+      "combined_score": 0.03551285137782866
+    },
+    {
+      "feature": "away_road_losses_roll5",
+      "correlation": 0.11377552755704703,
+      "mutual_info": 0.0016437644264355455,
+      "importance": 0.0,
+      "combined_score": 0.03479016403768833
+    },
+    {
+      "feature": "away_opp_points_allowed_trend",
+      "correlation": 0.11313700933405112,
+      "mutual_info": 0.0,
+      "importance": 0.0,
+      "combined_score": 0.03394110280021533
+    },
+    {
+      "feature": "away_road_losses_std",
+      "correlation": 0.10710736811929862,
+      "mutual_info": 0.004407120663412645,
+      "importance": 0.0,
+      "combined_score": 0.03389505870115465
+    },
+    {
+      "feature": "away_road_winPercent_roll3",
+      "correlation": 0.09374165884407706,
+      "mutual_info": 0.01156790077736014,
+      "importance": 1.318520898005523e-08,
+      "combined_score": 0.03274966191972987
+    },
+    {
+      "feature": "away_home_winPercent_roll3",
+      "correlation": 0.10163777791706846,
+      "mutual_info": 0.005614262219134414,
+      "importance": 0.0,
+      "combined_score": 0.032737038262774305
+    },
+    {
+      "feature": "home_home_wins_roll3",
+      "correlation": 0.09307066573232546,
+      "mutual_info": 0.011029757893280756,
+      "importance": 0.0,
+      "combined_score": 0.03233310287700994
+    },
+    {
+      "feature": "home_home_winPercent_std",
+      "correlation": 0.10481885283657488,
+      "mutual_info": 0.0017495844994708243,
+      "importance": 0.0,
+      "combined_score": 0.03214548965076079
+    },
+    {
+      "feature": "away_home_wins_roll3",
+      "correlation": 0.10163777791706821,
+      "mutual_info": 0.003424612715818398,
+      "importance": 0.0,
+      "combined_score": 0.03186117846144782
+    },
+    {
+      "feature": "away_home_losses_roll3",
+      "correlation": 0.10244687087793818,
+      "mutual_info": 0.002730429583237548,
+      "importance": 0.0,
+      "combined_score": 0.03182623309667647
+    },
+    {
+      "feature": "away_road_winPercent_std",
+      "correlation": 0.1040377584737579,
+      "mutual_info": 0.0015012581817077653,
+      "importance": 0.0,
+      "combined_score": 0.031811830814810475
+    },
+    {
+      "feature": "away_road_winPercent_roll5",
+      "correlation": 0.09987719628558649,
+      "mutual_info": 0.003911852153680506,
+      "importance": 0.0,
+      "combined_score": 0.03152789974714815
+    },
+    {
+      "feature": "home_opp_total_pointsAgainst_roll5",
+      "correlation": 0.10089837845150554,
+      "mutual_info": 0.0021850697962655374,
+      "importance": 0.0,
+      "combined_score": 0.031143541453957875
+    },
+    {
+      "feature": "away_road_wins_roll5",
+      "correlation": 0.09987719628558632,
+      "mutual_info": 0.002890026570934179,
+      "importance": 8.39462036668306e-09,
+      "combined_score": 0.031119172032435676
+    },
+    {
+      "feature": "home_home_losses_std",
+      "correlation": 0.10238269515538284,
+      "mutual_info": 0.0,
+      "importance": 0.0,
+      "combined_score": 0.03071480854661485
+    },
+    {
+      "feature": "home_home_losses_roll3",
+      "correlation": 0.08870431487602284,
+      "mutual_info": 0.008967327311115714,
+      "importance": 0.0,
+      "combined_score": 0.030198225387253138
+    },
+    {
+      "feature": "home_opp_points_allowed_trend",
+      "correlation": 0.08192560215824607,
+      "mutual_info": 0.010026315231688177,
+      "importance": 3.6993200580401995e-05,
+      "combined_score": 0.028599304700323208
+    },
+    {
+      "feature": "home_home_winPercent_roll3",
+      "correlation": 0.09307066573232574,
+      "mutual_info": 0.0016315280952454714,
+      "importance": 0.0,
+      "combined_score": 0.02857381095779591
+    },
+    {
+      "feature": "away_road_wins_roll3",
+      "correlation": 0.09374165884407691,
+      "mutual_info": 0.0,
+      "importance": 0.0,
+      "combined_score": 0.028122497653223073
+    },
+    {
+      "feature": "away_road_losses_roll3",
+      "correlation": 0.09171456470147055,
+      "mutual_info": 0.0,
+      "importance": 0.0,
+      "combined_score": 0.027514369410441164
+    },
+    {
+      "feature": "home_opp_total_pointsAgainst_roll3",
+      "correlation": 0.08192560215824607,
+      "mutual_info": 0.005368256617604317,
+      "importance": 9.084798975780101e-08,
+      "combined_score": 0.02672501054891247
+    },
+    {
+      "feature": "away_points_allowed_trend",
+      "correlation": 0.07990310576218955,
+      "mutual_info": 0.0023438458828244357,
+      "importance": 5.809941695275833e-08,
+      "combined_score": 0.024908487511611725
+    },
+    {
+      "feature": "away_opp_qb_out",
+      "correlation": 0.06463839019521447,
+      "mutual_info": 0.004690223875465804,
+      "importance": 2.0717535619956243e-06,
+      "combined_score": 0.02126822813481926
+    },
+    {
+      "feature": "home_qb_out",
+      "correlation": 0.06250472536761811,
+      "mutual_info": 0.002871919439220605,
+      "importance": 0.0,
+      "combined_score": 0.019900185385973674
+    },
+    {
+      "feature": "home_diff_injury_impact",
+      "correlation": 0.04573677441162456,
+      "mutual_info": 0.014314432606370442,
+      "importance": 0.0,
+      "combined_score": 0.019446805366035547
+    },
+    {
+      "feature": "away_diff_injury_impact",
+      "correlation": 0.04573677441162456,
+      "mutual_info": 0.007826422526953092,
+      "importance": 0.0,
+      "combined_score": 0.016851601334268607
+    },
+    {
+      "feature": "temp",
+      "correlation": 0.04223721317071752,
+      "mutual_info": 0.005717996191241248,
+      "importance": 1.1443362740015941e-07,
+      "combined_score": 0.014958396757799974
+    },
+    {
+      "feature": "away_injury_impact",
+      "correlation": 0.0428161948598556,
+      "mutual_info": 0.00133449706519162,
+      "importance": 0.0,
+      "combined_score": 0.013378657284033327
+    },
+    {
+      "feature": "home_opp_injury_impact",
+      "correlation": 0.0428161948598556,
+      "mutual_info": 0.0,
+      "importance": 0.0,
+      "combined_score": 0.012844858457956678
+    },
+    {
+      "feature": "home_opp_qb_out",
+      "correlation": 0.03363036998336255,
+      "mutual_info": 0.003988049090076107,
+      "importance": 0.0,
+      "combined_score": 0.011684330631039207
+    },
+    {
+      "feature": "away_qb_out",
+      "correlation": 0.03363036998336255,
+      "mutual_info": 0.0018084035248673302,
+      "importance": 0.0,
+      "combined_score": 0.010812472404955698
+    },
+    {
+      "feature": "home_div_game",
+      "correlation": 0.030531782081833204,
+      "mutual_info": 0.003964842988289252,
+      "importance": 0.0,
+      "combined_score": 0.010745471819865661
+    },
+    {
+      "feature": "away_div_game",
+      "correlation": 0.030531782081833204,
+      "mutual_info": 0.0,
+      "importance": 0.0,
+      "combined_score": 0.00915953462454996
+    },
+    {
+      "feature": "home_injury_impact",
+      "correlation": 0.017159197348979065,
+      "mutual_info": 0.006210869942514297,
+      "importance": 8.964354297023757e-07,
+      "combined_score": 0.0076323761123283495
+    },
+    {
+      "feature": "away_opp_injury_impact",
+      "correlation": 0.01855475539153421,
+      "mutual_info": 0.0,
+      "importance": 0.0,
+      "combined_score": 0.005566426617460263
+    },
+    {
+      "feature": "wind",
+      "correlation": 0.01141360398030291,
+      "mutual_info": 0.0012985864761629884,
+      "importance": 2.585939375075347e-07,
+      "combined_score": 0.003943593362737321
+    },
+    {
+      "feature": "wind_high",
+      "correlation": 0.012391968841034212,
+      "mutual_info": 0.0,
+      "importance": 0.0,
+      "combined_score": 0.0037175906523102637
+    },
+    {
+      "feature": "temp_extreme",
+      "correlation": 0.010825562635888589,
+      "mutual_info": 0.0,
+      "importance": 0.0,
+      "combined_score": 0.0032476687907665763
+    },
+    {
+      "feature": "is_outdoor",
+      "correlation": 0.003179191299795238,
+      "mutual_info": 0.0,
+      "importance": 0.0,
+      "combined_score": 0.0009537573899385714
+    }
+  ]
+}

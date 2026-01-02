@@ -1,0 +1,47 @@
+{
+  "LightGBM": {
+    "rank_correlation": -0.10339171443654724,
+    "top_10_features": [
+      "away_diff_total_differential",
+      "away_diff_point_diff_trend",
+      "away_opp_total_differential_roll5",
+      "away_diff_total_winPercent",
+      "away_opp_total_pointsFor_roll5",
+      "home_diff_total_winPercent",
+      "home_diff_total_differential",
+      "home_diff_total_pointsFor",
+      "away_opp_total_pointsFor",
+      "home_diff_total_pointsAgainst_roll5"
+    ]
+  },
+  "CatBoost": {
+    "rank_correlation": 0.3705641227754339,
+    "top_10_features": [
+      "away_diff_total_pointsFor_roll5",
+      "home_diff_total_differential",
+      "away_diff_total_differential_roll5",
+      "home_diff_total_pointsFor",
+      "home_diff_total_differential_roll5",
+      "away_diff_total_differential",
+      "away_diff_total_pointsFor",
+      "home_opp_total_pointsFor_roll5",
+      "away_opp_total_differential_roll5",
+      "home_opp_total_differential"
+    ]
+  },
+  "RandomForest": {
+    "rank_correlation": -0.5449990342560608,
+    "top_10_features": [
+      "home_diff_point_diff_trend",
+      "away_scored_30plus",
+      "away_diff_total_pointsFor",
+      "away_div_game",
+      "away_diff_win_streak",
+      "home_scored_30plus",
+      "away_diff_total_differential_roll3",
+      "home_streak_20plus",
+      "home_scored_20plus",
+      "away_vsdiv_losses"
+    ]
+  }
+}

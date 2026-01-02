@@ -1,0 +1,30 @@
+{
+  "weighted_averaging": {
+    "xgboost": 0.1926822848117926,
+    "lightgbm": 0.20005264543300869,
+    "catboost": 0.18610160568570677,
+    "randomforest": 0.24032640168465386,
+    "pytorch": 0.18083706238483813
+  },
+  "model_val_accuracies": {
+    "xgboost": 0.6518254674977738,
+    "lightgbm": 0.6767586821015138,
+    "catboost": 0.6295636687444346,
+    "randomforest": 0.8130008904719501,
+    "pytorch": 0.6117542297417632
+  },
+  "strategies_performance": {
+    "simple_averaging": {
+      "val_acc": 0.6776491540516474,
+      "test_acc": 0.6701754385964912
+    },
+    "weighted_averaging": {
+      "val_acc": 0.686553873552983,
+      "test_acc": 0.6631578947368421
+    },
+    "stacking": {
+      "val_acc": 0.9162956366874443,
+      "test_acc": 0.6175438596491228
+    }
+  }
+}

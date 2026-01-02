@@ -1,0 +1,38 @@
+
+APPROACH FOR DERIVING 2025 PRE-GAME FEATURES:
+
+1. ROLLING AVERAGES (18 features):
+   - For each team in each 2025 game, calculate rolling averages using:
+     * Previous games from 2025 season (if available)
+     * Last games from 2024 season (to fill early 2025 weeks)
+   - Example: For Week 5, 2025, Team A:
+     * last_3: Average of Weeks 2, 3, 4 (2025)
+     * last_5: Average of Weeks 1, 2, 3, 4 (2025) + Week 18 (2024)
+     * season: Average of Weeks 1, 2, 3, 4 (2025)
+   - CRITICAL: Exclude current game from all calculations!
+
+2. TRENDS/STREAKS (17 features):
+   - Calculate based on previous games only
+   - Example: win_streak = consecutive wins BEFORE current game
+   - Example: point_diff_trend = trend in point differential over last 5 games
+
+3. TIER S+A FEATURES (20 features):
+   - Use nfl_data_py NGS data for 2025
+   - Calculate 3-week rolling averages (cpoe_3wk, pressure_rate_3wk, etc.)
+   - Handle missing data (not all teams have NGS data)
+
+4. OPPONENT-ADJUSTED METRICS (20 features):
+   - Calculate differentials between team and opponent
+   - Example: diff_total_differential = team_differential - opponent_differential
+   - Use opponent's stats from PREVIOUS games
+
+5. CONTEXTUAL FEATURES (37 features):
+   - Records: wins, losses, home_wins, road_wins, etc. (cumulative BEFORE game)
+   - Points: pointsFor, pointsAgainst (cumulative BEFORE game)
+   - Context: div_game, rest_advantage, opponent (known before game)
+
+DATA LEAKAGE PREVENTION:
+- For Week N game, use ONLY data from Weeks 1 to N-1
+- For early season (Weeks 1-3), use previous season data to fill gaps
+- Never include current game in any calculation
+- Validate by checking: Can this be calculated at kickoff time?

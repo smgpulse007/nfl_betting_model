@@ -1,0 +1,32 @@
+{
+  "nfl_data_py_schedule_weather_cols": [
+    "roof",
+    "surface",
+    "temp",
+    "wind"
+  ],
+  "nfl_data_py_pbp_weather_cols": [
+    "rush_attempt",
+    "pass_attempt",
+    "extra_point_attempt",
+    "two_point_attempt",
+    "field_goal_attempt",
+    "kickoff_attempt",
+    "punt_attempt",
+    "defensive_two_point_attempt",
+    "defensive_extra_point_attempt",
+    "weather",
+    "roof",
+    "surface",
+    "temp",
+    "wind"
+  ],
+  "has_weather_data": true,
+  "alternative_sources": [
+    "Pro Football Reference",
+    "Weather APIs (OpenWeatherMap, Visual Crossing, NOAA)",
+    "ESPN API",
+    "NFL.com Game Center"
+  ],
+  "recommendation": "ADD"
+}

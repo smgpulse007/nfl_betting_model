@@ -1,0 +1,1140 @@
+{
+  "home_team": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "team"
+  },
+  "away_team": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "team"
+  },
+  "home_score": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "score"
+  },
+  "away_score": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "score"
+  },
+  "result": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "result"
+  },
+  "home_home_winPercent": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "winPercent"
+  },
+  "away_qb_out": {
+    "risk": "LOW",
+    "source": "nfl_data_py injury data",
+    "dependency": [],
+    "base_feature": "qb_out"
+  },
+  "home_opp_total_differential_roll5": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "opp_total_differential"
+    ],
+    "base_feature": "opp_total_differential_roll5"
+  },
+  "home_home_wins_roll3": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "wins"
+    ],
+    "base_feature": "wins_roll3"
+  },
+  "away_road_wins_roll5": {
+    "risk": "MEDIUM",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "road_wins",
+      "current_game_outcome"
+    ],
+    "base_feature": "road_wins_roll5"
+  },
+  "away_away_losses": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "losses"
+  },
+  "home_diff_total_pointsAgainst_roll3": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "diff_total_pointsAgainst"
+    ],
+    "base_feature": "diff_total_pointsAgainst_roll3"
+  },
+  "away_opp_qb_out": {
+    "risk": "LOW",
+    "source": "Phase 6D: Opponent features",
+    "dependency": [
+      "qb_out"
+    ],
+    "base_feature": "opp_qb_out"
+  },
+  "home_streak_30plus": {
+    "risk": "UNKNOWN",
+    "source": "Phase 6C: Streak features",
+    "dependency": [
+      "NEEDS_VERIFICATION"
+    ],
+    "base_feature": "streak_30plus"
+  },
+  "away_diff_total_pointsAgainst_roll5": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "diff_total_pointsAgainst"
+    ],
+    "base_feature": "diff_total_pointsAgainst_roll5"
+  },
+  "away_opp_injury_impact": {
+    "risk": "LOW",
+    "source": "Phase 6D: Opponent features",
+    "dependency": [
+      "injury_impact"
+    ],
+    "base_feature": "opp_injury_impact"
+  },
+  "home_home_losses_roll5": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "losses"
+    ],
+    "base_feature": "losses_roll5"
+  },
+  "away_diff_total_differential_roll5": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "diff_total_differential"
+    ],
+    "base_feature": "diff_total_differential_roll5"
+  },
+  "away_diff_total_pointsFor_roll5": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "diff_total_pointsFor"
+    ],
+    "base_feature": "diff_total_pointsFor_roll5"
+  },
+  "home_home_OTLosses": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "OTLosses"
+  },
+  "home_road_wins_roll3": {
+    "risk": "MEDIUM",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "road_wins",
+      "current_game_outcome"
+    ],
+    "base_feature": "road_wins_roll3"
+  },
+  "home_diff_points_scored_trend": {
+    "risk": "LOW",
+    "source": "Phase 6D: Differential features",
+    "dependency": [
+      "points_scored_trend",
+      "opp_points_scored_trend"
+    ],
+    "base_feature": "diff_points_scored_trend"
+  },
+  "home_diff_total_pointsFor": {
+    "risk": "MEDIUM",
+    "source": "Phase 6D: Differential features",
+    "dependency": [
+      "total_pointsFor",
+      "opp_total_pointsFor",
+      "current_game_outcome"
+    ],
+    "base_feature": "diff_total_pointsFor"
+  },
+  "home_opp_points_allowed_trend": {
+    "risk": "LOW",
+    "source": "Phase 6D: Opponent features",
+    "dependency": [
+      "points_allowed_trend"
+    ],
+    "base_feature": "opp_points_allowed_trend"
+  },
+  "away_opp_point_diff_trend": {
+    "risk": "LOW",
+    "source": "Phase 6D: Opponent features",
+    "dependency": [
+      "point_diff_trend"
+    ],
+    "base_feature": "opp_point_diff_trend"
+  },
+  "away_opp_total_winPercent": {
+    "risk": "MEDIUM",
+    "source": "Phase 6D: Opponent features",
+    "dependency": [
+      "total_winPercent",
+      "opponent_current_game_outcome"
+    ],
+    "base_feature": "opp_total_winPercent"
+  },
+  "away_point_diff_trend": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "point_diff_trend"
+  },
+  "away_diff_total_pointsFor_roll3": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "diff_total_pointsFor"
+    ],
+    "base_feature": "diff_total_pointsFor_roll3"
+  },
+  "home_opp_total_winPercent": {
+    "risk": "MEDIUM",
+    "source": "Phase 6D: Opponent features",
+    "dependency": [
+      "total_winPercent",
+      "opponent_current_game_outcome"
+    ],
+    "base_feature": "opp_total_winPercent"
+  },
+  "home_diff_total_pointsFor_roll3": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "diff_total_pointsFor"
+    ],
+    "base_feature": "diff_total_pointsFor_roll3"
+  },
+  "away_road_winPercent_std": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "road_winPercent_std"
+  },
+  "away_road_wins_roll3": {
+    "risk": "MEDIUM",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "road_wins",
+      "current_game_outcome"
+    ],
+    "base_feature": "road_wins_roll3"
+  },
+  "home_road_wins_roll5": {
+    "risk": "MEDIUM",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "road_wins",
+      "current_game_outcome"
+    ],
+    "base_feature": "road_wins_roll5"
+  },
+  "home_opp_points_scored_trend": {
+    "risk": "LOW",
+    "source": "Phase 6D: Opponent features",
+    "dependency": [
+      "points_scored_trend"
+    ],
+    "base_feature": "opp_points_scored_trend"
+  },
+  "temp_extreme": {
+    "risk": "LOW",
+    "source": "nfl_data_py weather data",
+    "dependency": [],
+    "base_feature": "temp_extreme"
+  },
+  "home_opp_point_diff_trend": {
+    "risk": "LOW",
+    "source": "Phase 6D: Opponent features",
+    "dependency": [
+      "point_diff_trend"
+    ],
+    "base_feature": "opp_point_diff_trend"
+  },
+  "home_injury_impact": {
+    "risk": "LOW",
+    "source": "nfl_data_py injury data",
+    "dependency": [],
+    "base_feature": "injury_impact"
+  },
+  "away_opp_total_pointsAgainst": {
+    "risk": "MEDIUM",
+    "source": "Phase 6D: Opponent features",
+    "dependency": [
+      "total_pointsAgainst",
+      "opponent_current_game_outcome"
+    ],
+    "base_feature": "opp_total_pointsAgainst"
+  },
+  "home_diff_total_differential_roll3": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "diff_total_differential"
+    ],
+    "base_feature": "diff_total_differential_roll3"
+  },
+  "away_road_winPercent_roll3": {
+    "risk": "MEDIUM",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "road_winPercent",
+      "current_game_outcome"
+    ],
+    "base_feature": "road_winPercent_roll3"
+  },
+  "home_diff_win_streak": {
+    "risk": "LOW",
+    "source": "Phase 6D: Differential features",
+    "dependency": [
+      "win_streak",
+      "opp_win_streak"
+    ],
+    "base_feature": "diff_win_streak"
+  },
+  "away_opp_points_scored_trend": {
+    "risk": "LOW",
+    "source": "Phase 6D: Opponent features",
+    "dependency": [
+      "points_scored_trend"
+    ],
+    "base_feature": "opp_points_scored_trend"
+  },
+  "away_home_wins_roll5": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "wins"
+    ],
+    "base_feature": "wins_roll5"
+  },
+  "away_diff_points_allowed_trend": {
+    "risk": "LOW",
+    "source": "Phase 6D: Differential features",
+    "dependency": [
+      "points_allowed_trend",
+      "opp_points_allowed_trend"
+    ],
+    "base_feature": "diff_points_allowed_trend"
+  },
+  "away_opp_total_differential_roll5": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "opp_total_differential"
+    ],
+    "base_feature": "opp_total_differential_roll5"
+  },
+  "away_road_losses_roll3": {
+    "risk": "MEDIUM",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "road_losses",
+      "current_game_outcome"
+    ],
+    "base_feature": "road_losses_roll3"
+  },
+  "away_home_winPercent_roll3": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "winPercent"
+    ],
+    "base_feature": "winPercent_roll3"
+  },
+  "home_home_losses_std": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "losses_std"
+  },
+  "away_diff_total_pointsAgainst_roll3": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "diff_total_pointsAgainst"
+    ],
+    "base_feature": "diff_total_pointsAgainst_roll3"
+  },
+  "away_road_losses": {
+    "risk": "HIGH",
+    "source": "derive_game_features_complete.py (lines 1081-1187)",
+    "dependency": [
+      "current_game_outcome"
+    ],
+    "base_feature": "road_losses"
+  },
+  "away_diff_total_pointsAgainst": {
+    "risk": "MEDIUM",
+    "source": "Phase 6D: Differential features",
+    "dependency": [
+      "total_pointsAgainst",
+      "opp_total_pointsAgainst",
+      "current_game_outcome"
+    ],
+    "base_feature": "diff_total_pointsAgainst"
+  },
+  "home_opp_total_pointsAgainst_roll5": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "opp_total_pointsAgainst"
+    ],
+    "base_feature": "opp_total_pointsAgainst_roll5"
+  },
+  "home_home_wins_std": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "wins_std"
+  },
+  "home_opp_total_pointsAgainst": {
+    "risk": "MEDIUM",
+    "source": "Phase 6D: Opponent features",
+    "dependency": [
+      "total_pointsAgainst",
+      "opponent_current_game_outcome"
+    ],
+    "base_feature": "opp_total_pointsAgainst"
+  },
+  "away_injury_impact": {
+    "risk": "LOW",
+    "source": "nfl_data_py injury data",
+    "dependency": [],
+    "base_feature": "injury_impact"
+  },
+  "away_scored_20plus": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "scored_20plus"
+  },
+  "home_road_losses_roll3": {
+    "risk": "MEDIUM",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "road_losses",
+      "current_game_outcome"
+    ],
+    "base_feature": "road_losses_roll3"
+  },
+  "away_home_losses_roll5": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "losses"
+    ],
+    "base_feature": "losses_roll5"
+  },
+  "home_home_winPercentage": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "winPercentage"
+  },
+  "home_diff_total_pointsAgainst": {
+    "risk": "MEDIUM",
+    "source": "Phase 6D: Differential features",
+    "dependency": [
+      "total_pointsAgainst",
+      "opp_total_pointsAgainst",
+      "current_game_outcome"
+    ],
+    "base_feature": "diff_total_pointsAgainst"
+  },
+  "away_scored_30plus": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "scored_30plus"
+  },
+  "home_opp_total_pointsFor_roll5": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "opp_total_pointsFor"
+    ],
+    "base_feature": "opp_total_pointsFor_roll5"
+  },
+  "away_road_losses_std": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "road_losses_std"
+  },
+  "home_opp_win_streak": {
+    "risk": "LOW",
+    "source": "Phase 6D: Opponent features",
+    "dependency": [
+      "win_streak"
+    ],
+    "base_feature": "opp_win_streak"
+  },
+  "away_diff_point_diff_trend": {
+    "risk": "LOW",
+    "source": "Phase 6D: Differential features",
+    "dependency": [
+      "point_trend",
+      "opp_point_trend"
+    ],
+    "base_feature": "diff_point_diff_trend"
+  },
+  "home_home_winPercent_roll5": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "winPercent"
+    ],
+    "base_feature": "winPercent_roll5"
+  },
+  "home_diff_total_differential_roll5": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "diff_total_differential"
+    ],
+    "base_feature": "diff_total_differential_roll5"
+  },
+  "away_away_OTLosses": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "OTLosses"
+  },
+  "away_away_pointsFor": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "pointsFor"
+  },
+  "away_div_game": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "div_game"
+  },
+  "home_home_winPercent_roll3": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "winPercent"
+    ],
+    "base_feature": "winPercent_roll3"
+  },
+  "away_diff_total_pointsFor": {
+    "risk": "MEDIUM",
+    "source": "Phase 6D: Differential features",
+    "dependency": [
+      "total_pointsFor",
+      "opp_total_pointsFor",
+      "current_game_outcome"
+    ],
+    "base_feature": "diff_total_pointsFor"
+  },
+  "home_diff_total_differential": {
+    "risk": "MEDIUM",
+    "source": "Phase 6D: Differential features",
+    "dependency": [
+      "total_differential",
+      "opp_total_differential",
+      "current_game_outcome"
+    ],
+    "base_feature": "diff_total_differential"
+  },
+  "home_opp_total_differential_roll3": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "opp_total_differential"
+    ],
+    "base_feature": "opp_total_differential_roll3"
+  },
+  "home_home_wins": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "wins"
+  },
+  "home_road_winPercent_roll3": {
+    "risk": "MEDIUM",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "road_winPercent",
+      "current_game_outcome"
+    ],
+    "base_feature": "road_winPercent_roll3"
+  },
+  "home_road_losses_roll5": {
+    "risk": "MEDIUM",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "road_losses",
+      "current_game_outcome"
+    ],
+    "base_feature": "road_losses_roll5"
+  },
+  "away_home_winPercent_roll5": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "winPercent"
+    ],
+    "base_feature": "winPercent_roll5"
+  },
+  "home_streak_20plus": {
+    "risk": "UNKNOWN",
+    "source": "Phase 6C: Streak features",
+    "dependency": [
+      "NEEDS_VERIFICATION"
+    ],
+    "base_feature": "streak_20plus"
+  },
+  "home_opp_qb_out": {
+    "risk": "LOW",
+    "source": "Phase 6D: Opponent features",
+    "dependency": [
+      "qb_out"
+    ],
+    "base_feature": "opp_qb_out"
+  },
+  "wind_high": {
+    "risk": "LOW",
+    "source": "nfl_data_py weather data",
+    "dependency": [],
+    "base_feature": "wind_high"
+  },
+  "away_opp_total_pointsFor_roll3": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "opp_total_pointsFor"
+    ],
+    "base_feature": "opp_total_pointsFor_roll3"
+  },
+  "away_road_winPercent": {
+    "risk": "HIGH",
+    "source": "derive_game_features_complete.py (lines 1081-1187)",
+    "dependency": [
+      "current_game_outcome"
+    ],
+    "base_feature": "road_winPercent"
+  },
+  "home_home_pointsFor": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "pointsFor"
+  },
+  "home_opp_total_differential": {
+    "risk": "MEDIUM",
+    "source": "Phase 6D: Opponent features",
+    "dependency": [
+      "total_differential",
+      "opponent_current_game_outcome"
+    ],
+    "base_feature": "opp_total_differential"
+  },
+  "home_diff_total_pointsAgainst_roll5": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "diff_total_pointsAgainst"
+    ],
+    "base_feature": "diff_total_pointsAgainst_roll5"
+  },
+  "away_opp_total_differential": {
+    "risk": "MEDIUM",
+    "source": "Phase 6D: Opponent features",
+    "dependency": [
+      "total_differential",
+      "opponent_current_game_outcome"
+    ],
+    "base_feature": "opp_total_differential"
+  },
+  "away_opp_total_pointsFor": {
+    "risk": "MEDIUM",
+    "source": "Phase 6D: Opponent features",
+    "dependency": [
+      "total_pointsFor",
+      "opponent_current_game_outcome"
+    ],
+    "base_feature": "opp_total_pointsFor"
+  },
+  "away_opp_total_pointsAgainst_roll3": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "opp_total_pointsAgainst"
+    ],
+    "base_feature": "opp_total_pointsAgainst_roll3"
+  },
+  "home_point_diff_trend": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "point_diff_trend"
+  },
+  "home_diff_point_diff_trend": {
+    "risk": "LOW",
+    "source": "Phase 6D: Differential features",
+    "dependency": [
+      "point_trend",
+      "opp_point_trend"
+    ],
+    "base_feature": "diff_point_diff_trend"
+  },
+  "home_home_losses_roll3": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "losses"
+    ],
+    "base_feature": "losses_roll3"
+  },
+  "away_road_OTLosses": {
+    "risk": "HIGH",
+    "source": "derive_game_features_complete.py (lines 1081-1187)",
+    "dependency": [
+      "current_game_outcome"
+    ],
+    "base_feature": "road_OTLosses"
+  },
+  "away_away_winPercentage": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "winPercentage"
+  },
+  "away_home_losses_std": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "losses_std"
+  },
+  "temp": {
+    "risk": "LOW",
+    "source": "nfl_data_py weather data",
+    "dependency": [],
+    "base_feature": "temp"
+  },
+  "home_diff_points_allowed_trend": {
+    "risk": "LOW",
+    "source": "Phase 6D: Differential features",
+    "dependency": [
+      "points_allowed_trend",
+      "opp_points_allowed_trend"
+    ],
+    "base_feature": "diff_points_allowed_trend"
+  },
+  "home_home_losses": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "losses"
+  },
+  "home_div_game": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "div_game"
+  },
+  "home_diff_injury_impact": {
+    "risk": "LOW",
+    "source": "Phase 6D: Differential features",
+    "dependency": [
+      "injury_impact",
+      "opp_injury_impact"
+    ],
+    "base_feature": "diff_injury_impact"
+  },
+  "away_opp_total_pointsAgainst_roll5": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "opp_total_pointsAgainst"
+    ],
+    "base_feature": "opp_total_pointsAgainst_roll5"
+  },
+  "home_opp_injury_impact": {
+    "risk": "LOW",
+    "source": "Phase 6D: Opponent features",
+    "dependency": [
+      "injury_impact"
+    ],
+    "base_feature": "opp_injury_impact"
+  },
+  "away_opp_win_streak": {
+    "risk": "LOW",
+    "source": "Phase 6D: Opponent features",
+    "dependency": [
+      "win_streak"
+    ],
+    "base_feature": "opp_win_streak"
+  },
+  "away_road_losses_roll5": {
+    "risk": "MEDIUM",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "road_losses",
+      "current_game_outcome"
+    ],
+    "base_feature": "road_losses_roll5"
+  },
+  "away_home_wins_roll3": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "wins"
+    ],
+    "base_feature": "wins_roll3"
+  },
+  "away_points_allowed_trend": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "points_allowed_trend"
+  },
+  "away_away_wins": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "wins"
+  },
+  "away_diff_total_differential_roll3": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "diff_total_differential"
+    ],
+    "base_feature": "diff_total_differential_roll3"
+  },
+  "home_road_winPercent_roll5": {
+    "risk": "MEDIUM",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "road_winPercent",
+      "current_game_outcome"
+    ],
+    "base_feature": "road_winPercent_roll5"
+  },
+  "wind": {
+    "risk": "LOW",
+    "source": "nfl_data_py weather data",
+    "dependency": [],
+    "base_feature": "wind"
+  },
+  "home_scored_30plus": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "scored_30plus"
+  },
+  "away_streak_30plus": {
+    "risk": "UNKNOWN",
+    "source": "Phase 6C: Streak features",
+    "dependency": [
+      "NEEDS_VERIFICATION"
+    ],
+    "base_feature": "streak_30plus"
+  },
+  "away_diff_points_scored_trend": {
+    "risk": "LOW",
+    "source": "Phase 6D: Differential features",
+    "dependency": [
+      "points_scored_trend",
+      "opp_points_scored_trend"
+    ],
+    "base_feature": "diff_points_scored_trend"
+  },
+  "home_road_winPercent_std": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "road_winPercent_std"
+  },
+  "away_road_wins_std": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "road_wins_std"
+  },
+  "away_diff_total_winPercent": {
+    "risk": "MEDIUM",
+    "source": "Phase 6D: Differential features",
+    "dependency": [
+      "total_winPercent",
+      "opp_total_winPercent",
+      "current_game_outcome"
+    ],
+    "base_feature": "diff_total_winPercent"
+  },
+  "away_opp_total_pointsFor_roll5": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "opp_total_pointsFor"
+    ],
+    "base_feature": "opp_total_pointsFor_roll5"
+  },
+  "home_home_pointsAgainst": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "pointsAgainst"
+  },
+  "home_opp_total_pointsFor": {
+    "risk": "MEDIUM",
+    "source": "Phase 6D: Opponent features",
+    "dependency": [
+      "total_pointsFor",
+      "opponent_current_game_outcome"
+    ],
+    "base_feature": "opp_total_pointsFor"
+  },
+  "is_outdoor": {
+    "risk": "LOW",
+    "source": "nfl_data_py weather data",
+    "dependency": [],
+    "base_feature": "is_outdoor"
+  },
+  "away_opp_points_allowed_trend": {
+    "risk": "LOW",
+    "source": "Phase 6D: Opponent features",
+    "dependency": [
+      "points_allowed_trend"
+    ],
+    "base_feature": "opp_points_allowed_trend"
+  },
+  "away_diff_injury_impact": {
+    "risk": "LOW",
+    "source": "Phase 6D: Differential features",
+    "dependency": [
+      "injury_impact",
+      "opp_injury_impact"
+    ],
+    "base_feature": "diff_injury_impact"
+  },
+  "away_road_winPercent_roll5": {
+    "risk": "MEDIUM",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "road_winPercent",
+      "current_game_outcome"
+    ],
+    "base_feature": "road_winPercent_roll5"
+  },
+  "away_home_winPercent_std": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "winPercent_std"
+  },
+  "away_away_winPercent": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "winPercent"
+  },
+  "home_opp_total_pointsFor_roll3": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "opp_total_pointsFor"
+    ],
+    "base_feature": "opp_total_pointsFor_roll3"
+  },
+  "home_diff_total_pointsFor_roll5": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "diff_total_pointsFor"
+    ],
+    "base_feature": "diff_total_pointsFor_roll5"
+  },
+  "away_diff_win_streak": {
+    "risk": "LOW",
+    "source": "Phase 6D: Differential features",
+    "dependency": [
+      "win_streak",
+      "opp_win_streak"
+    ],
+    "base_feature": "diff_win_streak"
+  },
+  "home_opp_total_pointsAgainst_roll3": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "opp_total_pointsAgainst"
+    ],
+    "base_feature": "opp_total_pointsAgainst_roll3"
+  },
+  "home_points_allowed_trend": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "points_allowed_trend"
+  },
+  "away_diff_total_differential": {
+    "risk": "MEDIUM",
+    "source": "Phase 6D: Differential features",
+    "dependency": [
+      "total_differential",
+      "opp_total_differential",
+      "current_game_outcome"
+    ],
+    "base_feature": "diff_total_differential"
+  },
+  "home_qb_out": {
+    "risk": "LOW",
+    "source": "nfl_data_py injury data",
+    "dependency": [],
+    "base_feature": "qb_out"
+  },
+  "home_win_streak": {
+    "risk": "UNKNOWN",
+    "source": "Phase 6C: Streak features",
+    "dependency": [
+      "NEEDS_VERIFICATION"
+    ],
+    "base_feature": "win_streak"
+  },
+  "away_home_losses_roll3": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "losses"
+    ],
+    "base_feature": "losses_roll3"
+  },
+  "home_scored_20plus": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "scored_20plus"
+  },
+  "away_streak_20plus": {
+    "risk": "UNKNOWN",
+    "source": "Phase 6C: Streak features",
+    "dependency": [
+      "NEEDS_VERIFICATION"
+    ],
+    "base_feature": "streak_20plus"
+  },
+  "away_away_pointsAgainst": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "pointsAgainst"
+  },
+  "away_opp_total_differential_roll3": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "opp_total_differential"
+    ],
+    "base_feature": "opp_total_differential_roll3"
+  },
+  "home_diff_total_winPercent": {
+    "risk": "MEDIUM",
+    "source": "Phase 6D: Differential features",
+    "dependency": [
+      "total_winPercent",
+      "opp_total_winPercent",
+      "current_game_outcome"
+    ],
+    "base_feature": "diff_total_winPercent"
+  },
+  "away_points_scored_trend": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "points_scored_trend"
+  },
+  "home_home_winPercent_std": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "winPercent_std"
+  },
+  "away_road_wins": {
+    "risk": "HIGH",
+    "source": "derive_game_features_complete.py (lines 1081-1187)",
+    "dependency": [
+      "current_game_outcome"
+    ],
+    "base_feature": "road_wins"
+  },
+  "away_win_streak": {
+    "risk": "UNKNOWN",
+    "source": "Phase 6C: Streak features",
+    "dependency": [
+      "NEEDS_VERIFICATION"
+    ],
+    "base_feature": "win_streak"
+  },
+  "away_home_wins_std": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "wins_std"
+  },
+  "home_home_wins_roll5": {
+    "risk": "LOW",
+    "source": "Phase 6B: Rolling averages",
+    "dependency": [
+      "wins"
+    ],
+    "base_feature": "wins_roll5"
+  },
+  "home_points_scored_trend": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "points_scored_trend"
+  },
+  "home_road_losses_std": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "road_losses_std"
+  },
+  "home_road_wins_std": {
+    "risk": "LOW",
+    "source": "derive_game_features_complete.py (game-level stats)",
+    "dependency": [],
+    "base_feature": "road_wins_std"
+  },
+  "roof": {
+    "risk": "LOW",
+    "source": "nfl_data_py weather data",
+    "dependency": [],
+    "base_feature": "roof"
+  },
+  "surface": {
+    "risk": "LOW",
+    "source": "nfl_data_py weather data",
+    "dependency": [],
+    "base_feature": "surface"
+  }
+}

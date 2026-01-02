@@ -1,0 +1,71 @@
+{
+  "val_accuracy": 0.609973285841496,
+  "test_accuracy": 0.6771929824561403,
+  "n_epochs": 32,
+  "best_epoch": 1,
+  "hyperparameters": {
+    "n_d": 64,
+    "n_a": 64,
+    "n_steps": 5,
+    "gamma": 1.5,
+    "n_independent": 2,
+    "n_shared": 2,
+    "lambda_sparse": 0.0001,
+    "momentum": 0.3,
+    "clip_value": 2.0,
+    "optimizer_params": {
+      "lr": 0.02
+    },
+    "scheduler_params": {
+      "mode": "min",
+      "patience": 5,
+      "factor": 0.5,
+      "min_lr": 1e-05
+    },
+    "mask_type": "entmax",
+    "verbose": 1,
+    "device_name": "cuda"
+  },
+  "top_10_features": [
+    {
+      "feature": "away_opp_total_differential",
+      "importance": 0.09671513462009979
+    },
+    {
+      "feature": "away_diff_total_differential",
+      "importance": 0.09601420155968315
+    },
+    {
+      "feature": "home_streak_30plus",
+      "importance": 0.08893171986321499
+    },
+    {
+      "feature": "away_diff_win_streak",
+      "importance": 0.0595481462385019
+    },
+    {
+      "feature": "away_diff_total_pointsFor_roll5",
+      "importance": 0.057010253353317976
+    },
+    {
+      "feature": "away_diff_total_pointsAgainst_roll3",
+      "importance": 0.04728760125738998
+    },
+    {
+      "feature": "home_diff_point_diff_trend",
+      "importance": 0.045118238480296315
+    },
+    {
+      "feature": "home_diff_total_winPercent",
+      "importance": 0.040725190548516
+    },
+    {
+      "feature": "home_rest_advantage",
+      "importance": 0.030632003519323096
+    },
+    {
+      "feature": "away_opp_total_pointsAgainst_roll5",
+      "importance": 0.02583824461783347
+    }
+  ]
+}

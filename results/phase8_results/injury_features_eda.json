@@ -1,0 +1,119 @@
+{
+  "availability": {
+    "home_diff_injury_impact": {
+      "total_games": 6636,
+      "non_null": 3931,
+      "null": 2705,
+      "pct_available": 59.237492465340566
+    },
+    "away_diff_injury_impact": {
+      "total_games": 6636,
+      "non_null": 3931,
+      "null": 2705,
+      "pct_available": 59.237492465340566
+    },
+    "home_injury_impact": {
+      "total_games": 6636,
+      "non_null": 4137,
+      "null": 2499,
+      "pct_available": 62.34177215189873
+    },
+    "away_injury_impact": {
+      "total_games": 6636,
+      "non_null": 3938,
+      "null": 2698,
+      "pct_available": 59.342977697408074
+    },
+    "home_opp_injury_impact": {
+      "total_games": 6636,
+      "non_null": 3938,
+      "null": 2698,
+      "pct_available": 59.342977697408074
+    },
+    "away_opp_injury_impact": {
+      "total_games": 6636,
+      "non_null": 3933,
+      "null": 2703,
+      "pct_available": 59.26763110307414
+    },
+    "home_opp_qb_out": {
+      "total_games": 6636,
+      "non_null": 3938,
+      "null": 2698,
+      "pct_available": 59.342977697408074
+    },
+    "away_opp_qb_out": {
+      "total_games": 6636,
+      "non_null": 3933,
+      "null": 2703,
+      "pct_available": 59.26763110307414
+    },
+    "home_qb_out": {
+      "total_games": 6636,
+      "non_null": 4137,
+      "null": 2499,
+      "pct_available": 62.34177215189873
+    },
+    "away_qb_out": {
+      "total_games": 6636,
+      "non_null": 3938,
+      "null": 2698,
+      "pct_available": 59.342977697408074
+    }
+  },
+  "first_season_with_data": 2009,
+  "correlations": {
+    "home_diff_injury_impact": -0.07808413830187887,
+    "away_diff_injury_impact": 0.07808413830187887,
+    "home_injury_impact": -0.04364013164987941,
+    "away_injury_impact": 0.061584307040876,
+    "home_opp_injury_impact": 0.061584307040876,
+    "away_opp_injury_impact": -0.04374501610629086,
+    "home_opp_qb_out": 0.07215414164855097,
+    "away_opp_qb_out": -0.09136986016750547,
+    "home_qb_out": -0.08691668633165187,
+    "away_qb_out": 0.07215414164855097
+  },
+  "sorted_correlations": [
+    [
+      "away_opp_qb_out",
+      -0.09136986016750547
+    ],
+    [
+      "home_qb_out",
+      -0.08691668633165187
+    ],
+    [
+      "home_diff_injury_impact",
+      -0.07808413830187887
+    ],
+    [
+      "away_diff_injury_impact",
+      0.07808413830187887
+    ],
+    [
+      "home_opp_qb_out",
+      0.07215414164855097
+    ],
+    [
+      "away_qb_out",
+      0.07215414164855097
+    ],
+    [
+      "away_injury_impact",
+      0.061584307040876
+    ],
+    [
+      "home_opp_injury_impact",
+      0.061584307040876
+    ],
+    [
+      "away_opp_injury_impact",
+      -0.04374501610629086
+    ],
+    [
+      "home_injury_impact",
+      -0.04364013164987941
+    ]
+  ]
+}

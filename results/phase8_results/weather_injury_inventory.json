@@ -1,0 +1,40 @@
+{
+  "weather_features": [],
+  "injury_features": [
+    "home_diff_injury_impact",
+    "away_diff_injury_impact",
+    "home_injury_impact",
+    "away_injury_impact",
+    "home_opp_injury_impact",
+    "away_opp_injury_impact",
+    "home_opp_qb_out",
+    "away_opp_qb_out",
+    "home_qb_out",
+    "away_qb_out"
+  ],
+  "tier_sa_features": [
+    "cpoe_3wk",
+    "diff_cpoe_3wk",
+    "diff_injury_impact",
+    "diff_pressure_rate_3wk",
+    "diff_ryoe_3wk",
+    "diff_separation_3wk",
+    "diff_time_to_throw_3wk",
+    "injury_impact",
+    "opp_cpoe_3wk",
+    "opp_injury_impact",
+    "opp_pressure_rate_3wk",
+    "opp_qb_out",
+    "opp_ryoe_3wk",
+    "opp_separation_3wk",
+    "opp_time_to_throw_3wk",
+    "pressure_rate_3wk",
+    "qb_out",
+    "ryoe_3wk",
+    "separation_3wk",
+    "time_to_throw_3wk"
+  ],
+  "weather_count": 0,
+  "injury_count": 10,
+  "tier_sa_count": 20
+}

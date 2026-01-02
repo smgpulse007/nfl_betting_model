@@ -1,0 +1,146 @@
+{
+  "current_sources": {
+    "nfl_data_py": {
+      "description": "Python library for NFL data from nflfastR",
+      "coverage": {
+        "play_by_play": "1999-2024 (complete)",
+        "schedules": "1999-2024 (complete)",
+        "rosters": "1999-2024 (complete)",
+        "weekly_stats": "1999-2024 (complete)",
+        "seasonal_stats": "1999-2024 (complete)",
+        "injuries": "2009-2024 (missing 1999-2008)",
+        "depth_charts": "2001-2024 (missing 1999-2000)",
+        "draft_picks": "2000-2024 (missing 1999)",
+        "combine": "2000-2024 (missing 1999)",
+        "pfr_passing": "2018-2024 (missing 1999-2017)",
+        "pfr_receiving": "2018-2024 (missing 1999-2017)",
+        "pfr_rushing": "2018-2024 (missing 1999-2017)",
+        "ngs_passing": "2016-2024 (missing 1999-2015)",
+        "ngs_receiving": "2016-2024 (missing 1999-2015)",
+        "ngs_rushing": "2016-2024 (missing 1999-2015)"
+      },
+      "pros": [
+        "Free and open source",
+        "Well-maintained (updated weekly)",
+        "Comprehensive play-by-play data",
+        "Easy to use Python API",
+        "Includes advanced metrics (EPA, CPOE, etc.)"
+      ],
+      "cons": [
+        "Limited historical data for advanced metrics",
+        "No injury data before 2009",
+        "No NGS data before 2016"
+      ]
+    },
+    "espn_api": {
+      "description": "ESPN hidden API for team stats and records",
+      "coverage": {
+        "team_stats": "1999-2024 (assumed, not verified)",
+        "team_records": "1999-2024 (assumed, not verified)",
+        "game_summaries": "1999-2024 (assumed, not verified)",
+        "odds": "2020+ (estimated)"
+      },
+      "pros": [
+        "Free (hidden API)",
+        "Real-time data",
+        "Includes betting odds"
+      ],
+      "cons": [
+        "Unofficial API (could break)",
+        "Rate limiting",
+        "Data quality issues (KC 2024 stuck wins/losses)",
+        "CUMULATIVE STATS INCLUDE CURRENT GAME (data leakage)"
+      ]
+    }
+  },
+  "alternative_sources": {
+    "pro_football_reference": {
+      "description": "Sports Reference - comprehensive NFL statistics",
+      "url": "https://www.pro-football-reference.com/",
+      "coverage": {
+        "team_stats": "1920-2024 (complete historical)",
+        "player_stats": "1920-2024 (complete historical)",
+        "game_logs": "1920-2024 (complete historical)",
+        "advanced_stats": "1999-2024 (estimated)",
+        "betting_lines": "1978-2024 (estimated)"
+      },
+      "access": "Web scraping (free) or Stathead subscription ($8/month)",
+      "pros": [
+        "Most comprehensive historical data",
+        "Trusted source (Sports Reference)",
+        "Includes betting lines",
+        "Advanced stats available"
+      ],
+      "cons": [
+        "Requires web scraping or subscription",
+        "Rate limiting on free tier",
+        "May violate ToS if scraped aggressively"
+      ],
+      "feasibility": "HIGH - Can use web scraping with rate limiting"
+    },
+    "nfl_com_api": {
+      "description": "Official NFL.com Stats API",
+      "url": "https://api.nfl.com/",
+      "coverage": {
+        "team_stats": "1999-2024 (estimated)",
+        "player_stats": "1999-2024 (estimated)",
+        "game_stats": "1999-2024 (estimated)",
+        "ngs_data": "2016-2024 (Next Gen Stats)"
+      },
+      "access": "Unofficial API (no official documentation)",
+      "pros": [
+        "Official NFL data",
+        "Includes Next Gen Stats",
+        "Real-time updates"
+      ],
+      "cons": [
+        "No official API documentation",
+        "May require reverse engineering",
+        "Could break without notice"
+      ],
+      "feasibility": "MEDIUM - Requires investigation"
+    },
+    "football_outsiders": {
+      "description": "Advanced analytics and DVOA metrics",
+      "url": "https://www.footballoutsiders.com/",
+      "coverage": {
+        "dvoa": "1989-2024",
+        "team_efficiency": "1989-2024",
+        "player_metrics": "2000-2024 (estimated)"
+      },
+      "access": "Subscription required ($30/year)",
+      "pros": [
+        "Unique advanced metrics (DVOA)",
+        "Opponent-adjusted stats",
+        "Predictive power"
+      ],
+      "cons": [
+        "Paid subscription",
+        "Limited historical data",
+        "May not have game-level data"
+      ],
+      "feasibility": "LOW - Paid, limited game-level data"
+    },
+    "armchair_analysis": {
+      "description": "Premium NFL database",
+      "url": "https://www.armchairanalysis.com/",
+      "coverage": {
+        "play_by_play": "2000-2024",
+        "player_stats": "2000-2024",
+        "team_stats": "2000-2024"
+      },
+      "access": "Subscription required ($50/year)",
+      "pros": [
+        "High-quality curated data",
+        "Comprehensive coverage",
+        "Game-level granularity"
+      ],
+      "cons": [
+        "Paid subscription",
+        "Missing 1999 season",
+        "Redundant with nfl_data_py"
+      ],
+      "feasibility": "LOW - Paid, redundant"
+    }
+  }
+}

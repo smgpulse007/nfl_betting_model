@@ -1,0 +1,25 @@
+{
+  "expected_features": 119,
+  "present_home": 112,
+  "present_away": 112,
+  "missing_features": [
+    "roof",
+    "surface",
+    "temp",
+    "wind",
+    "is_outdoor",
+    "temp_extreme",
+    "wind_high"
+  ],
+  "root_causes": {
+    "roof": "PRESENT_AT_GAME_LEVEL (not an issue - weather is game-level, not team-specific)",
+    "surface": "PRESENT_AT_GAME_LEVEL (not an issue - weather is game-level, not team-specific)",
+    "temp": "PRESENT_AT_GAME_LEVEL (not an issue - weather is game-level, not team-specific)",
+    "wind": "PRESENT_AT_GAME_LEVEL (not an issue - weather is game-level, not team-specific)",
+    "is_outdoor": "PRESENT_AT_GAME_LEVEL (not an issue - weather is game-level, not team-specific)",
+    "temp_extreme": "PRESENT_AT_GAME_LEVEL (not an issue - weather is game-level, not team-specific)",
+    "wind_high": "PRESENT_AT_GAME_LEVEL (not an issue - weather is game-level, not team-specific)"
+  },
+  "recoverable": [],
+  "not_recoverable": []
+}
